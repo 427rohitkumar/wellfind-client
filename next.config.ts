@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     agentFeedback: true,
+    agentUpgrade: "security",
+    turbopackPluginRuntimeStrategy: "workerThreads",
   },
   cacheComponents: true,
   partialPrefetching: true,
