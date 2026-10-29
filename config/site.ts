@@ -51,9 +51,9 @@ export const siteConfig: SiteConfig = {
   },
   navigation: [
     { title: "Home", href: "/" },
-    { title: "Classes", href: "/classes/" },
-    { title: "About", href: "/about/" },
-    { title: "Contact", href: "/contact/" },
+    { title: "Classes", href: "/classes" },
+    { title: "About", href: "/about" },
+    { title: "Contact", href: "/contact" },
   ],
   serviceAreas: [
     {
