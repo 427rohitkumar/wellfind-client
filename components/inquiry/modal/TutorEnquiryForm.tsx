@@ -233,7 +233,7 @@ export function TutorEnquiryForm({
       {/* Main Slide Content Area with Smooth Horizontal Slide Transition */}
       <div
         ref={formContainerRef}
-        className="w-full flex-1 min-h-0 py-4 max-w-5xl mx-auto relative overflow-y-auto overflow-x-hidden"
+        className="w-full flex-1 min-h-0 py-4 pb-24 sm:pb-28 max-w-5xl mx-auto relative overflow-y-auto overflow-x-hidden"
       >
         <div
           key={currentStep}
@@ -251,7 +251,7 @@ export function TutorEnquiryForm({
       </div>
 
       {/* Bottom Navigation Controls */}
-      <div className="shrink-0 w-full bg-white/95 backdrop-blur-sm border-t border-[#D7E2EE]/60 pt-2 z-10">
+      <div className="fixed inset-x-0 bottom-0 w-full bg-white/95 backdrop-blur-sm border-t border-[#D7E2EE]/60 pt-2 pb-[env(safe-area-inset-bottom)] z-50">
         <FormNavigation
           currentStep={currentStep}
           totalSteps={totalSteps}
