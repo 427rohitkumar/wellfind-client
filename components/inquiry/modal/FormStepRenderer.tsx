@@ -39,10 +39,10 @@ export function FormStepRenderer({
   // ----------------------------------------------------
   if (currentStep === 1) {
     return (
-      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Character Illustration (Left) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[220px] sm:h-[300px] flex items-center justify-center">
+        <div className="flex w-full lg:w-1/2 flex-col items-center justify-center">
+          <div className="relative w-full max-w-[100px] sm:max-w-[380px] h-[100px] sm:h-[260px] flex items-center justify-center">
             <Image
               src="/form/class.png"
               alt="Kaunsi class ke liye tutor required hai?"
@@ -135,7 +135,7 @@ export function FormStepRenderer({
     };
 
     return (
-      <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-14">
+      <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Input Options (Left on desktop) */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <div className="mb-4">
@@ -209,8 +209,8 @@ export function FormStepRenderer({
         </div>
 
         {/* Character Illustration (Right on desktop matching subject.png layout) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[220px] sm:h-[300px] flex items-center justify-center">
+        <div className="flex w-full lg:w-1/2 flex-col items-center justify-center">
+          <div className="relative w-full max-w-[100px] sm:max-w-[380px] h-[100px] sm:h-[260px] flex items-center justify-center">
             <Image
               src="/form/subject.png"
               alt="Kaunse subjects ke liye tutor chahiye?"
@@ -231,10 +231,10 @@ export function FormStepRenderer({
   // ----------------------------------------------------
   if (currentStep === 3) {
     return (
-      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Character Illustration (Left) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[220px] sm:h-[300px] flex items-center justify-center">
+        <div className="flex w-full lg:w-1/2 flex-col items-center justify-center">
+          <div className="relative w-full max-w-[100px] sm:max-w-[380px] h-[100px] sm:h-[260px] flex items-center justify-center">
             <Image
               src="/form/teaching-time.png"
               alt="Padhai ke liye best timing kaunsi rahegi?"
@@ -325,7 +325,7 @@ export function FormStepRenderer({
   // ----------------------------------------------------
   if (currentStep === 4) {
     return (
-      <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-14">
+      <div className="w-full flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Input Options (Left on desktop) */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <div className="mb-4">
@@ -421,8 +421,8 @@ export function FormStepRenderer({
         </div>
 
         {/* Character Illustration (Right on desktop) */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[220px] sm:h-[300px] flex items-center justify-center">
+        <div className="flex w-full lg:w-1/2 flex-col items-center justify-center">
+          <div className="relative w-full max-w-[100px] sm:max-w-[380px] h-[100px] sm:h-[260px] flex items-center justify-center">
             <Image
               src="/form/budget-range-removebg.png"
               alt="Aapka monthly budget range kitna rahega?"
@@ -443,10 +443,10 @@ export function FormStepRenderer({
   // ----------------------------------------------------
   if (currentStep === 5) {
     return (
-      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Character Illustration (Left) */}
         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
-          <div className="relative w-full max-w-[320px] sm:max-w-[420px] h-[220px] sm:h-[300px] flex items-center justify-center">
+          <div className="relative w-full max-w-[100px] sm:max-w-[380px] h-[100px] sm:h-[260px] flex items-center justify-center">
             <Image
               src="/form/contact-no.png"
               alt="Apna contact number fill kijiye."

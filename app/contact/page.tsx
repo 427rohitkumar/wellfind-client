@@ -8,11 +8,10 @@ import {
   Clock,
   ShieldCheck,
 } from "lucide-react";
-import { siteConfig, getWhatsAppUrl, getPhoneUrl } from "@/config/site";
-import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { Badge } from "@/components/ui/Badge";
+import { siteConfig } from "@/config/site";
 import { Card } from "@/components/ui/Card";
 import { ContactFormWithParams } from "@/components/inquiry/ContactFormWithParams";
+import { ContactHeroSection } from "@/components/contact/ContactHeroSection";
 
 export const metadata: Metadata = {
   title: "Contact Wellfind Academic | Home Tuition Inquiries in Patna",
@@ -30,33 +29,10 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const whatsappUrl = getWhatsAppUrl();
-  const phoneUrl = getPhoneUrl();
-
   return (
     <div className="flex flex-col">
-      {/* HEADER */}
-      <section className="bg-white border-b border-[#D7E2EE] pt-6 pb-12 sm:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs items={[{ label: "Contact & Inquiries" }]} className="mb-6" />
-
-          <div className="max-w-4xl space-y-4">
-            <Badge variant="subtle" size="md">
-              <MessageCircle className="w-3.5 h-3.5 text-[#35D0BA] mr-1" />
-              Direct Parent Inquiries
-            </Badge>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#101D36] leading-[1.15]">
-              Contact Wellfind Academic
-            </h1>
-
-            <p className="text-lg sm:text-xl text-[#344054] font-medium leading-relaxed">
-              Looking for a suitable home tutor for your child in Patna? Share
-              your requirements below, and our team will get in touch with you.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* HERO SECTION */}
+      <ContactHeroSection />
 
       {/* FORM & CONTACT CHANNELS */}
       <section className="py-12 sm:py-16 bg-[#EAF0F8] border-b border-[#D7E2EE]">
@@ -76,78 +52,63 @@ export default function ContactPage() {
 
                 <div className="space-y-4 text-sm">
                   {/* WhatsApp */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30">
+                  <a
+                    href="https://wa.me/919661421824"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
+                    aria-label="Chat on WhatsApp at 9661421824"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <MessageCircle className="w-5 h-5 text-[#0F6F63]" />
                     </div>
                     <div>
-                      <span className="font-semibold text-[#101D36] block">
+                      <span className="font-semibold text-[#101D36] block group-hover:text-[#0F6F63] transition-colors">
                         WhatsApp Line
                       </span>
-                      {whatsappUrl ? (
-                        <a
-                          href={whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#0F6F63] hover:underline font-medium"
-                        >
-                          Send WhatsApp Message
-                        </a>
-                      ) : (
-                        <span className="text-xs text-[#53647D] italic">
-                          Dedicated WhatsApp channel pending environment activation
-                        </span>
-                      )}
+                      <span className="text-[#0F6F63] font-medium block group-hover:underline">
+                        9661421824
+                      </span>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Phone */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30">
+                  <a
+                    href="tel:+919661421824"
+                    className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
+                    aria-label="Call Wellfind Academic at 9661421824"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <Phone className="w-5 h-5 text-[#0F6F63]" />
                     </div>
                     <div>
-                      <span className="font-semibold text-[#101D36] block">
+                      <span className="font-semibold text-[#101D36] block group-hover:text-[#0F6F63] transition-colors">
                         Phone Calling
                       </span>
-                      {phoneUrl ? (
-                        <a
-                          href={phoneUrl}
-                          className="text-[#344054] hover:text-[#101D36] font-medium"
-                        >
-                          {siteConfig.contact.phone}
-                        </a>
-                      ) : (
-                        <span className="text-xs text-[#53647D] italic">
-                          Official phone helpline pending launch activation
-                        </span>
-                      )}
+                      <span className="text-[#344054] font-medium block group-hover:text-[#101D36] group-hover:underline">
+                        9661421824
+                      </span>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Email */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30">
+                  <a
+                    href="mailto:427rohitkumar@gmail.com"
+                    className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
+                    aria-label="Send email to 427rohitkumar@gmail.com"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <Mail className="w-5 h-5 text-[#0F6F63]" />
                     </div>
                     <div>
-                      <span className="font-semibold text-[#101D36] block">
+                      <span className="font-semibold text-[#101D36] block group-hover:text-[#0F6F63] transition-colors">
                         Email Support
                       </span>
-                      {siteConfig.contact.email ? (
-                        <a
-                          href={`mailto:${siteConfig.contact.email}`}
-                          className="text-[#344054] hover:text-[#101D36] font-medium"
-                        >
-                          {siteConfig.contact.email}
-                        </a>
-                      ) : (
-                        <span className="text-xs text-[#53647D] italic">
-                          Official support email pending configuration
-                        </span>
-                      )}
+                      <span className="text-[#344054] font-medium block group-hover:text-[#101D36] group-hover:underline">
+                        427rohitkumar@gmail.com
+                      </span>
                     </div>
-                  </div>
+                  </a>
 
                   {/* Service Location */}
                   <div className="flex items-start gap-3 pt-1 border-t border-[#D7E2EE]">

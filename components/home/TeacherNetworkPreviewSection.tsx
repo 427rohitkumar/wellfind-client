@@ -33,7 +33,21 @@ const journey = [
   },
 ];
 
-export function TeacherNetworkPreviewSection() {
+export interface TeacherNetworkPreviewSectionProps {
+  badge?: string;
+  heading?: React.ReactNode;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+export function TeacherNetworkPreviewSection({
+  badge = "For home tutors",
+  heading,
+  description = "Wellfind Academic also works with teachers who want to connect their experience with suitable student requirements across Patna.",
+  ctaText = "Join as a Home Tutor",
+  ctaHref = "/join-as-teacher/",
+}: TeacherNetworkPreviewSectionProps = {}) {
   return (
     <section
       id="teacher-network-preview"
@@ -48,13 +62,17 @@ export function TeacherNetworkPreviewSection() {
           <div className="max-w-md">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D7E2EE] bg-[#F4F8FC] px-3.5 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#53647D]">
               <MapPin className="h-3.5 w-3.5 text-[#35D0BA]" />
-              For home tutors
+              {badge}
             </div>
             <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101D36] sm:text-4xl">
-              A better way to find the right <span className="text-[#0F9F8C]">home-tuition enquiry.</span>
+              {heading ?? (
+                <>
+                  A better way to find the right <span className="text-[#0F9F8C]">home-tuition enquiry.</span>
+                </>
+              )}
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-[#53647D] sm:text-base">
-              Wellfind Academic also works with teachers who want to connect their experience with suitable student requirements across Patna.
+              {description}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -67,10 +85,10 @@ export function TeacherNetworkPreviewSection() {
             </div>
 
             <Link
-              href="/join-as-teacher/"
+              href={ctaHref}
               className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#101D36] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#1E3154] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA] focus-visible:ring-offset-2"
             >
-              Join as a Home Tutor
+              {ctaText}
               <ArrowRight className="h-4 w-4 text-[#35D0BA]" strokeWidth={2.5} />
             </Link>
           </div>

@@ -172,7 +172,7 @@ export function TutorEnquiryModal({
       {/* ======================================================== */}
       {/* MAIN MULTI-STEP FORM BODY */}
       {/* ======================================================== */}
-      <div className="flex-1 w-full overflow-hidden flex flex-col relative z-20">
+      <div className="flex-1 w-full overflow-y-auto flex flex-col relative z-20">
         <TutorEnquiryForm
           onClose={onClose}
           initialClass={initialClass}

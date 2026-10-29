@@ -3,7 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-export function ProgressTrackingSection() {
+export interface ProgressTrackingSectionProps {
+  eyebrow?: string;
+  titleLine1?: string;
+  titleLine2?: string;
+}
+
+export function ProgressTrackingSection({
+  eyebrow = "Beyond Tuition",
+  titleLine1 = "One-to-One Learning.",
+  titleLine2 = "Progress You Can See.",
+}: ProgressTrackingSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -125,13 +135,13 @@ export function ProgressTrackingSection() {
           <div className="relative inline-block">
             <div className="mb-3 flex justify-center">
               <span className="inline-flex items-center rounded-full border border-[#35D0BA]/40 bg-[#D7F6F1] px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#0F6F63]">
-                Beyond Tuition
+                {eyebrow}
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black text-[#101D36] tracking-tight leading-[1.15]">
-              One-to-One Learning. <br />
+              {titleLine1} <br />
               <span className="relative inline-block text-[#0D52D6] mt-1 sm:mt-1.5">
-                Progress You Can See.
+                {titleLine2}
                 {/* Playful Yellow Organic Underline matching reference */}
                 <svg
                   className="absolute -bottom-2 sm:-bottom-3.5 left-0 w-full h-3 sm:h-4 text-[#FFBF1A]"

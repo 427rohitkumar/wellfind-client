@@ -6,7 +6,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppCTA } from "@/components/inquiry/WhatsAppCTA";
 
-interface ProcessStep {
+export interface ProcessStep {
   step: string;
   image: string;
   alt: string;
@@ -229,7 +229,20 @@ function StepCard({
   );
 }
 
-export function HowItWorksProcess() {
+export interface HowItWorksProcessProps {
+  eyebrow?: string;
+  headingPrefix?: string;
+  headingHighlight?: string;
+  steps?: ProcessStep[];
+}
+
+export function HowItWorksProcess({
+  eyebrow = "HOW IT WORKS",
+  headingPrefix = "Find the Right Tutor in",
+  headingHighlight = "4 Simple Steps",
+  steps,
+}: HowItWorksProcessProps = {}) {
+  const activeSteps = steps || processSteps;
   const sectionRef = useRef<HTMLElement>(null);
   const desktopTrackRef = useRef<HTMLDivElement>(null);
   const desktopMarkerRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -451,13 +464,13 @@ export function HowItWorksProcess() {
         {/* Section Header matching user mockup */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#E0F7F3] border border-[#A4E6DC] text-[#00A88F] font-bold text-xs uppercase tracking-wider mb-4 shadow-xs">
-            HOW IT WORKS
+            {eyebrow}
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black tracking-tight text-[#101D36] leading-tight">
-            Find the Right Tutor in <br />
+            {headingPrefix} <br />
             <span className="relative inline-block text-[#00B29A] mt-1 sm:mt-1.5">
-              4 Simple Steps
+              {headingHighlight}
               {/* Cute 3 doodle rays matching mockup */}
               <svg
                 className="absolute -top-3.5 -right-6 sm:-right-8 w-6 h-6 sm:w-7 sm:h-7 text-[#00B29A]"
@@ -504,7 +517,7 @@ export function HowItWorksProcess() {
 
             {/* 4 Horizontally Aligned Markers (matches cards grid columns exactly) */}
             <div className="grid grid-cols-4 gap-6 xl:gap-8 relative z-10">
-              {processSteps.map((step, index) => {
+              {activeSteps.map((step, index) => {
                 const state = getStepState(index);
                 return (
                   <div
@@ -528,9 +541,9 @@ export function HowItWorksProcess() {
 
           {/* 4 Cards Grid in a Single Row */}
           <div className="grid grid-cols-4 gap-6 xl:gap-8 items-stretch">
-            {processSteps.map((step, index) => {
+            {activeSteps.map((step, index) => {
               const state = getStepState(index);
-              const isLast = index === processSteps.length - 1;
+              const isLast = index === activeSteps.length - 1;
 
               return (
                 <StepCard
@@ -576,7 +589,7 @@ export function HowItWorksProcess() {
             </div>
 
             {/* 4 Circular Markers Aligned on the Vertical Track */}
-            {processSteps.map((step, index) => {
+            {activeSteps.map((step, index) => {
               const state = getStepState(index);
               const topPos = mobileMarkerTops[index] ?? 36;
 
@@ -599,9 +612,9 @@ export function HowItWorksProcess() {
 
           {/* 4 Vertically Stacked Cards to the Right of the Line */}
           <div className="pl-11 sm:pl-16 flex flex-col gap-6 sm:gap-8">
-            {processSteps.map((step, index) => {
+            {activeSteps.map((step, index) => {
               const state = getStepState(index);
-              const isLast = index === processSteps.length - 1;
+              const isLast = index === activeSteps.length - 1;
 
               return (
                 <div

@@ -487,6 +487,11 @@ export function InquiryForm({
                     <div className="relative">
                       <select id="inquiry-locality" value={formData.locality} onChange={(event) => updateField("locality", event.target.value)} className={`${inputClass} cursor-pointer appearance-none pr-10 ${!formData.locality ? "text-[#53647D]/70" : ""}`}>
                         <option value="">Select locality in Patna</option>
+                        {formData.locality &&
+                          !siteConfig.serviceAreas.some((area) => area.name === formData.locality) &&
+                          formData.locality !== "Other Patna Locality" && (
+                            <option value={formData.locality}>{formData.locality}</option>
+                          )}
                         {siteConfig.serviceAreas.map((area) => <option key={area.slug} value={area.name}>{area.name}</option>)}
                         <option value="Other Patna Locality">Other Patna Locality</option>
                       </select>

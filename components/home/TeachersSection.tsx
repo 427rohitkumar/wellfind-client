@@ -61,7 +61,17 @@ function SupportCard({
   );
 }
 
-export function TeachersSection() {
+export interface TeachersSectionProps {
+  badge?: string;
+  heading?: React.ReactNode;
+  description?: string;
+}
+
+export function TeachersSection({
+  badge = "Wellfind Academic teacher support",
+  heading,
+  description = "Not satisfied? We'll help you find a better teacher fit.",
+}: TeachersSectionProps = {}) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -99,13 +109,17 @@ export function TeachersSection() {
           <div className="relative z-10 text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#35D0BA]/35 bg-[#D7F6F1] px-3.5 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#0F6F63] sm:text-[11px]">
               <ShieldCheck className="h-3.5 w-3.5 text-[#35D0BA]" />
-              Wellfind Academic teacher support
+              {badge}
             </span>
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#101D36] sm:text-4xl lg:text-[52px]">
-              <span className="text-[#1469D8]">100%</span> Teacher Replacement
+              {heading ?? (
+                <>
+                  <span className="text-[#1469D8]">100%</span> Teacher Replacement
+                </>
+              )}
             </h2>
             <p className="mt-2 text-base font-semibold text-[#53647D] sm:text-xl">
-              Not satisfied? We&apos;ll help you find a better teacher fit.
+              {description}
             </p>
           </div>
 

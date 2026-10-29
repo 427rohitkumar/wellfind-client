@@ -84,7 +84,17 @@ function JourneyStep({
   );
 }
 
-export function ManagedLearningJourneySection() {
+export interface ManagedLearningJourneySectionProps {
+  eyebrow?: string;
+  heading?: React.ReactNode;
+  description?: string;
+}
+
+export function ManagedLearningJourneySection({
+  eyebrow = "The Wellfind model",
+  heading,
+  description = "One-to-one learning is not just about assigning a teacher. It is about keeping the child's learning journey coordinated from start to progress.",
+}: ManagedLearningJourneySectionProps = {}) {
   return (
     <section className="relative overflow-hidden border-b border-[#D7E2EE] bg-[#F4F8FC] py-16 sm:py-20 lg:py-24">
       <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#35D0BA]/10 blur-3xl" />
@@ -94,13 +104,17 @@ export function ManagedLearningJourneySection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#35D0BA]/40 bg-[#D7F6F1] px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#0F6F63]">
             <ShieldCheck className="h-3.5 w-3.5 text-[#35D0BA]" />
-            The Wellfind model
+            {eyebrow}
           </div>
           <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101D36] sm:text-4xl lg:text-[44px]">
-            Teachers deliver the education. <span className="text-[#0F9F8C]">We maintain the quality.</span>
+            {heading ?? (
+              <>
+                Teachers deliver the education. <span className="text-[#0F9F8C]">We maintain the quality.</span>
+              </>
+            )}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#53647D] sm:text-base">
-            One-to-one learning is not just about assigning a teacher. It is about keeping the child&apos;s learning journey coordinated from start to progress.
+            {description}
           </p>
         </div>
 

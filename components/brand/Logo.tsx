@@ -27,6 +27,7 @@ export function LogoSymbol({
       width={width}
       height={size}
       className={`shrink-0 object-contain ${className}`}
+      style={{ width: "auto", height: "auto" }}
       priority
     />
   );

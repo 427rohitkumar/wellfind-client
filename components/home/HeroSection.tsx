@@ -3,7 +3,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export function HeroSection() {
+export interface HeroSectionProps {
+  title?: React.ReactNode;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  locality?: string;
+}
+
+export function HeroSection({
+  title,
+  description = "Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10.",
+  ctaText = "Find Your Tutor",
+  ctaHref = "/contact/#inquire",
+  secondaryCtaText = "Explore Classes",
+  secondaryCtaHref = "/classes/",
+  locality,
+}: HeroSectionProps = {}) {
   return (
     <section className="relative w-full bg-[#101D36] overflow-hidden min-h-[620px] h-[87dvh] max-h-[920px] lg:h-auto lg:min-h-[calc(100dvh-5rem)] lg:max-h-none flex flex-col justify-between pt-2 sm:pt-3 md:pt-4 pb-0 select-none">
       {/* =========================================================================
@@ -76,29 +94,34 @@ export function HeroSection() {
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center z-30 pt-4 pb-2 lg:flex-initial lg:justify-start lg:pt-3">
         {/* Main Heading — exact two lines from Figma with 'right' and 'future' highlighted in #35D0BA */}
         <h1 className="text-[32px] min-[500px]:text-[42px] min-[540px]:text-[45px] sm:text-[48px] md:text-[52px] lg:text-[56px] xl:text-[62px] font-black tracking-tight text-white leading-[1.14] sm:leading-[1.12]">
-          The <span className="text-[#35D0BA]">right</span> tutor. <br />
-          A brighter <span className="text-[#35D0BA]">future</span>.
+          {title ?? (
+            <>
+              The <span className="text-[#35D0BA]">right</span> tutor. <br />
+              A brighter <span className="text-[#35D0BA]">future</span>.
+            </>
+          )}
         </h1>
 
         <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-slate-300 sm:mt-5 sm:text-base md:text-lg">
-          Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10.
+          {description}
         </p>
 
         {/* CTA Buttons — side-by-side matching Figma */}
         <div className="mt-5 flex flex-row items-center justify-center gap-3 sm:mt-6 sm:gap-4 md:mt-7 z-30">
           <Link
-            href="/contact/#inquire"
+            href={ctaHref}
             data-open-tutor-modal="true"
+            data-initial-locality={locality}
             className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-[#35D0BA] text-[#101D36] font-bold text-xs sm:text-sm md:text-base hover:bg-[#2fc4af] transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA]"
           >
-            <span>Find Your Tutor</span>
+            <span>{ctaText}</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5" strokeWidth={2.5} />
           </Link>
           <Link
-            href="/classes/"
+            href={secondaryCtaHref}
             className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-[#111D37] border border-[#2D456E] text-white font-medium text-xs sm:text-sm md:text-base hover:bg-white/10 hover:border-slate-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <span>Explore Classes</span>
+            <span>{secondaryCtaText}</span>
           </Link>
         </div>
       </div>

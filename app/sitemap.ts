@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { locationsData } from "@/content/locations";
 import { classesData } from "@/content/classes";
+import { getActiveSubLocalitySlugs } from "@/data/localities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -14,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/patna`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/home-tuition/patna/`,
@@ -53,8 +60,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Locality Pages
-  const localityPages: MetadataRoute.Sitemap = Object.keys(locationsData)
+  // Active Sub-Locality Landing Pages (e.g. /patna/boring-road, /patna/kankarbagh)
+  const activeLocalityPages: MetadataRoute.Sitemap = getActiveSubLocalitySlugs().map(
+    (slug) => ({
+      url: `${baseUrl}/patna/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    })
+  );
+
+  // Home-Tuition Sub-Locality Pages
+  const legacyLocalityPages: MetadataRoute.Sitemap = Object.keys(locationsData)
     .filter((slug) => slug !== "patna")
     .map((slug) => ({
       url: `${baseUrl}/home-tuition/patna/${slug}/`,
@@ -73,5 +90,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...staticPages, ...localityPages, ...classPages];
+  return [
+    ...staticPages,
+    ...activeLocalityPages,
+    ...legacyLocalityPages,
+    ...classPages,
+  ];
 }

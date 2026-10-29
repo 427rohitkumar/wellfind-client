@@ -123,7 +123,17 @@ function MobileStep({
   );
 }
 
-export function TeacherProfileReviewSection() {
+export interface TeacherProfileReviewSectionProps {
+  badge?: string;
+  heading?: React.ReactNode;
+  description?: string;
+}
+
+export function TeacherProfileReviewSection({
+  badge = "Before we connect",
+  heading,
+  description = "A suitable match starts with the right checks. We look at the fit before sharing a teacher profile with a family.",
+}: TeacherProfileReviewSectionProps = {}) {
   return (
     <section
       id="teacher-profile-review"
@@ -136,13 +146,17 @@ export function TeacherProfileReviewSection() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#35D0BA]/35 bg-[#D7F6F1] px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.14em] text-[#0F6F63]">
             <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.4} />
-            Before we connect
+            {badge}
           </div>
           <h2 className="text-3xl font-black leading-tight tracking-tight text-[#101D36] sm:text-4xl lg:text-[44px]">
-            How We Review <span className="text-[#0F9F8C]">Teacher Profiles</span>
+            {heading ?? (
+              <>
+                How We Review <span className="text-[#0F9F8C]">Teacher Profiles</span>
+              </>
+            )}
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[#53647D] sm:text-base">
-            A suitable match starts with the right checks. We look at the fit before sharing a teacher profile with a family.
+            {description}
           </p>
         </div>
 

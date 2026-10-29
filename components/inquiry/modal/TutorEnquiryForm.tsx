@@ -224,7 +224,7 @@ export function TutorEnquiryForm({
   return (
     <div
       ref={formContainerRef}
-      className="w-full h-full flex flex-col justify-between overflow-y-auto px-4 sm:px-6 md:px-12 py-3 sm:py-6"
+      className="w-full flex flex-col px-4 sm:px-6 md:px-12 py-3 sm:py-6"
     >
       {/* Top Header: Progress Indicator */}
       <div className="shrink-0 w-full pt-1 pb-2">
@@ -232,7 +232,7 @@ export function TutorEnquiryForm({
       </div>
 
       {/* Main Slide Content Area with Smooth Horizontal Slide Transition */}
-      <div className="flex-1 flex items-center justify-center py-4 my-auto relative overflow-hidden max-w-5xl mx-auto w-full">
+      <div className="w-full py-4 max-w-5xl mx-auto relative overflow-hidden">
         <div
           key={currentStep}
           className={`w-full transition-all duration-350 ease-out transform ${
@@ -249,7 +249,7 @@ export function TutorEnquiryForm({
       </div>
 
       {/* Bottom Navigation Controls */}
-      <div className="shrink-0 w-full border-t border-[#D7E2EE]/60 pt-2">
+      <div className="shrink-0 w-full sticky bottom-0 bg-white/95 backdrop-blur-sm border-t border-[#D7E2EE]/60 pt-2 z-10">
         <FormNavigation
           currentStep={currentStep}
           totalSteps={totalSteps}

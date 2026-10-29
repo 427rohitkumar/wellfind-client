@@ -43,61 +43,95 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://wellfindacademic.com",
   ogImage: "/opengraph-image",
   contact: {
-    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || null,
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || null,
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || null,
+    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "9661421824",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919661421824",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "427rohitkumar@gmail.com",
     address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || null,
     leadEndpoint: process.env.NEXT_PUBLIC_LEAD_ENDPOINT || null,
   },
   navigation: [
     { title: "Home", href: "/" },
-    { title: "Home Tuition", href: "/home-tuition/patna/" },
     { title: "Classes", href: "/classes/" },
     { title: "About", href: "/about/" },
     { title: "Contact", href: "/contact/" },
   ],
   serviceAreas: [
     {
-      name: "Patna (Central)",
-      slug: "patna",
-      href: "/home-tuition/patna/",
+      name: "Boring Road",
+      slug: "boring-road",
+      href: "/boring-road",
       shortDescription:
-        "Comprehensive home tutoring assistance across central Patna residential hubs.",
+        "Academic coaching support along Boring Road, Canal Road, and Anandpuri.",
     },
     {
       name: "Kankarbagh",
       slug: "kankarbagh",
-      href: "/home-tuition/patna/kankarbagh/",
+      href: "/kankarbagh",
       shortDescription:
-        "Home tutors available across colonies and sectors in Kankarbagh.",
+        "Tutors available across colonies and sectors in Kankarbagh.",
+    },
+    {
+      name: "Rajendra Nagar",
+      slug: "rajendra-nagar",
+      href: "/rajendra-nagar",
+      shortDescription:
+        "Dedicated tutor matching around Arya Kumar Road and Dinkar Golambar.",
+    },
+    {
+      name: "Bailey Road",
+      slug: "bailey-road",
+      href: "/bailey-road",
+      shortDescription:
+        "Tutors serving families along Bailey Road, Jagdeo Path, and Raja Bazar.",
+    },
+    {
+      name: "Patliputra",
+      slug: "patliputra",
+      href: "/patliputra",
+      shortDescription:
+        "Academic support across Patliputra Colony and surrounding sectors.",
     },
     {
       name: "Danapur",
       slug: "danapur",
-      href: "/home-tuition/patna/danapur/",
+      href: "/danapur",
       shortDescription:
-        "Dedicated tutor matching for Danapur Cantt, Khagaul Road, and Saguna Mor areas.",
+        "Tutor matching for Danapur Cantt, Khagaul Road, and Saguna Mor areas.",
     },
     {
-      name: "Boring Road",
-      slug: "boring-road",
-      href: "/home-tuition/patna/boring-road/",
+      name: "Kadamkuan",
+      slug: "kadamkuan",
+      href: "/kadamkuan",
       shortDescription:
-        "Academic home coaching support along Boring Road, Canal Road, and Anandpuri.",
+        "Tutoring services for Nala Road, Sahityakar Colony, and Kadamkuan.",
     },
     {
-      name: "Raja Bazar",
-      slug: "raja-bazar",
-      href: "/home-tuition/patna/raja-bazar/",
+      name: "Khagaul",
+      slug: "khagaul",
+      href: "/khagaul",
       shortDescription:
-        "Home tutors serving families around Bailey Road, Jagdeo Path, and Raja Bazar.",
+        "Academic support for families in Khagaul and Railway Colony.",
     },
     {
-      name: "Hartali Mor",
-      slug: "hartali-mor",
-      href: "/home-tuition/patna/hartali-mor/",
+      name: "Phulwari Sharif",
+      slug: "phulwari-sharif",
+      href: "/phulwari-sharif",
       shortDescription:
-        "Tuition services connecting central Bailey Road and Hartali Mor neighborhoods.",
+        "One-to-one learning for students across Phulwari Sharif and AIIMS Road.",
+    },
+    {
+      name: "Rajpull",
+      slug: "rajpull",
+      href: "/rajpull",
+      shortDescription:
+        "Tuition services connecting central Bailey Road and Rajpull.",
+    },
+    {
+      name: "Patna (Central)",
+      slug: "patna",
+      href: "/patna",
+      shortDescription:
+        "Comprehensive tutoring assistance across central Patna residential hubs.",
     },
   ],
   classes: [
@@ -119,9 +153,10 @@ export function getWhatsAppUrl(customMessage?: string): string | null {
   if (!siteConfig.contact.whatsapp) return null;
   const cleanNumber = siteConfig.contact.whatsapp.replace(/\D/g, "");
   if (!cleanNumber) return null;
-  const defaultMsg =
-    "Hello Wellfind Academic, I am looking for a home tutor for my child. Please guide me with teacher options.";
-  const text = encodeURIComponent(customMessage || defaultMsg);
+  if (!customMessage) {
+    return `https://wa.me/${cleanNumber}`;
+  }
+  const text = encodeURIComponent(customMessage);
   return `https://wa.me/${cleanNumber}?text=${text}`;
 }
 
@@ -129,5 +164,8 @@ export function getPhoneUrl(): string | null {
   if (!siteConfig.contact.phone) return null;
   const cleanNumber = siteConfig.contact.phone.replace(/[^\d+]/g, "");
   if (!cleanNumber) return null;
+  if (!cleanNumber.startsWith("+")) {
+    return cleanNumber.startsWith("91") ? `tel:+${cleanNumber}` : `tel:+91${cleanNumber}`;
+  }
   return `tel:${cleanNumber}`;
 }

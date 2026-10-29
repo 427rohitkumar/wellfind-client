@@ -1,0 +1,1688 @@
+{
+  "patna": {
+    "slug": "patna",
+    "name": "Patna",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Patna residential areas.",
+    "canonicalUrl": "https://wellfindacademic.com/patna",
+    "heroTitle": "Home Tuition in Patna",
+    "heroDescription": "Structured one-to-one home learning, suitable teacher selection, and continuous academic coordination for your child in Patna.",
+    "ctaText": "Find a Tutor in Patna",
+    "keywords": [
+      "home tuition in Patna",
+      "home tutor Patna",
+      "one-to-one home tuition Patna",
+      "UKG to Class 10 home tuition Patna",
+      "CBSE home tuition Patna",
+      "ICSE home tuition Patna",
+      "Bihar Board home tuition Patna",
+      "private tutor in Patna",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Patna",
+      "description": "Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10 across Patna with dedicated academic support.",
+      "ctaText": "Find a Tutor in Patna",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Patna in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements - class, subjects, Patna locality, and schedule",
+          "title": "Your Requirements",
+          "description": "Share your child's class, subjects, Patna locality, schedule, and home tuition preferences.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Conducting diagnostic assessment test to identify learning gaps and focus areas",
+          "title": "Conducting Test",
+          "description": "A short assessment test to understand your child's current learning level and improvement areas.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlisting verified home tutors matched to academic requirements and student learning pace",
+          "title": "Matching Teacher",
+          "description": "We identify and shortlist suitable home tutors based on your requirements and assessment results.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day home demo trial classes with the tutor before regular tuition starts",
+          "title": "Demo + Learning Start",
+          "description": "Take a 2-day demo with the teacher at your home to ensure the right fit. If it works well, start regular learning.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Unlike unmanaged tutor classifieds, Wellfind Academic coordinates the entire one-to-one home tuition journey for students across Patna."
+    },
+    "locationsSection": {
+      "badge": "IN PATNA",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available Across Patna",
+      "description": "Serving students across Boring Road, Kankarbagh, Danapur, Bailey Road, and residential neighborhoods in Patna with structured home tuition."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Not satisfied with your home tutor? We'll help coordinate a better teacher fit for your child in Patna."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before recommending any home tutor for Patna students, we review qualifications, subject expertise, and teaching approach."
+    },
+    "teacherNetwork": {
+      "badge": "For home educators",
+      "headingPrefix": "A better way to teach students across",
+      "headingHighlight": "Patna.",
+      "description": "Wellfind Academic connects dedicated home tutors with families across Patna seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Patna ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work for students in Patna with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a verified subject tutor for scheduled, one-to-one sessions at your home in Patna. We handle teacher screening, coordinate schedules, and provide regular academic progress tracking."
+        },
+        {
+          "question": "Which classes and school boards are supported in Patna?",
+          "answer": "We support students from UKG to Class 10 studying under CBSE, ICSE, and Bihar State Board curricula, covering core concepts, homework guidance, and exam preparation."
+        },
+        {
+          "question": "Can we take a trial or demo class before confirming?",
+          "answer": "Yes. We arrange an introductory demo session so you and your child can experience the teacher's communication style and pedagogical fit before confirming regular classes."
+        },
+        {
+          "question": "What subjects are offered for home tuition in Patna?",
+          "answer": "We offer one-to-one tuition in Mathematics, Science (Physics, Chemistry, Biology), English Grammar & Literature, Social Science, Hindi, Sanskrit, and all-subject foundational support for primary grades."
+        },
+        {
+          "question": "What happens if the assigned home tutor is not a good fit?",
+          "answer": "We offer 100% teacher replacement support. If the teaching style does not align with your child's learning needs, our team will coordinate a suitable alternative teacher without hassle."
+        },
+        {
+          "question": "How do you verify tutors before sending them for home classes?",
+          "answer": "Tutors undergo profile evaluation, academic credential verification, and personal interviews assessing subject expertise and professional conduct before they are matched with families."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Patna",
+      "title": "Looking for a Home Tutor in Patna?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher suitability and connect with you for your child in Patna.",
+      "initialLocality": "Patna"
+    }
+  },
+  "boring-road": {
+    "slug": "boring-road",
+    "name": "Boring Road",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Boring Road, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Boring Road, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Boring Road.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/boring-road",
+    "heroTitle": "Home Tuition in Boring Road",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Boring Road, Patna.",
+    "ctaText": "Find a Tutor in Boring Road",
+    "keywords": [
+      "home tuition in Boring Road",
+      "home tutor Boring Road Patna",
+      "home tuition in Boring Road Patna",
+      "private tutor Boring Road",
+      "CBSE home tuition Boring Road",
+      "Class 10 tuition Boring Road",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Boring Road",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Boring Road and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Boring Road",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Boring Road in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Boring Road",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Boring Road neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Boring Road",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Boring Road student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Boring Road",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Boring Road coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN BORING ROAD",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Boring Road",
+      "description": "Serving families across Boring Road Chauraha, Anandpuri, Canal Road, Nageshwar Colony, and Sri Krishna Puri with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See"
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Boring Road? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Boring Road families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Boring Road.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Boring Road seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Boring Road ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Boring Road with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Boring Road on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Boring Road?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Boring Road and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Boring Road request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Boring Road so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Boring Road is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Boring Road."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Boring Road?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Boring Road",
+      "title": "Looking for a Home Tutor in Boring Road?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Boring Road, Patna.",
+      "initialLocality": "Boring Road"
+    }
+  },
+  "kankarbagh": {
+    "slug": "kankarbagh",
+    "name": "Kankarbagh",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Kankarbagh, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Kankarbagh, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Kankarbagh.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/kankarbagh",
+    "heroTitle": "Home Tuition in Kankarbagh",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Kankarbagh, Patna.",
+    "ctaText": "Find a Tutor in Kankarbagh",
+    "keywords": [
+      "home tuition in Kankarbagh",
+      "home tutor Kankarbagh Patna",
+      "home tuition in Kankarbagh Patna",
+      "private tutor Kankarbagh",
+      "CBSE home tuition Kankarbagh",
+      "Class 10 tuition Kankarbagh",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Kankarbagh",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Kankarbagh and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Kankarbagh",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Kankarbagh in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Kankarbagh",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Kankarbagh neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Kankarbagh",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Kankarbagh student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Kankarbagh",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Kankarbagh coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN KANKARBAGH",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Kankarbagh",
+      "description": "Serving families across Lohia Nagar, Doctors Colony, Tiwary Bechar, Hanuman Nagar, and Kankarbagh Main Road with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See"
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Kankarbagh? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Kankarbagh families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Kankarbagh.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Kankarbagh seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Kankarbagh ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Kankarbagh with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Kankarbagh on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Kankarbagh?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Kankarbagh and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Kankarbagh request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Kankarbagh so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Kankarbagh is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Kankarbagh."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Kankarbagh?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Kankarbagh",
+      "title": "Looking for a Home Tutor in Kankarbagh?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Kankarbagh, Patna.",
+      "initialLocality": "Kankarbagh"
+    }
+  },
+  "rajendra-nagar": {
+    "slug": "rajendra-nagar",
+    "name": "Rajendra Nagar",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Rajendra Nagar, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Rajendra Nagar, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Rajendra Nagar.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/rajendra-nagar",
+    "heroTitle": "Home Tuition in Rajendra Nagar",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Rajendra Nagar, Patna.",
+    "ctaText": "Find a Tutor in Rajendra Nagar",
+    "keywords": [
+      "home tuition in Rajendra Nagar",
+      "home tutor Rajendra Nagar Patna",
+      "home tuition in Rajendra Nagar Patna",
+      "private tutor Rajendra Nagar",
+      "CBSE home tuition Rajendra Nagar",
+      "Class 10 tuition Rajendra Nagar",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Rajendra Nagar",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Rajendra Nagar and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Rajendra Nagar",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Rajendra Nagar in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Rajendra Nagar",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Rajendra Nagar neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Rajendra Nagar",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Rajendra Nagar student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Rajendra Nagar",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Rajendra Nagar coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN RAJENDRA NAGAR",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Rajendra Nagar",
+      "description": "Serving families across Arya Kumar Road, Dinkar Golambar, Premchand Rangshala, and Rajendra Nagar Stadium area with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See"
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Rajendra Nagar? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Rajendra Nagar families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Rajendra Nagar.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Rajendra Nagar seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Rajendra Nagar ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Rajendra Nagar with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Rajendra Nagar on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Rajendra Nagar?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Rajendra Nagar and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Rajendra Nagar request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Rajendra Nagar so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Rajendra Nagar is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Rajendra Nagar."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Rajendra Nagar?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Rajendra Nagar",
+      "title": "Looking for a Home Tutor in Rajendra Nagar?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Rajendra Nagar, Patna.",
+      "initialLocality": "Rajendra Nagar"
+    }
+  },
+  "bailey-road": {
+    "slug": "bailey-road",
+    "name": "Bailey Road",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Bailey Road, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Bailey Road, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Bailey Road.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/bailey-road",
+    "heroTitle": "Home Tuition in Bailey Road",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Bailey Road, Patna.",
+    "ctaText": "Find a Tutor in Bailey Road",
+    "keywords": [
+      "home tuition in Bailey Road",
+      "home tutor Bailey Road Patna",
+      "home tuition in Bailey Road Patna",
+      "private tutor Bailey Road",
+      "CBSE home tuition Bailey Road",
+      "Class 10 tuition Bailey Road",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Bailey Road",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Bailey Road and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Bailey Road",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Bailey Road in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Bailey Road",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Bailey Road neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Bailey Road",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Bailey Road student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Bailey Road",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Bailey Road coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN BAILEY ROAD",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Bailey Road",
+      "description": "Serving families across Raja Bazar, Ashiana Mor, Jagdeo Path, Rupaspur, and Gola Road junction with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Bailey Road? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Bailey Road families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Bailey Road.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Bailey Road seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Bailey Road ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Bailey Road with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Bailey Road on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Bailey Road?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Bailey Road and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Bailey Road request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Bailey Road so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Bailey Road is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Bailey Road."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Bailey Road?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Bailey Road",
+      "title": "Looking for a Home Tutor in Bailey Road?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Bailey Road, Patna.",
+      "initialLocality": "Bailey Road"
+    }
+  },
+  "patliputra": {
+    "slug": "patliputra",
+    "name": "Patliputra",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Patliputra, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Patliputra, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Patliputra.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/patliputra",
+    "heroTitle": "Home Tuition in Patliputra",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Patliputra, Patna.",
+    "ctaText": "Find a Tutor in Patliputra",
+    "keywords": [
+      "home tuition in Patliputra",
+      "home tutor Patliputra Patna",
+      "home tuition in Patliputra Patna",
+      "private tutor Patliputra",
+      "CBSE home tuition Patliputra",
+      "Class 10 tuition Patliputra",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Patliputra",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Patliputra and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Patliputra",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Patliputra in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Patliputra",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Patliputra neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Patliputra",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Patliputra student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Patliputra",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Patliputra coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN PATLIPUTRA",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Patliputra",
+      "description": "Serving families across Patliputra Colony, Gosaintola, Alpana Market, and Nehru Nagar with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Patliputra? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Patliputra families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Patliputra.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Patliputra seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Patliputra ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Patliputra with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Patliputra on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Patliputra?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Patliputra and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Patliputra request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Patliputra so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Patliputra is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Patliputra."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Patliputra?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Patliputra",
+      "title": "Looking for a Home Tutor in Patliputra?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Patliputra, Patna.",
+      "initialLocality": "Patliputra"
+    }
+  },
+  "danapur": {
+    "slug": "danapur",
+    "name": "Danapur",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Danapur, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Danapur, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Danapur.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/danapur",
+    "heroTitle": "Home Tuition in Danapur",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Danapur, Patna.",
+    "ctaText": "Find a Tutor in Danapur",
+    "keywords": [
+      "home tuition in Danapur",
+      "home tutor Danapur Patna",
+      "home tuition in Danapur Patna",
+      "private tutor Danapur",
+      "CBSE home tuition Danapur",
+      "Class 10 tuition Danapur",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Danapur",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Danapur and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Danapur",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Danapur in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Danapur",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Danapur neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Danapur",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Danapur student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Danapur",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Danapur coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN DANAPUR",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Danapur",
+      "description": "Serving families across Danapur Cantonment, Saguna Mor, RPS Mor, and Khagol Road with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Danapur? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Danapur families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Danapur.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Danapur seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Danapur ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Danapur with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Danapur on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Danapur?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Danapur and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Danapur request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Danapur so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Danapur is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Danapur."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Danapur?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Danapur",
+      "title": "Looking for a Home Tutor in Danapur?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Danapur, Patna.",
+      "initialLocality": "Danapur"
+    }
+  },
+  "kadamkuan": {
+    "slug": "kadamkuan",
+    "name": "Kadamkuan",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Kadamkuan, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Kadamkuan, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Kadamkuan.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/kadamkuan",
+    "heroTitle": "Home Tuition in Kadamkuan",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Kadamkuan, Patna.",
+    "ctaText": "Find a Tutor in Kadamkuan",
+    "keywords": [
+      "home tuition in Kadamkuan",
+      "home tutor Kadamkuan Patna",
+      "home tuition in Kadamkuan Patna",
+      "private tutor Kadamkuan",
+      "CBSE home tuition Kadamkuan",
+      "Class 10 tuition Kadamkuan",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Kadamkuan",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Kadamkuan and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Kadamkuan",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Kadamkuan in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Kadamkuan",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Kadamkuan neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Kadamkuan",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Kadamkuan student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Kadamkuan",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Kadamkuan coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN KADAMKUAN",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Kadamkuan",
+      "description": "Serving families across Sahityakar Golambar, Nala Road, Lohanipur, and Bakerganj approach with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Kadamkuan? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Kadamkuan families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Kadamkuan.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Kadamkuan seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Kadamkuan ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Kadamkuan with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Kadamkuan on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Kadamkuan?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Kadamkuan and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Kadamkuan request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Kadamkuan so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Kadamkuan is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Kadamkuan."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Kadamkuan?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Kadamkuan",
+      "title": "Looking for a Home Tutor in Kadamkuan?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Kadamkuan, Patna.",
+      "initialLocality": "Kadamkuan"
+    }
+  },
+  "khagaul": {
+    "slug": "khagaul",
+    "name": "Khagaul",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Khagaul, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Khagaul, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Khagaul.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/khagaul",
+    "heroTitle": "Home Tuition in Khagaul",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Khagaul, Patna.",
+    "ctaText": "Find a Tutor in Khagaul",
+    "keywords": [
+      "home tuition in Khagaul",
+      "home tutor Khagaul Patna",
+      "home tuition in Khagaul Patna",
+      "private tutor Khagaul",
+      "CBSE home tuition Khagaul",
+      "Class 10 tuition Khagaul",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Khagaul",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Khagaul and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Khagaul",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Khagaul in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Khagaul",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Khagaul neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Khagaul",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Khagaul student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Khagaul",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Khagaul coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN KHAGAUL",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Khagaul",
+      "description": "Serving families across Khagaul Bazar, Danapur Railway Station vicinity, and Military Camp perimeter with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Khagaul? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Khagaul families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Khagaul.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Khagaul seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Khagaul ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Khagaul with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Khagaul on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Khagaul?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Khagaul and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Khagaul request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Khagaul so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Khagaul is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Khagaul."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Khagaul?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Khagaul",
+      "title": "Looking for a Home Tutor in Khagaul?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Khagaul, Patna.",
+      "initialLocality": "Khagaul"
+    }
+  },
+  "phulwari-sharif": {
+    "slug": "phulwari-sharif",
+    "name": "Phulwari Sharif",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Phulwari Sharif, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Phulwari Sharif, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Phulwari Sharif.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/phulwari-sharif",
+    "heroTitle": "Home Tuition in Phulwari Sharif",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Phulwari Sharif, Patna.",
+    "ctaText": "Find a Tutor in Phulwari Sharif",
+    "keywords": [
+      "home tuition in Phulwari Sharif",
+      "home tutor Phulwari Sharif Patna",
+      "home tuition in Phulwari Sharif Patna",
+      "private tutor Phulwari Sharif",
+      "CBSE home tuition Phulwari Sharif",
+      "Class 10 tuition Phulwari Sharif",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Phulwari Sharif",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Phulwari Sharif and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Phulwari Sharif",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Phulwari Sharif in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Phulwari Sharif",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Phulwari Sharif neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Phulwari Sharif",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Phulwari Sharif student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Phulwari Sharif",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Phulwari Sharif coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN PHULWARI SHARIF",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Phulwari Sharif",
+      "description": "Serving families across Phulwari Market, AIIMS Patna road, Walmi, and Anisabad link with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Phulwari Sharif? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Phulwari Sharif families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Phulwari Sharif.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Phulwari Sharif seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Phulwari Sharif ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Phulwari Sharif with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Phulwari Sharif on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Phulwari Sharif?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Phulwari Sharif and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Phulwari Sharif request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Phulwari Sharif so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Phulwari Sharif is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Phulwari Sharif."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Phulwari Sharif?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Phulwari Sharif",
+      "title": "Looking for a Home Tutor in Phulwari Sharif?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Phulwari Sharif, Patna.",
+      "initialLocality": "Phulwari Sharif"
+    }
+  },
+  "Rajpul": {
+    "slug": "Rajpul",
+    "name": "Rajpul",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Rajapul, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Rajapul, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Rajapul.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/Rajapul",
+    "heroTitle": "Home Tuition in Rajapul",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Rajapul, Patna.",
+    "ctaText": "Find a Tutor in Rajapul",
+    "keywords": [
+      "home tuition in Rajapul",
+      "home tutor Rajapul Patna",
+      "home tuition in Rajapul Patna",
+      "private tutor Rajapul",
+      "CBSE home tuition Rajapul",
+      "Class 10 tuition Rajapul",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Rajapul",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Rajapul and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Rajapul",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Rajapul in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Rajapul",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Rajapul neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Rajapul",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Rajapul student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Rajapul",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Rajapul coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN Rajapul",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Rajapul",
+      "description": "Serving families across Rajapul area, Canal approaches, and connecting residential pockets with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Rajapul? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Rajapul families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Rajapul.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Rajapul seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Rajapul ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Rajapul with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Rajapul on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Rajapul?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Rajapul and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Rajapul request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Rajapul so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Rajapul is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Rajapul."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Rajapul?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Rajapul",
+      "title": "Looking for a Home Tutor in Rajapul?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Rajapul, Patna.",
+      "initialLocality": "Rajapul"
+    }
+  },
+  "Rajapull": {
+    "slug": "Rajapull",
+    "name": "Rajapul",
+    "serviceName": "Home Tuition",
+    "seoTitle": "Home Tuition in Rajapul, Patna (UKG to Class 10) | Wellfind Academic",
+    "seoDescription": "Looking for a verified home tutor in Rajapul, Patna? Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students across Rajapul.",
+    "canonicalUrl": "https://wellfindacademic.com/patna/Rajapul",
+    "heroTitle": "Home Tuition in Rajapul",
+    "heroDescription": "Structured one-to-one home tuition, suitable teacher selection, and academic progress coordination for your child in Rajapul, Patna.",
+    "ctaText": "Find a Tutor in Rajapul",
+    "keywords": [
+      "home tuition in Rajapul",
+      "home tutor Rajapul Patna",
+      "home tuition in Rajapul Patna",
+      "private tutor Rajapul",
+      "CBSE home tuition Rajapul",
+      "Class 10 tuition Rajapul",
+      "Wellfind Academic"
+    ],
+    "hero": {
+      "headlineLine1": "Trusted Home",
+      "headlineHighlight1": "Tutors",
+      "headlineLine2": "in",
+      "headlineHighlight2": "Rajapull",
+      "description": "Wellfind Academic provides managed one-to-one home tuition for UKG to Class 10 students living in Rajapul and nearby residential colonies.",
+      "ctaText": "Find a Tutor in Rajapul",
+      "ctaHref": "#inquire",
+      "secondaryCtaText": "Explore Classes",
+      "secondaryCtaHref": "/classes/"
+    },
+    "howItWorks": {
+      "eyebrow": "HOW IT WORKS",
+      "headingPrefix": "Find the Right Home Tutor in Rajapul in",
+      "headingHighlight": "4 Simple Steps",
+      "steps": [
+        {
+          "step": "01",
+          "image": "/step-1-requirment.png",
+          "alt": "Share your child's home tuition requirements in Rajapul",
+          "title": "Your Requirements",
+          "description": "Share your child's grade, subjects, Rajapul neighborhood, and preferred class timings.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "02",
+          "image": "/step-2-test.png",
+          "alt": "Diagnostic assessment test for students in Rajapul",
+          "title": "Conducting Test",
+          "description": "A focused diagnostic test to uncover learning gaps, conceptual clarity, and academic strengths.",
+          "sparkDirection": "left"
+        },
+        {
+          "step": "03",
+          "image": "/step-3-teacher-maping.png",
+          "alt": "Shortlist qualified home teacher for Rajapul student",
+          "title": "Matching Teacher",
+          "description": "We match a verified teacher aligned with your child's school curriculum, learning pace, and location.",
+          "sparkDirection": "right"
+        },
+        {
+          "step": "04",
+          "image": "/step-4-demo-learning.png",
+          "alt": "2-Day demo session before regular home classes in Rajapul",
+          "title": "Demo + Learning Start",
+          "description": "Attend a 2-day demo class at your home. Once completely satisfied with the teaching style, start regular classes.",
+          "sparkDirection": "right"
+        }
+      ]
+    },
+    "managedModel": {
+      "eyebrow": "The Wellfind model",
+      "heading": "Teachers deliver the education.",
+      "headingHighlight": "We maintain the quality.",
+      "description": "Eliminate travel fatigue and commute hassles with structured, one-to-one home tuition in Rajapul coordinated by Wellfind Academic."
+    },
+    "locationsSection": {
+      "badge": "IN Rajapul",
+      "headingPrefix": "One-to-One Home Tuition",
+      "headingHighlight": "Available in Rajapul",
+      "description": "Serving families across Rajapul area, Canal approaches, and connecting residential pockets with dedicated one-to-one home tutoring."
+    },
+    "progressTracking": {
+      "eyebrow": "Beyond Tuition",
+      "titleLine1": "One-to-One Learning.",
+      "titleLine2": "Progress You Can See."
+    },
+    "teachersSection": {
+      "badge": "Wellfind Academic teacher support",
+      "headingHighlight": "100%",
+      "heading": "Teacher Replacement",
+      "description": "Need a different teacher approach for your child in Rajapul? We coordinate a prompt replacement."
+    },
+    "teacherEvaluation": {
+      "badge": "Teacher verification",
+      "heading": "How we evaluate",
+      "headingHighlight": "teacher profiles.",
+      "description": "Before introducing any tutor for Rajapul families, we rigorously review subject depth, qualifications, and teaching capability."
+    },
+    "teacherNetwork": {
+      "badge": "For educators",
+      "headingPrefix": "A better way to teach students in",
+      "headingHighlight": "Rajapul.",
+      "description": "Wellfind Academic connects dedicated home tutors with families in Rajapul seeking structured one-to-one learning.",
+      "ctaText": "Join as a Home Tutor",
+      "ctaHref": "/join-as-teacher/"
+    },
+    "faqsSection": {
+      "eyebrow": "Got Questions?",
+      "title": "Frequently Asked Questions",
+      "description": "Clear answers to common questions parents in Rajapul ask about our managed one-to-one home tuition.",
+      "faqs": [
+        {
+          "question": "How does home tuition work in Rajapul with Wellfind Academic?",
+          "answer": "Wellfind Academic pairs your child with a vetted home tutor who visits your home in Rajapul on scheduled days. We coordinate syllabus coverage, track weekly milestones, and ensure continuous quality."
+        },
+        {
+          "question": "Which classes and boards are taught in Rajapul?",
+          "answer": "We cater to students from UKG to Class 10 across CBSE, ICSE, and Bihar State Board schools in Rajapul and surrounding Patna areas."
+        },
+        {
+          "question": "Can parents in Rajapul request a demo session first?",
+          "answer": "Yes. We arrange a 2-day demo class in Rajapul so parents and students can evaluate the tutor's teaching approach before committing."
+        },
+        {
+          "question": "What if the tutor assigned in Rajapul is not suitable?",
+          "answer": "We provide 100% teacher replacement support. If you are dissatisfied for any pedagogical reason, we will match another qualified tutor for your home in Rajapul."
+        },
+        {
+          "question": "Which subjects can our child study with a home tutor in Rajapul?",
+          "answer": "Subjects include Mathematics, Science (Physics, Chemistry, Biology), English, Social Studies, Hindi, Sanskrit, and all-subject foundational guidance for primary classes."
+        }
+      ]
+    },
+    "inquirySection": {
+      "badge": "Get Started in Rajapul",
+      "title": "Looking for a Home Tutor in Rajapul?",
+      "description": "Share your learning requirements with Wellfind Academic. We will review teacher availability and connect with you for your child in Rajapul, Patna.",
+      "initialLocality": "Rajapul"
+    }
+  }
+}
