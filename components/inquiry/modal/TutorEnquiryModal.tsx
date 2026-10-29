@@ -104,14 +104,13 @@ export function TutorEnquiryModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-enquiry-title"
-      className={`fixed inset-0 z-50 w-screen h-[100dvh] min-h-screen overflow-hidden flex flex-col justify-between bg-white select-none transition-opacity duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-50 w-screen min-h-screen overflow-y-auto overflow-x-hidden overscroll-contain bg-white select-none transition-opacity duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isAnimating
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
       }`}
       style={{
         width: "100vw",
-        height: "100dvh",
       }}
     >
       <h2 id="modal-enquiry-title" className="sr-only">
@@ -150,7 +149,7 @@ export function TutorEnquiryModal({
       />
 
       {/* Top-Right Close Button Header */}
-      <div className="relative shrink-0 w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-[#D7E2EE]/60 bg-white/80 backdrop-blur-md z-30">
+      <div className="sticky top-0 relative w-full flex items-center justify-between px-4 sm:px-8 py-3.5 border-b border-[#D7E2EE]/60 bg-white/95 backdrop-blur-md z-30">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-[#35D0BA] animate-pulse" />
           <span className="text-xs sm:text-sm font-black text-[#101D36] tracking-tight uppercase">
@@ -172,7 +171,7 @@ export function TutorEnquiryModal({
       {/* ======================================================== */}
       {/* MAIN MULTI-STEP FORM BODY */}
       {/* ======================================================== */}
-      <div className="flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden flex flex-col relative z-20">
+      <div className="w-full relative z-20">
         <TutorEnquiryForm
           onClose={onClose}
           initialClass={initialClass}
