@@ -10,16 +10,15 @@ export const metadata: Metadata = {
   title: locality.metaTitle,
   description: locality.metaDescription,
   alternates: {
-    canonical: `${siteConfig.url}/home-tuition/patna/`,
+    canonical: `${siteConfig.url}/patna`,
   },
   openGraph: {
     title: locality.metaTitle,
     description: locality.metaDescription,
-    url: `${siteConfig.url}/home-tuition/patna/`,
+    url: `${siteConfig.url}/patna`,
   },
 };
 
 export default function PatnaPage() {
   return <LocalityView data={locality} />;
 }
-

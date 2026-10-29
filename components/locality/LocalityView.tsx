@@ -30,13 +30,13 @@ export function LocalityView({ data }: LocalityViewProps) {
   const breadcrumbs = isPatnaHub
     ? [{ label: "Home Tuition in Patna" }]
     : [
-        { label: "Home Tuition", href: "/home-tuition/patna/" },
+        { label: "Home Tuition", href: "/patna" },
         { label: data.name },
       ];
 
   const canonicalUrl = isPatnaHub
-    ? `${siteConfig.url}/home-tuition/patna/`
-    : `${siteConfig.url}/home-tuition/patna/${data.slug}/`;
+    ? `${siteConfig.url}/patna`
+    : `${siteConfig.url}/patna/${data.slug}`;
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -209,9 +209,7 @@ export function LocalityView({ data }: LocalityViewProps) {
                 <div className="flex flex-col gap-2 text-xs sm:text-sm">
                   {data.relatedLocalities.map((rel) => {
                     const relHref =
-                      rel.slug === "patna"
-                        ? "/home-tuition/patna/"
-                        : `/home-tuition/patna/${rel.slug}/`;
+                      rel.slug === "patna" ? "/patna" : `/patna/${rel.slug}`;
                     return (
                       <Link
                         key={rel.slug}

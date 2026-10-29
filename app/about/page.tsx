@@ -253,7 +253,7 @@ const PATNA_LOCALITIES = [
   "Kadamkuan",
   "Khagaul",
   "Phulwari Sharif",
-  "Rajpull",
+  "Rajapull",
 ];
 
 // ============================================================================

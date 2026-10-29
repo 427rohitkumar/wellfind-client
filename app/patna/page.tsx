@@ -32,9 +32,9 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteConfig.name,
       images: [
         {
-          url: "/opengraph-image",
-          width: 1200,
-          height: 630,
+          url: siteConfig.ogImage,
+          width: 1741,
+          height: 908,
           alt: `${data.seoTitle} — ${siteConfig.name}`,
         },
       ],

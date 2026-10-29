@@ -25,7 +25,7 @@ export default function NotFound() {
             <Home className="w-4 h-4 mr-1.5" />
             <span>Back to Homepage</span>
           </Button>
-          <Button variant="outline" size="md" href="/home-tuition/patna/">
+          <Button variant="outline" size="md" href="/patna">
             <MapPin className="w-4 h-4 mr-1.5" />
             <span>Patna Localities</span>
           </Button>

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
-import { locationsData } from "@/content/locations";
 import { classesData } from "@/content/classes";
 import { getActiveSubLocalitySlugs } from "@/data/localities";
 
@@ -21,12 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/home-tuition/patna/`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
     {
       url: `${baseUrl}/classes/`,
@@ -70,16 +63,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // Home-Tuition Sub-Locality Pages
-  const legacyLocalityPages: MetadataRoute.Sitemap = Object.keys(locationsData)
-    .filter((slug) => slug !== "patna")
-    .map((slug) => ({
-      url: `${baseUrl}/home-tuition/patna/${slug}/`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    }));
-
   // Class Pages
   const classPages: MetadataRoute.Sitemap = Object.keys(classesData).map(
     (slug) => ({
@@ -93,7 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...activeLocalityPages,
-    ...legacyLocalityPages,
     ...classPages,
   ];
 }

@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  skipTrailingSlashRedirect: true,
   turbopack: {
     rules: {
       "*.css": {
@@ -20,8 +21,33 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/home-tuition/patna/",
+        destination: "/patna",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna",
+        destination: "/patna",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna/kankarbagh",
+        destination: "/patna/kankarbagh",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna/danapur",
+        destination: "/patna/danapur",
+        permanent: true,
+      },
+      {
         source: "/patna/rajpull",
-        destination: "/patna/rajpul",
+        destination: "/patna/rajapull",
+        permanent: true,
+      },
+      {
+        source: "/patna/rajpul",
+        destination: "/patna/rajapull",
         permanent: true,
       },
       {
@@ -71,12 +97,32 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/rajpul",
-        destination: "/patna/rajpul",
+        destination: "/patna/rajapull",
         permanent: true,
       },
       {
         source: "/rajpull",
-        destination: "/patna/rajpul",
+        destination: "/patna/rajapull",
+        permanent: true,
+      },
+      {
+        source: "/rajapull",
+        destination: "/patna/rajapull",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna/rajpul",
+        destination: "/patna/rajapull",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna/rajpull",
+        destination: "/patna/rajapull",
+        permanent: true,
+      },
+      {
+        source: "/home-tuition/patna/rajapull",
+        destination: "/patna/rajapull",
         permanent: true,
       },
     ];

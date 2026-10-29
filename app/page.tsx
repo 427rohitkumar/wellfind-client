@@ -19,45 +19,45 @@ import { TeacherProfileReviewSection } from "@/components/home/TeacherProfileRev
 import { TeacherNetworkPreviewSection } from "@/components/home/TeacherNetworkPreviewSection";
 
 export const metadata: Metadata = {
-  title: "Managed One-to-One Home Education in Patna | Wellfind Academic",
+  title: {
+    absolute: "Wellfind Academic | Managed One-to-One Education",
+  },
   description:
-    "Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10 in Patna, with suitable teachers, structured learning support, and ongoing academic coordination.",
+    "Find the right teacher for your child with Wellfind Academic. Quality-managed one-to-one home education for UKG to Class 10 in Patna, with structured learning and progress coordination.",
   keywords: [
-    "managed one-to-one home education Patna",
-    "one-to-one home tutor Patna",
-    "UKG to Class 10 home education",
-    "personalized home education Patna",
-    "home tutor Patna",
-    "CBSE home tutor Patna",
-    "ICSE home tutor Patna",
-    "Bihar Board home tutor Patna",
+    "home tuition in Patna",
+    "home tutor in Patna",
+    "one-to-one education",
+    "UKG to Class 10 tuition",
+    "managed home education",
     "Wellfind Academic",
   ],
   alternates: {
-    canonical: siteConfig.url,
+    canonical: "https://www.wellfindacademic.com/",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteConfig.url,
-    title: "Managed One-to-One Home Education in Patna | Wellfind Academic",
+    url: "https://www.wellfindacademic.com/",
+    title: "Wellfind Academic | Managed One-to-One Education",
     description:
-      "Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10 in Patna.",
-    siteName: siteConfig.name,
+      "Quality-managed one-to-one home education for UKG to Class 10 in Patna. The right teacher, structured learning, and progress you can see.",
+    siteName: "Wellfind Academic",
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Wellfind Academic managed one-to-one home education in Patna",
+        url: "https://www.wellfindacademic.com/OG-Image.png",
+        width: 1741,
+        height: 908,
+        alt: "Wellfind Academic — managed one-to-one education for children from UKG to Class 10.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Managed One-to-One Home Education in Patna | Wellfind Academic",
+    title: "Wellfind Academic | Managed One-to-One Education",
     description:
-      "Managed one-to-one home education for UKG to Class 10 students in Patna.",
+      "Quality-managed one-to-one home education for UKG to Class 10 in Patna. The right teacher, structured learning, and progress you can see.",
+    images: ["https://www.wellfindacademic.com/OG-Image.png"],
   },
 };
 

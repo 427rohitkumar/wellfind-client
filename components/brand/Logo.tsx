@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logoIcon from "./icon-logo-wellfind-blue-tranparent.png";
@@ -40,6 +43,7 @@ export function Logo({
   symbolSize = 40,
 }: LogoProps) {
   const isDark = theme === "dark";
+  const [fullLogoAvailable, setFullLogoAvailable] = useState(true);
 
   return (
     <Link
@@ -47,22 +51,36 @@ export function Logo({
       className={`inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA] rounded-md transition-opacity hover:opacity-95 ${className}`}
       aria-label="Wellfind Academic - Back to homepage"
     >
-      <LogoSymbol size={symbolSize} theme={theme} />
-      {variant === "full" && (
-        <div className="flex flex-col">
-          <span className="flex items-center font-bold tracking-tight text-xl leading-none">
-            <span className={isDark ? "text-white" : "text-[#101D36]"}>
-              Wellfind
-            </span>
-            <span className="ml-1 text-[#35D0BA]">Academic</span>
-          </span>
-          <span
-            className={`text-[10px] uppercase font-semibold tracking-wider mt-1 ${isDark ? "text-[#94A3B8]" : "text-[#53647D]"
-              }`}
-          >
-            Find tutor for brighter future.
-          </span>
-        </div>
+      {variant === "full" && fullLogoAvailable ? (
+        <Image
+          src="/full-logo-portfolio.png"
+          alt="Wellfind Academic Logo"
+          width={2171}
+          height={724}
+          className="h-14 w-auto object-contain md:h-16"
+          priority
+          onError={() => setFullLogoAvailable(false)}
+        />
+      ) : (
+        <>
+          <LogoSymbol size={symbolSize} theme={theme} />
+          {variant === "full" && (
+            <div className="flex flex-col">
+              <span className="flex items-center font-bold tracking-tight text-xl leading-none">
+                <span className={isDark ? "text-white" : "text-[#101D36]"}>
+                  Wellfind
+                </span>
+                <span className="ml-1 text-[#35D0BA]">Academic</span>
+              </span>
+              <span
+                className={`text-[10px] uppercase font-semibold tracking-wider mt-1 ${isDark ? "text-[#94A3B8]" : "text-[#53647D]"
+                  }`}
+              >
+                Find tutor for brighter future.
+              </span>
+            </div>
+          )}
+        </>
       )}
     </Link>
   );

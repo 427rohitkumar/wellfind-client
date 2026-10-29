@@ -103,7 +103,7 @@ export const ACTIVE_SUB_LOCALITY_SLUGS = [
   "kadamkuan",
   "khagaul",
   "phulwari-sharif",
-  "rajpul",
+  "rajapull",
 ] as const;
 
 export const localities: Record<string, LocalityData> =
@@ -112,9 +112,6 @@ export const localities: Record<string, LocalityData> =
 export function getLocality(slug: string): LocalityData | undefined {
   if (!slug) return undefined;
   const normalized = slug.toLowerCase().trim();
-  if (normalized === "rajpull" && !localities["rajpull"]) {
-    return localities["rajpul"];
-  }
   return localities[normalized];
 }
 

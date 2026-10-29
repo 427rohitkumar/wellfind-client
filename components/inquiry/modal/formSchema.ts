@@ -76,7 +76,7 @@ export const LOCALITY_OPTIONS = [
   "Kadamkuan",
   "Khagaul",
   "Phulwari Sharif",
-  "Rajpull",
+  "Rajapull",
   "Hartali Mor",
   "Patna (Other Locality)",
 ];

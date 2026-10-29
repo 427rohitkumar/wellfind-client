@@ -20,20 +20,59 @@ export function Footer() {
               “{siteConfig.tagline}”
             </p>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Helping parents in Patna find suitable, qualified home tutors for UKG
-              to Class 10 according to their child&apos;s specific class, subjects,
-              locality, and schedule.
+              One-to-One Home Education from UKG to Class 10. Teachers deliver the education, but Wellfind maintains the quality.
             </p>
 
-            {/* Contact Status */}
-            <div className="pt-2 space-y-2 text-xs sm:text-sm text-slate-300">
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
+              Service Areas
+            </h3>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-sm">
+              {siteConfig.serviceAreas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={area.href}
+                    className="text-slate-300 hover:text-[#35D0BA] transition-colors"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Classes */}
+          <div>
+            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
+              Classes
+            </h3>
+            <ul className="grid grid-cols-2 gap-x-2 gap-y-2 text-xs sm:text-sm">
+              {siteConfig.classes.map((cls) => (
+                <li key={cls.slug}>
+                  <Link
+                    href={cls.href}
+                    className="text-slate-300 hover:text-[#35D0BA] transition-colors"
+                  >
+                    {cls.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
+              Contact
+            </h3>
+            <div className="space-y-2 text-xs sm:text-sm text-slate-300">
               {phoneUrl ? (
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#35D0BA] shrink-0" />
-                  <a
-                    href={phoneUrl}
-                    className="hover:text-white transition-colors"
-                  >
+                  <a href={phoneUrl} className="hover:text-white transition-colors">
                     {siteConfig.contact.phone}
                   </a>
                 </div>
@@ -74,108 +113,26 @@ export function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Service Areas */}
-          <div>
-            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
-              Service Areas
-            </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              {siteConfig.serviceAreas.map((area) => (
-                <li key={area.slug}>
-                  <Link
-                    href={area.href}
-                    className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                  >
-                    {area.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Classes */}
-          <div>
-            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
-              Classes
-            </h3>
-            <ul className="grid grid-cols-2 gap-x-2 gap-y-2 text-xs sm:text-sm">
-              {siteConfig.classes.map((cls) => (
-                <li key={cls.slug}>
-                  <Link
-                    href={cls.href}
-                    className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                  >
-                    {cls.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Quick Links & Policies */}
-          <div>
-            <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              <li>
-                <Link
-                  href="/about/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  About Wellfind Academic
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  Find a Tutor / Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/join-as-teacher/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  Join as a Home Tutor
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/classes/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  All Supported Classes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/home-tuition/patna/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  Patna Tuition Hub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy/"
-                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-[#1E3154] flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
-          <p>
-            © {currentYear} {siteConfig.name}. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
+            <p>
+              © {currentYear} {siteConfig.name}. All rights reserved.
+            </p>
+            <span className="hidden sm:inline" aria-hidden="true">
+              •
+            </span>
+            <a
+              href="https://thebuilderstudio.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Powered by Builder Studio
+            </a>
+          </div>
           <div className="flex items-center gap-4">
             <Link
               href="/privacy-policy/"

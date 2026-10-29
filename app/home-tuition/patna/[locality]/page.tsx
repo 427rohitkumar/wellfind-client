@@ -5,13 +5,9 @@ import { locationsData } from "@/content/locations";
 import { LocalityView } from "@/components/locality/LocalityView";
 import { siteConfig } from "@/config/site";
 
-const validSubLocalities = [
-  "kankarbagh",
-  "danapur",
-  "boring-road",
-  "raja-bazar",
-  "hartali-mor",
-];
+const validSubLocalities = Object.keys(locationsData).filter(
+  (slug) => slug !== "patna"
+);
 
 export function generateStaticParams() {
   return validSubLocalities.map((slug) => ({
@@ -32,12 +28,12 @@ export async function generateMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
     alternates: {
-      canonical: `${siteConfig.url}/home-tuition/patna/${slug}/`,
+      canonical: `${siteConfig.url}/patna/${slug}`,
     },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
-      url: `${siteConfig.url}/home-tuition/patna/${slug}/`,
+      url: `${siteConfig.url}/patna/${slug}`,
     },
   };
 }
@@ -56,4 +52,3 @@ export default async function SubLocalityPage({
 
   return <LocalityView data={data} />;
 }
-

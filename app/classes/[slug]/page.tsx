@@ -19,6 +19,8 @@ const validClassSlugs = [
   "class-10",
 ];
 
+export const instant = false;
+
 export function generateStaticParams() {
   return validClassSlugs.map((slug) => ({
     slug,
@@ -35,15 +37,34 @@ export async function generateMetadata({
   if (!data) return {};
 
   return {
-    title: data.metaTitle,
+    title: {
+      absolute: data.metaTitle,
+    },
     description: data.metaDescription,
     alternates: {
       canonical: `${siteConfig.url}/classes/${slug}/`,
     },
     openGraph: {
+      type: "website",
+      locale: "en_IN",
       title: data.metaTitle,
       description: data.metaDescription,
       url: `${siteConfig.url}/classes/${slug}/`,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1741,
+          height: 908,
+          alt: `${data.name} home tuition in Patna — ${siteConfig.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: data.metaTitle,
+      description: data.metaDescription,
+      images: [siteConfig.ogImage],
     },
   };
 }
@@ -62,4 +83,3 @@ export default async function SingleClassPage({
 
   return <ClassView data={data} />;
 }
-

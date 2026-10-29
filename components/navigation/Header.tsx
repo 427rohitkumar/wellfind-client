@@ -191,7 +191,7 @@ export function Header() {
                 href={whatsappUrl}
                 isExternal
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full justify-center text-[#35D0BA] border-[#35D0BA]/40"
+                className="w-full justify-center !text-[#35D0BA] border-[#35D0BA]/40"
               >
                 <MessageCircle className="w-4 h-4 text-[#35D0BA]" />
                 Enquire on WhatsApp
