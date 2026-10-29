@@ -19,7 +19,7 @@ export function HeroSection({
   ctaText = "Find Your Tutor",
   ctaHref = "/contact/#inquire",
   secondaryCtaText = "Explore Classes",
-  secondaryCtaHref = "/classes/",
+  secondaryCtaHref = "/classes",
   locality,
 }: HeroSectionProps = {}) {
   return (

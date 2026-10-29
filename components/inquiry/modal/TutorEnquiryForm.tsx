@@ -223,7 +223,7 @@ export function TutorEnquiryForm({
   // ====================================================
   return (
     <div
-      className="w-full h-full min-h-0 flex flex-col px-4 sm:px-6 md:px-12 py-3 sm:py-6"
+      className="relative w-full min-h-full flex flex-col px-4 sm:px-6 md:px-12 py-3 sm:py-6"
     >
       {/* Top Header: Progress Indicator */}
       <div className="shrink-0 w-full pt-1 pb-2">
@@ -251,7 +251,7 @@ export function TutorEnquiryForm({
       </div>
 
       {/* Bottom Navigation Controls */}
-      <div className="fixed inset-x-0 bottom-0 w-full bg-white/95 backdrop-blur-sm border-t border-[#D7E2EE]/60 pt-2 pb-[env(safe-area-inset-bottom)] z-50">
+      <div className="fixed inset-x-0 bottom-0 shrink-0 w-full bg-white/95 backdrop-blur-sm border-t border-[#D7E2EE]/60 pt-2 pb-[env(safe-area-inset-bottom)] z-50">
         <FormNavigation
           currentStep={currentStep}
           totalSteps={totalSteps}

@@ -104,10 +104,10 @@ export function TutorEnquiryModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-enquiry-title"
-      className={`fixed inset-0 z-50 w-screen h-[100dvh] min-h-screen overflow-hidden flex flex-col justify-between bg-white select-none transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-50 w-screen h-[100dvh] min-h-screen overflow-hidden flex flex-col justify-between bg-white select-none transition-opacity duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isAnimating
-          ? "opacity-100 scale-100 pointer-events-auto"
-          : "opacity-0 scale-[0.88] pointer-events-none"
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
       style={{
         width: "100vw",
@@ -172,7 +172,7 @@ export function TutorEnquiryModal({
       {/* ======================================================== */}
       {/* MAIN MULTI-STEP FORM BODY */}
       {/* ======================================================== */}
-      <div className="flex-1 min-h-0 w-full overflow-hidden flex flex-col relative z-20">
+      <div className="flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden flex flex-col relative z-20">
         <TutorEnquiryForm
           onClose={onClose}
           initialClass={initialClass}
