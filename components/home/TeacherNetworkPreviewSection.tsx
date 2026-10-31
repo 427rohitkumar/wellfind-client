@@ -46,7 +46,7 @@ export function TeacherNetworkPreviewSection({
   heading,
   description = "Wellfind Academic also works with teachers who want to connect their experience with suitable student requirements across Patna.",
   ctaText = "Join as a Home Tutor",
-  ctaHref = "/join-as-teacher/",
+  ctaHref = "/join-as-teacher",
 }: TeacherNetworkPreviewSectionProps = {}) {
   return (
     <section
