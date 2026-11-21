@@ -7,6 +7,8 @@ export interface TutorEnquiryFormData {
   customLocality?: string;
   budgetRange: string;
   parentName: string;
+  studentGender: "male" | "female" | "other" | "";
+  preferredTeacherGender: "male" | "female" | "any";
   phoneNumber: string;
   additionalNotes: string;
   agreedToPolicy: boolean;
@@ -27,9 +29,11 @@ export const INITIAL_FORM_DATA: TutorEnquiryFormData = {
   customLocality: "",
   budgetRange: "₹4,000 – ₹6,500 / month",
   parentName: "",
+  studentGender: "",
+  preferredTeacherGender: "any",
   phoneNumber: "",
   additionalNotes: "",
-  agreedToPolicy: true,
+  agreedToPolicy: false,
 };
 
 export const CLASS_OPTIONS = [
@@ -148,18 +152,28 @@ export function validateStep(
       return null;
 
     case 5:
-      if (!data.parentName || !data.parentName.trim()) {
+      if (!data.studentGender) {
         return {
           step: 5,
+          field: "studentGender",
+          message: "Kripya student ka gender select kijiye.",
+        };
+      }
+      return null;
+
+    case 6:
+      if (!data.parentName || !data.parentName.trim()) {
+        return {
+          step: 6,
           field: "parentName",
-          message: "Kripya Parent ya Guardian ka naam enter kijiye.",
+          message: "Kripya student ka naam enter kijiye (parent ka naam nahi).",
         };
       }
 
       const cleanPhone = data.phoneNumber.replace(/\D/g, "");
       if (!cleanPhone || cleanPhone.length !== 10) {
         return {
-          step: 5,
+          step: 6,
           field: "phoneNumber",
           message: "Kripya 10-digit mobile number enter kijiye.",
         };
@@ -168,7 +182,7 @@ export function validateStep(
       // Check if starts with valid Indian mobile prefix (6, 7, 8, 9)
       if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
         return {
-          step: 5,
+          step: 6,
           field: "phoneNumber",
           message: "Kripya valid 10-digit Indian mobile number enter kijiye (starts with 6-9).",
         };
@@ -188,7 +202,7 @@ export function validateStep(
 export function validateEntireForm(
   data: TutorEnquiryFormData
 ): FormStepError | null {
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const error = validateStep(s, data);
     if (error) return error;
   }

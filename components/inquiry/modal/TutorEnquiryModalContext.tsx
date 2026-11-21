@@ -54,57 +54,42 @@ export function TutorEnquiryModalProvider({
     setIsOpen(false);
   }, []);
 
-  // Global delegated click listener for "Find Your Tutor" buttons and #inquire links
+  // Global delegated click listener for "Find Your Tutor" buttons
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (!target) return;
 
-      // Check if clicked element or any ancestor is a modal trigger
+      // Never intercept clicks originating inside forms, embedded inquiry sections,
+      // or elements explicitly marked with data-no-modal
+      if (
+        target.closest("form") ||
+        target.closest("#inquiry-form-card") ||
+        target.closest("[data-inquiry-form]") ||
+        target.closest("[data-no-modal]") ||
+        target.closest("[data-no-tutor-modal]") ||
+        (target as HTMLButtonElement).type === "submit"
+      ) {
+        return;
+      }
+
+      // Check if clicked element or any ancestor is a configured modal trigger
       const trigger = target.closest<HTMLElement>(
-        '[data-open-tutor-modal], a[href*="#inquire"], button'
+        '[data-open-tutor-modal="true"]'
       );
 
       if (!trigger) return;
 
-      // 1. Explicit data attribute
-      if (trigger.getAttribute("data-open-tutor-modal") === "true") {
-        event.preventDefault();
-        const initClass = trigger.getAttribute("data-initial-class") || "";
-        const initLoc = trigger.getAttribute("data-initial-locality") || "";
-        openModal({ initialClass: initClass, initialLocality: initLoc });
-        return;
-      }
-
-      // 2. Links to #inquire
-      const href = trigger.getAttribute("href") || "";
-      if (href.includes("#inquire")) {
-        event.preventDefault();
-        const initClass = trigger.getAttribute("data-initial-class") || "";
-        const initLoc = trigger.getAttribute("data-initial-locality") || "";
-        openModal({ initialClass: initClass, initialLocality: initLoc });
-        return;
-      }
-
-      // 3. Buttons/links with trigger keywords in text
-      const text = trigger.textContent?.trim().toLowerCase() || "";
-      if (
-        text.includes("find your tutor") ||
-        text.includes("find a tutor") ||
-        text.includes("request a tutor") ||
-        text.includes("book free trial") ||
-        text.includes("book trial")
-      ) {
-        event.preventDefault();
-        const initClass = trigger.getAttribute("data-initial-class") || "";
-        const initLoc = trigger.getAttribute("data-initial-locality") || "";
-        openModal({ initialClass: initClass, initialLocality: initLoc });
-      }
+      // Prevent default navigation and open modal
+      event.preventDefault();
+      const initClass = trigger.getAttribute("data-initial-class") || "";
+      const initLoc = trigger.getAttribute("data-initial-locality") || "";
+      openModal({ initialClass: initClass, initialLocality: initLoc });
     };
 
-    document.addEventListener("click", handleDocumentClick, true);
+    document.addEventListener("click", handleDocumentClick);
     return () => {
-      document.removeEventListener("click", handleDocumentClick, true);
+      document.removeEventListener("click", handleDocumentClick);
     };
   }, [openModal]);
 

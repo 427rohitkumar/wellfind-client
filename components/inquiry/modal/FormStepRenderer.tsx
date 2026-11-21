@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Check,
   MapPin,
@@ -60,7 +61,7 @@ export function FormStepRenderer({
           <div className="mb-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>Step 1 of 5</span>
+              <span>Step 1 of 6</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
               Select Student&apos;s Class
@@ -141,7 +142,7 @@ export function FormStepRenderer({
           <div className="mb-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
               <BookOpen className="w-3.5 h-3.5" />
-              <span>Step 2 of 5</span>
+              <span>Step 2 of 6</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
               Select Required Subject(s)
@@ -252,7 +253,7 @@ export function FormStepRenderer({
           <div className="mb-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
               <Clock className="w-3.5 h-3.5" />
-              <span>Step 3 of 5</span>
+              <span>Step 3 of 6</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
               Preferred Tuition Timing
@@ -331,7 +332,7 @@ export function FormStepRenderer({
           <div className="mb-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
               <MapPin className="w-3.5 h-3.5" />
-              <span>Step 4 of 5</span>
+              <span>Step 4 of 6</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
               Locality in Patna & Budget
@@ -439,9 +440,69 @@ export function FormStepRenderer({
   }
 
   // ----------------------------------------------------
-  // STEP 5: CONTACT DETAILS & REVIEW
+  // STEP 5: GENDER (student) & TEACHER PREFERENCE
   // ----------------------------------------------------
   if (currentStep === 5) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-full max-w-xl">
+          <div className="mb-5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
+              <User className="w-3.5 h-3.5" />
+              <span>Step 5 of 6</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
+              Gender &amp; Teacher Preference
+            </h3>
+            <p className="text-xs sm:text-sm text-[#53647D] mt-1">
+              This helps us match a teacher who is the right fit for the student.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <span className="block text-xs font-bold text-[#101D36] uppercase tracking-wider mb-2">
+                Student&apos;s gender <span className="text-red-500">*</span>
+              </span>
+              <div className="grid grid-cols-3 gap-3" role="radiogroup">
+                {([["male", "Boy", "👦"], ["female", "Girl", "👧"], ["other", "Other", "🧑"]] as const).map(([v, l, d]) => (
+                  <button key={v} type="button" role="radio" aria-checked={formData.studentGender === v} onClick={() => onChange({ studentGender: v })}
+                    className={`rounded-2xl border-2 px-3 py-4 text-center transition-colors ${formData.studentGender === v ? "border-[#35D0BA] bg-[#D7F6F1] text-[#0F6F63]" : "border-[#D7E2EE] bg-white text-[#101D36] hover:bg-[#F4F8FC]"}`}>
+                    <span className="block text-2xl">{d}</span>
+                    <span className="mt-1 block text-sm font-bold">{l}</span>
+                  </button>
+                ))}
+              </div>
+              {errorField === "studentGender" && (
+                <p className="text-xs text-red-600 font-semibold mt-1.5">Kripya student ka gender select kijiye.</p>
+              )}
+            </div>
+
+            <div>
+              <span className="block text-xs font-bold text-[#101D36] uppercase tracking-wider mb-2">
+                Which teacher do you prefer? <span className="text-[#53647D] lowercase font-normal">(optional)</span>
+              </span>
+              <div className="grid grid-cols-3 gap-3" role="radiogroup">
+                {([["male", "Male teacher", "👨‍🏫"], ["female", "Female teacher", "👩‍🏫"], ["any", "Anyone", "🙂"]] as const).map(([v, l, d]) => (
+                  <button key={v} type="button" role="radio" aria-checked={formData.preferredTeacherGender === v} onClick={() => onChange({ preferredTeacherGender: v })}
+                    className={`rounded-2xl border-2 px-3 py-4 text-center transition-colors ${formData.preferredTeacherGender === v ? "border-[#35D0BA] bg-[#D7F6F1] text-[#0F6F63]" : "border-[#D7E2EE] bg-white text-[#101D36] hover:bg-[#F4F8FC]"}`}>
+                    <span className="block text-2xl">{d}</span>
+                    <span className="mt-1 block text-sm font-bold">{l}</span>
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-[#53647D] mt-1.5">Choose &quot;Anyone&quot; if either is fine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ----------------------------------------------------
+  // STEP 6: CONTACT DETAILS & REVIEW
+  // ----------------------------------------------------
+  if (currentStep === 6) {
     return (
       <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-14">
         {/* Character Illustration (Left) */}
@@ -490,10 +551,10 @@ export function FormStepRenderer({
           <div className="mb-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D7F6F1] text-[#0F6F63] text-xs font-bold uppercase tracking-wider mb-2">
               <User className="w-3.5 h-3.5" />
-              <span>Step 5 of 5</span>
+              <span>Step 6 of 6</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-black text-[#101D36] tracking-tight">
-              Parent Contact Information
+              Student &amp; Contact Details
             </h3>
             <p className="text-xs sm:text-sm text-[#53647D] mt-1">
               Our academic counselor in Patna will contact you to confirm tutor profiles and demo schedule.
@@ -507,7 +568,7 @@ export function FormStepRenderer({
                 htmlFor="parentName"
                 className="block text-xs font-bold text-[#101D36] uppercase tracking-wider mb-1"
               >
-                Parent / Guardian Name <span className="text-red-500">*</span>
+                Student&apos;s Name <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#53647D]">
@@ -518,7 +579,7 @@ export function FormStepRenderer({
                   id="parentName"
                   value={formData.parentName}
                   onChange={(e) => onChange({ parentName: e.target.value })}
-                  placeholder="e.g. Rajesh Sharma"
+                  placeholder="Name of the student who will study"
                   className={`w-full pl-10 pr-3.5 py-3 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 ${
                     errorField === "parentName"
                       ? "border-red-400 bg-red-50/50 focus:ring-red-300"
@@ -530,7 +591,7 @@ export function FormStepRenderer({
               {errorField === "parentName" && (
                 <p className="text-xs text-red-600 font-semibold mt-1 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
-                  Kripya Parent ya Guardian ka naam enter kijiye.
+                  Kripya us student ka naam enter kijiye jise padhna hai (parent ka naam nahi).
                 </p>
               )}
             </div>
@@ -597,17 +658,30 @@ export function FormStepRenderer({
             </div>
 
             {/* Policy Consent */}
-            <div className="flex items-start gap-2.5 pt-1">
-              <input
-                type="checkbox"
-                id="agreedToPolicy"
-                checked={formData.agreedToPolicy}
-                onChange={(e) => onChange({ agreedToPolicy: e.target.checked })}
-                className="mt-0.5 rounded border-[#CBD5E1] text-[#35D0BA] focus:ring-[#35D0BA] cursor-pointer"
-              />
-              <label htmlFor="agreedToPolicy" className="text-[11px] text-[#53647D] leading-tight cursor-pointer">
-                I agree to be contacted by Wellfind Academic coordinators regarding home tutor options in Patna.
-              </label>
+            <div className={`mt-1 rounded-xl border-2 p-3.5 transition-colors ${formData.agreedToPolicy ? "border-[#35D0BA] bg-[#F0FBF9]" : "border-[#B8CCE0] bg-[#F8FAFC]"}`}>
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="agreedToPolicy"
+                  checked={formData.agreedToPolicy}
+                  onChange={(e) => onChange({ agreedToPolicy: e.target.checked })}
+                  className="mt-0.5 h-5 w-5 shrink-0 rounded border-[#94A3B8] accent-[#35D0BA] focus:ring-[#35D0BA] cursor-pointer"
+                />
+                <label htmlFor="agreedToPolicy" className="cursor-pointer text-sm font-semibold leading-snug text-[#101D36] sm:text-[15px]">
+                  I agree to be contacted by Wellfind Academic coordinators regarding home tutor options in Patna, and I accept the{" "}
+                  <Link href="/terms-and-conditions/" target="_blank" rel="noopener noreferrer" className="underline text-[#0F6F63] hover:text-[#101D36]" onClick={(e) => e.stopPropagation()}>
+                    Terms &amp; Conditions
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy-policy/" target="_blank" rel="noopener noreferrer" className="underline text-[#0F6F63] hover:text-[#101D36]" onClick={(e) => e.stopPropagation()}>
+                    Privacy Policy
+                  </Link>
+                  . <span className="text-red-500">*</span>
+                </label>
+              </div>
+              {!formData.agreedToPolicy && (
+                <p className="mt-2 pl-8 text-xs font-medium text-[#53647D]">Please tick this box to enable the Submit button.</p>
+              )}
             </div>
           </div>
         </div>

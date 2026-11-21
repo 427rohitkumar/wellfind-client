@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.4,
     },
+    {
+      url: `${baseUrl}/terms-and-conditions/`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
   ];
 
   // Active Sub-Locality Landing Pages (e.g. /patna/boring-road, /patna/kankarbagh)

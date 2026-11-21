@@ -41,9 +41,9 @@ export default function PrivacyPolicyPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#344054] leading-relaxed">
-              Last updated: October 2026. This Privacy Policy describes how
+              Last updated: November 2026. This Privacy Policy describes how
               Wellfind Academic collects, uses, and safeguards information
-              submitted through our website.
+              submitted through our website by parents, students and teachers.
             </p>
           </div>
         </div>
@@ -147,10 +147,41 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
-            {/* Section 6 */}
+            {/* Section 6 - Teacher applicants */}
             <div className="space-y-3 border-t border-[#D7E2EE] pt-6">
               <h2 className="text-xl sm:text-2xl font-bold text-[#101D36]">
-                6. Your Privacy Rights
+                6. Teacher Applicants
+              </h2>
+              <p>
+                If you apply to teach with Wellfind Academic through the
+                &quot;Join as a Teacher&quot; form, we collect:
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5 text-[#53647D]">
+                <li>Full name, mobile number and (optionally) email address.</li>
+                <li>Highest qualification, teaching experience, primary subject and class level.</li>
+                <li>Teaching locality, preferred availability and any notes you add.</li>
+              </ul>
+              <p>
+                We use this information only to review your profile, contact you,
+                conduct a basic screening test and interview, and match you with
+                suitable student requirements. Identity and qualification
+                documents are <strong>not</strong> collected through the website
+                form. If your application moves forward, our team will contact
+                you and issue login credentials so that you can upload documents
+                securely from your own teacher account. Those documents are
+                accessible only to authorised Wellfind administrators.
+              </p>
+              <p>
+                Your contact details are never shared with parents until your
+                profile is approved and a suitable student requirement is
+                matched, and we never sell teacher data to third parties.
+              </p>
+            </div>
+
+            {/* Section 7 */}
+            <div className="space-y-3 border-t border-[#D7E2EE] pt-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#101D36]">
+                7. Your Privacy Rights
               </h2>
               <p>
                 You may at any time request to review, update, or permanently delete
@@ -161,6 +192,16 @@ export default function PrivacyPolicyPage() {
                   className="text-[#101D36] underline font-medium hover:text-[#0F6F63]"
                 >
                   Contact Page
+                </Link>
+                .
+              </p>
+              <p>
+                You may also read our{" "}
+                <Link
+                  href="/terms-and-conditions/"
+                  className="text-[#101D36] underline font-medium hover:text-[#0F6F63]"
+                >
+                  Terms &amp; Conditions
                 </Link>
                 .
               </p>

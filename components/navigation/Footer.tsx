@@ -140,6 +140,12 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
+            <Link
+              href="/terms-and-conditions/"
+              className="hover:text-white transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
             <span>•</span>
             <Link
               href="/contact/"

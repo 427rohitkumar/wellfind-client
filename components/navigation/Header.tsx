@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
+import { useTutorEnquiryModal } from "@/components/inquiry/modal/TutorEnquiryModalContext";
 import { siteConfig, getWhatsAppUrl } from "@/config/site";
 
 /**
@@ -47,12 +48,20 @@ function isNavActive(itemTitle: string, itemHref: string, currentPath: string | 
     return normPath === "/classes" || normPath.startsWith("/classes/");
   }
 
-  // 4. About tab: active on /about and any nested /about/*
+  // 4. Teacher tab: active on /join-as-teacher and any nested /join-as-teacher/*
+  if (titleLower === "teacher" || titleLower === "teachers") {
+    return (
+      normPath === "/join-as-teacher" ||
+      normPath.startsWith("/join-as-teacher/")
+    );
+  }
+
+  // 5. About tab: active on /about and any nested /about/*
   if (titleLower === "about") {
     return normPath === "/about" || normPath.startsWith("/about/");
   }
 
-  // 5. Contact tab: active on /contact and any nested /contact/*
+  // 6. Contact tab: active on /contact and any nested /contact/*
   if (titleLower === "contact") {
     return normPath === "/contact" || normPath.startsWith("/contact/");
   }
@@ -65,6 +74,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const whatsappUrl = getWhatsAppUrl();
+  const { openModal } = useTutorEnquiryModal();
 
   // Close on Escape key
   useEffect(() => {
@@ -117,6 +127,10 @@ export function Header() {
             <Link
               href="/contact/#inquire"
               data-open-tutor-modal="true"
+              onClick={(e) => {
+                e.preventDefault();
+                openModal();
+              }}
               className="inline-flex items-center gap-1 px-4 py-2 rounded-lg bg-[#35D0BA] text-[#101D36] text-xs lg:text-sm font-bold hover:bg-[#2fc4af] transition-colors shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA] shrink-0"
             >
               <span>Find a Tutor</span>
@@ -178,7 +192,11 @@ export function Header() {
               size="lg"
               href="/contact/#inquire"
               data-open-tutor-modal="true"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                e?.preventDefault();
+                setMobileMenuOpen(false);
+                openModal();
+              }}
               className="w-full justify-center"
             >
               <span>Find a Tutor</span>

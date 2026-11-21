@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Button SVG Loader</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Primary Button Style (Wellfind Teal / Navy) */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #00897B;
+      border: none;
+      border-radius: 8px;
+      cursor: not-allowed;
+      opacity: 0.9;
+    }
+
+    /* Outline / Light Button Style */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0A1D42;
+      background-color: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark / Colored Button Example -->
+  <button class="btn-primary" disabled>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Faint Background Track -->
+      <circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-opacity="0.25" stroke-width="3" />
+      <!-- Rotating Smooth Arc -->
+      <circle
+        cx="12"
+        cy="12"
+        r="9.5"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-dasharray="22 40"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 12 12"
+          to="360 12 12"
+          dur="0.8s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
+    <span>Searching...</span>
+  </button>
+
+  <!-- White / Outline Button Example -->
+  <button class="btn-outline" disabled>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="9.5" stroke="#00897B" stroke-opacity="0.2" stroke-width="3" />
+      <circle
+        cx="12"
+        cy="12"
+        r="9.5"
+        stroke="#00897B"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-dasharray="22 40"
+      >
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 12 12"
+          to="360 12 12"
+          dur="0.8s"
+          repeatCount="indefinite"
+        />
+      </circle>
+    </svg>
+    <span>Please wait...</span>
+  </button>
+
+</body>
+</html>

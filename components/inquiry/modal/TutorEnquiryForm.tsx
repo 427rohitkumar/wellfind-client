@@ -38,7 +38,7 @@ export function TutorEnquiryForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionResult, setSubmissionResult] = useState<SubmissionResult | null>(null);
 
-  const totalSteps = 5;
+  const totalSteps = 6;
   const formContainerRef = useRef<HTMLDivElement>(null);
 
   // Field change handler that preserves all values and clears related errors
@@ -99,7 +99,13 @@ export function TutorEnquiryForm({
   const handleSubmit = async () => {
     if (isSubmitting) return;
 
-    // 1. Validate entire form from step 1 to 5
+    // Explicit consent is required before anything is sent.
+    if (!formData.agreedToPolicy) {
+      setStepError({ field: "agreedToPolicy", message: "Please accept the Terms & Conditions and Privacy Policy to continue." });
+      return;
+    }
+
+    // 1. Validate entire form from step 1 to 6
     const fullError = validateEntireForm(formData);
     if (fullError) {
       setStepError({ field: String(fullError.field), message: fullError.message });
@@ -259,6 +265,7 @@ export function TutorEnquiryForm({
           onNext={handleNext}
           onSubmit={handleSubmit}
           isSubmitting={isSubmitting}
+          canSubmit={formData.agreedToPolicy}
           errorMessage={stepError?.message}
         />
       </div>

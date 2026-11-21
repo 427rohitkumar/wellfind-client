@@ -13,9 +13,11 @@ export function proxy(request: NextRequest) {
     !pathname.startsWith("/_next/") &&
     !pathname.includes(".")
   ) {
-    const url = request.nextUrl.clone();
-    url.pathname = pathname.slice(0, -1);
-    return NextResponse.redirect(url, 308);
+    // Build a plain URL: NextURL.clone() keeps the trailing slash, which made this
+    // redirect point at itself (ERR_TOO_MANY_REDIRECTS).
+    const target = new URL(request.url);
+    target.pathname = pathname.replace(/\/+$/, "") || "/";
+    return NextResponse.redirect(target, 308);
   }
 
   return NextResponse.next();

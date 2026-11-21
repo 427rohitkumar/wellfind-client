@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTutorEnquiryModal } from "@/components/inquiry/modal/TutorEnquiryModalContext";
 
 export interface HeroSectionProps {
   title?: React.ReactNode;
@@ -22,6 +25,7 @@ export function HeroSection({
   secondaryCtaHref = "/classes",
   locality,
 }: HeroSectionProps = {}) {
+  const { openModal } = useTutorEnquiryModal();
   return (
     <section className="relative w-full bg-[#101D36] overflow-hidden min-h-[620px] h-[87dvh] max-h-[920px] lg:h-auto lg:min-h-[calc(100dvh-5rem)] lg:max-h-none flex flex-col justify-between pt-2 sm:pt-3 md:pt-4 pb-0 select-none">
       {/* =========================================================================
@@ -112,6 +116,10 @@ export function HeroSection({
             href={ctaHref}
             data-open-tutor-modal="true"
             data-initial-locality={locality}
+            onClick={(e) => {
+              e.preventDefault();
+              openModal({ initialLocality: locality });
+            }}
             className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-[#35D0BA] text-[#101D36] font-bold text-xs sm:text-sm md:text-base hover:bg-[#2fc4af] transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA]"
           >
             <span>{ctaText}</span>

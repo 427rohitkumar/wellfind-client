@@ -21,6 +21,7 @@ import {
   User,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { submitStudentEnquiry } from "@/lib/api";
 
 export interface InquiryFormProps {
   initialClass?: string;
@@ -30,31 +31,48 @@ export interface InquiryFormProps {
 
 export interface InquiryFormData {
   parentName: string;
+  studentGender: "male" | "female" | "other" | "";
+  preferredTeacherGender: "male" | "female" | "any";
   phoneNumber: string;
   studentClass: string;
   locality: string;
+  customLocality?: string;
+  budgetRange: string;
   subjects: string;
+  customSubject?: string;
   preferredTiming: string;
   additionalNotes: string;
 }
 
 export interface InquiryFormErrors {
   parentName?: string;
+  studentGender?: string;
   phoneNumber?: string;
   studentClass?: string;
   locality?: string;
+  customLocality?: string;
+  budgetRange?: string;
   subjects?: string;
+  customSubject?: string;
   preferredTiming?: string;
 }
 
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 6;
 
 const STEP_DETAILS = [
   { label: "Class", icon: GraduationCap },
   { label: "Subjects", icon: BookOpen },
   { label: "Timing", icon: Clock },
-  { label: "Location", icon: MapPin },
+  { label: "Location & Budget", icon: MapPin },
+  { label: "Gender", icon: User },
   { label: "Contact", icon: User },
+];
+
+export const BUDGET_OPTIONS = [
+  "₹2,500 – ₹4,000 / month",
+  "₹4,000 – ₹6,500 / month",
+  "₹6,500 – ₹9,000 / month",
+  "₹9,000+ / month (Senior/Specialist)",
 ];
 
 const SUBJECT_OPTIONS = [
@@ -85,10 +103,15 @@ function getInitialData(
 ): InquiryFormData {
   return {
     parentName: "",
+    studentGender: "",
+    preferredTeacherGender: "any",
     phoneNumber: "",
     studentClass: initialClass,
     locality: initialLocality,
+    customLocality: "",
+    budgetRange: "₹4,000 – ₹6,500 / month",
     subjects: "",
+    customSubject: "",
     preferredTiming: "",
     additionalNotes: "",
   };
@@ -110,6 +133,7 @@ export function InquiryForm({
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "endpoint_unconfigured" | "error"
   >("idle");
+  const [submitErrorMessage, setSubmitErrorMessage] = useState("");
   const [copied, setCopied] = useState(false);
 
   const updateField = (field: keyof InquiryFormData, value: string) => {
@@ -156,14 +180,27 @@ export function InquiryForm({
       firstInvalidField = "inquiry-timing";
     }
 
-    if (step === 4 && !formData.locality) {
-      nextErrors.locality = "Please select a locality in Patna";
-      firstInvalidField = "inquiry-locality";
+    if (step === 4) {
+      if (!formData.locality) {
+        nextErrors.locality = "Please select a locality in Patna";
+        firstInvalidField = "inquiry-locality";
+      } else if (
+        formData.locality === "Other Patna Locality" &&
+        !formData.customLocality?.trim()
+      ) {
+        nextErrors.customLocality = "Please specify your locality in Patna";
+        firstInvalidField = "inquiry-customLocality";
+      }
     }
 
-    if (step === 5) {
+    if (step === 5 && !formData.studentGender) {
+      nextErrors.studentGender = "Please select the student gender";
+      firstInvalidField = "inquiry-studentGender";
+    }
+
+    if (step === 6) {
       if (!formData.parentName.trim()) {
-        nextErrors.parentName = "Please enter parent or guardian name";
+        nextErrors.parentName = "Please enter the student name";
         firstInvalidField = "inquiry-parentName";
       }
 
@@ -207,10 +244,11 @@ export function InquiryForm({
   const formatSummaryText = (): string => {
     return [
       "*Wellfind Academic Tuition Inquiry*",
-      `Parent: ${formData.parentName.trim()}`,
+      `Student: ${formData.parentName.trim()}`,
       `Phone: ${formData.phoneNumber.trim()}`,
       `Class: ${formData.studentClass}`,
-      `Locality: ${formData.locality}`,
+      `Locality: ${formData.locality}${formData.customLocality ? ` (${formData.customLocality})` : ""}`,
+      `Budget Range: ${formData.budgetRange}`,
       `Subjects: ${formData.subjects.trim()}`,
       formData.preferredTiming.trim()
         ? `Preferred Timings: ${formData.preferredTiming.trim()}`
@@ -233,44 +271,49 @@ export function InquiryForm({
 
     setIsSubmitting(true);
     setSubmitStatus("idle");
-    const endpoint = siteConfig.contact.leadEndpoint;
+    setSubmitErrorMessage("");
 
-    if (endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            parentName: formData.parentName.trim(),
-            phoneNumber: formData.phoneNumber.trim(),
-            studentClass: formData.studentClass,
-            locality: formData.locality,
-            subjects: formData.subjects.trim(),
-            preferredTiming: formData.preferredTiming.trim(),
-            additionalNotes: formData.additionalNotes.trim(),
-            submittedAt: new Date().toISOString(),
-          }),
-        });
-        setSubmitStatus(response.ok ? "success" : "error");
-      } catch (error) {
-        console.error("Inquiry submission failed:", error);
-        setSubmitStatus("error");
-      } finally {
-        setIsSubmitting(false);
+    try {
+      const subjectsArray =
+        selectedSubjects.length > 0
+          ? [...selectedSubjects]
+          : formData.subjects.trim()
+            ? formData.subjects.split(",").map((s) => s.trim()).filter(Boolean)
+            : ["All School Subjects"];
+
+      if (formData.customSubject?.trim() && !subjectsArray.includes(formData.customSubject.trim())) {
+        subjectsArray.push(formData.customSubject.trim());
       }
-      return;
-    }
 
-    setIsSubmitting(false);
-    if (siteConfig.contact.whatsapp) {
-      const cleanNumber = siteConfig.contact.whatsapp.replace(/\D/g, "");
-      window.open(
-        `https://wa.me/${cleanNumber}?text=${encodeURIComponent(formatSummaryText())}`,
-        "_blank"
-      );
-      setSubmitStatus("success");
-    } else {
-      setSubmitStatus("endpoint_unconfigured");
+      const res = await submitStudentEnquiry({
+        name: formData.parentName.trim(),
+        parentName: formData.parentName.trim(),
+        studentGender: formData.studentGender || undefined,
+        preferredTeacherGender: formData.preferredTeacherGender,
+        phoneNumber: formData.phoneNumber.trim(),
+        studentClass: formData.studentClass,
+        locality: formData.locality,
+        customLocality: formData.customLocality?.trim() || undefined,
+        subjects: subjectsArray.length > 0 ? subjectsArray : ["All School Subjects"],
+        customSubject: formData.customSubject?.trim() || undefined,
+        preferredTiming: formData.preferredTiming.trim() || "Flexible",
+        budgetRange: formData.budgetRange || "₹4,000 – ₹6,500 / month",
+        additionalNotes: formData.additionalNotes.trim() || undefined,
+        agreedToPolicy: true,
+      });
+
+      if (res.success) {
+        setSubmitStatus("success");
+      } else {
+        setSubmitStatus("error");
+        setSubmitErrorMessage(res.message || res.error || "We couldn't submit your request.");
+      }
+    } catch (error) {
+      console.error("Inquiry submission failed:", error);
+      setSubmitStatus("error");
+      setSubmitErrorMessage("Network error: Could not reach backend server.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -280,6 +323,7 @@ export function InquiryForm({
     setCurrentStep(1);
     setErrors({});
     setSubmitStatus("idle");
+    setSubmitErrorMessage("");
   };
 
   const handleCopySummary = () => {
@@ -297,7 +341,9 @@ export function InquiryForm({
 
   return (
     <div
-      id="inquire"
+      id="inquiry-form-card"
+      data-inquiry-form="true"
+      data-no-modal="true"
       className={`relative overflow-hidden rounded-2xl sm:rounded-[24px] border border-[#D7E2EE] bg-white shadow-xl shadow-[#101D36]/5 ${className}`}
     >
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D0BA] via-[#0F6F63] to-[#35D0BA]" />
@@ -362,31 +408,20 @@ export function InquiryForm({
       </div>
 
       {submitStatus === "success" ? (
-        <div className="px-5 py-12 text-center sm:px-8 sm:py-14">
+        <div className="px-5 py-12 text-center sm:px-8 sm:py-14" role="status" aria-live="polite">
           <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F6F1] text-[#0F6F63] ring-8 ring-[#D7F6F1]/50">
             <CheckCircle2 className="h-9 w-9" strokeWidth={2.2} />
           </div>
-          <h4 className="text-2xl font-extrabold tracking-tight text-[#101D36]">Your tutor request is on its way</h4>
+          <h4 className="text-2xl font-extrabold tracking-tight text-[#101D36]">Your enquiry has been submitted successfully</h4>
           <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#53647D]">
-            Thanks, {formData.parentName || "there"}. Our team will review your requirements and contact you with suitable options.
+            Our team will contact you soon. Thanks, {formData.parentName || "there"} — we will review teacher availability in your locality and get in touch shortly.
           </p>
           <div className="mx-auto mt-5 flex max-w-md flex-wrap justify-center gap-2 text-xs font-semibold text-[#101D36]">
             <span className="rounded-full border border-[#35D0BA]/30 bg-[#F4F8FC] px-3 py-1.5">{formData.studentClass}</span>
-            <span className="rounded-full border border-[#35D0BA]/30 bg-[#F4F8FC] px-3 py-1.5">{formData.locality}</span>
+            <span className="rounded-full border border-[#35D0BA]/30 bg-[#F4F8FC] px-3 py-1.5">{formData.customLocality || formData.locality}</span>
             <span className="rounded-full border border-[#35D0BA]/30 bg-[#F4F8FC] px-3 py-1.5">{formData.subjects}</span>
           </div>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            {siteConfig.contact.whatsapp && (
-              <a
-                href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(formatSummaryText())}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#20ba59]"
-              >
-                <MessageCircle className="h-4 w-4 fill-white" />
-                Continue on WhatsApp
-              </a>
-            )}
             <button type="button" onClick={handleReset} className="inline-flex items-center gap-2 rounded-xl border border-[#D7E2EE] bg-white px-5 py-3 text-sm font-bold text-[#101D36] transition-colors hover:bg-[#F4F8FC]">
               <RotateCcw className="h-4 w-4 text-[#53647D]" />
               Submit another request
@@ -415,7 +450,10 @@ export function InquiryForm({
           {submitStatus === "error" && (
             <div role="alert" className="mx-5 mt-5 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900 sm:mx-8">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
-              <div><p className="font-bold">We couldn&apos;t submit your request</p><p className="mt-1 text-xs">Your details are still here. Please try again or contact us on WhatsApp.</p></div>
+              <div>
+                <p className="font-bold">We couldn&apos;t submit your request</p>
+                <p className="mt-1 text-xs">{submitErrorMessage || "Your details are still here. Please try again or contact us on WhatsApp."}</p>
+              </div>
             </div>
           )}
 
@@ -479,8 +517,8 @@ export function InquiryForm({
 
             {currentStep === 4 && (
               <fieldset>
-                <legend className="text-xl font-extrabold tracking-tight text-[#101D36] sm:text-2xl">Where will the classes take place?</legend>
-                <p className="mt-1.5 text-sm text-[#53647D]">We use your area to find tutors who can conveniently travel to you.</p>
+                <legend className="text-xl font-extrabold tracking-tight text-[#101D36] sm:text-2xl">Where will the classes take place &amp; your budget?</legend>
+                <p className="mt-1.5 text-sm text-[#53647D]">Select your area in Patna and your preferred monthly budget range.</p>
                 <div className="mt-6 space-y-5">
                   <div>
                     <label htmlFor="inquiry-locality" className="mb-1.5 block text-sm font-bold text-[#101D36]">Preferred locality <span className="text-red-500">*</span></label>
@@ -499,9 +537,57 @@ export function InquiryForm({
                     </div>
                     {renderError("locality")}
                   </div>
+                  {formData.locality === "Other Patna Locality" && (
+                    <div>
+                      <label htmlFor="inquiry-customLocality" className="mb-1.5 block text-sm font-bold text-[#101D36]">
+                        Specify your Patna locality <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        id="inquiry-customLocality"
+                        type="text"
+                        value={formData.customLocality || ""}
+                        onChange={(event) => updateField("customLocality", event.target.value)}
+                        placeholder="e.g. Ashiana Nagar, Bailey Road, Gola Road"
+                        className={inputClass}
+                      />
+                      {renderError("customLocality")}
+                    </div>
+                  )}
+
+                  {/* Monthly Budget Range */}
+                  <div>
+                    <label className="mb-2 block text-sm font-bold text-[#101D36]">
+                      Estimated monthly budget range <span className="text-xs font-normal text-[#53647D]">(select one)</span>
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {BUDGET_OPTIONS.map((budget) => {
+                        const isSelected = formData.budgetRange === budget;
+                        return (
+                          <button
+                            type="button"
+                            key={budget}
+                            onClick={() => updateField("budgetRange", budget)}
+                            className={`flex items-center justify-between rounded-xl border p-3.5 text-left text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                              isSelected
+                                ? "border-[#35D0BA] bg-[#EAF8F6] text-[#101D36] ring-2 ring-[#35D0BA]/30 shadow-xs"
+                                : "border-[#D7E2EE] bg-white text-[#344054] hover:bg-[#F4F8FC] hover:border-[#B8CCE0]"
+                            }`}
+                          >
+                            <span>{budget}</span>
+                            {isSelected && (
+                              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#35D0BA]">
+                                <Check className="h-3 w-3 text-[#101D36]" strokeWidth={3} />
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
                   <div>
                     <label htmlFor="inquiry-additionalNotes" className="mb-1.5 block text-sm font-bold text-[#101D36]">Any preference for the tutor? <span className="text-xs font-normal text-[#53647D]">(optional)</span></label>
-                    <textarea id="inquiry-additionalNotes" rows={3} value={formData.additionalNotes} onChange={(event) => updateField("additionalNotes", event.target.value)} placeholder="e.g. CBSE board, female tutor preferred, homework support" className={`${inputClass} h-auto resize-none py-3.5`} />
+                    <textarea id="inquiry-additionalNotes" rows={2} value={formData.additionalNotes} onChange={(event) => updateField("additionalNotes", event.target.value)} placeholder="e.g. CBSE board, female tutor preferred, homework support" className={`${inputClass} h-auto resize-none py-3`} />
                   </div>
                 </div>
               </fieldset>
@@ -509,12 +595,38 @@ export function InquiryForm({
 
             {currentStep === 5 && (
               <fieldset>
+                <legend className="text-xl font-extrabold tracking-tight text-[#101D36] sm:text-2xl">Who is the tutor for?</legend>
+                <p className="mt-1.5 text-sm text-[#53647D]">Tell us the student&apos;s gender and the kind of teacher you prefer.</p>
+                <div id="inquiry-studentGender" tabIndex={-1} className="mt-6 grid gap-6 outline-none">
+                  <div>
+                    <span className="mb-1.5 block text-sm font-bold text-[#101D36]">Student&apos;s gender <span className="text-red-500">*</span></span>
+                    <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Student gender">
+                      {([["male", "Boy"], ["female", "Girl"], ["other", "Other"]] as const).map(([v, l]) => (
+                        <button key={v} type="button" role="radio" aria-checked={formData.studentGender === v} onClick={() => updateField("studentGender", v)} className={`rounded-xl border px-3 py-2.5 text-sm font-semibold ${formData.studentGender === v ? "border-[#35D0BA] bg-[#D7F6F1] text-[#0F6F63]" : "border-[#D7E2EE] bg-white text-[#101D36]"}`}>{l}</button>
+                      ))}
+                    </div>
+                    {renderError("studentGender")}
+                  </div>
+                  <div>
+                    <span className="mb-1.5 block text-sm font-bold text-[#101D36]">Preferred teacher</span>
+                    <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Teacher gender preference">
+                      {([["male", "Male"], ["female", "Female"], ["any", "Anyone"]] as const).map(([v, l]) => (
+                        <button key={v} type="button" role="radio" aria-checked={formData.preferredTeacherGender === v} onClick={() => updateField("preferredTeacherGender", v)} className={`rounded-xl border px-3 py-2.5 text-sm font-semibold ${formData.preferredTeacherGender === v ? "border-[#35D0BA] bg-[#D7F6F1] text-[#0F6F63]" : "border-[#D7E2EE] bg-white text-[#101D36]"}`}>{l}</button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            )}
+
+            {currentStep === 6 && (
+              <fieldset>
                 <legend className="text-xl font-extrabold tracking-tight text-[#101D36] sm:text-2xl">Where should we send the tutor options?</legend>
-                <p className="mt-1.5 text-sm text-[#53647D]">Share your contact details and our team will get in touch.</p>
+                <p className="mt-1.5 text-sm text-[#53647D]">Enter the name of the student who will study (not the parent), plus a mobile number we can call.</p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="inquiry-parentName" className="mb-1.5 block text-sm font-bold text-[#101D36]">Parent / guardian name <span className="text-red-500">*</span></label>
-                    <input id="inquiry-parentName" type="text" autoComplete="name" value={formData.parentName} onChange={(event) => updateField("parentName", event.target.value)} placeholder="e.g. Ramesh Kumar" className={inputClass} />
+                    <label htmlFor="inquiry-parentName" className="mb-1.5 block text-sm font-bold text-[#101D36]">Student&apos;s name <span className="text-red-500">*</span></label>
+                    <input id="inquiry-parentName" type="text" autoComplete="name" value={formData.parentName} onChange={(event) => updateField("parentName", event.target.value)} placeholder="Name of the student who will study" className={inputClass} />
                     {renderError("parentName")}
                   </div>
                   <div>
@@ -529,7 +641,7 @@ export function InquiryForm({
                     <span><strong className="text-[#101D36]">Class:</strong> {formData.studentClass || "—"}</span>
                     <span><strong className="text-[#101D36]">Subjects:</strong> {formData.subjects || "—"}</span>
                     <span><strong className="text-[#101D36]">Timing:</strong> {formData.preferredTiming || "—"}</span>
-                    <span><strong className="text-[#101D36]">Area:</strong> {formData.locality || "—"}</span>
+                    <span><strong className="text-[#101D36]">Area:</strong> {formData.customLocality || formData.locality || "—"}</span>
                   </div>
                 </div>
                 <p className="mt-5 text-xs leading-relaxed text-[#53647D]">Your information is used only to coordinate suitable tutor options. By submitting, you agree to our <Link href="/privacy-policy/" className="font-semibold text-[#101D36] underline hover:text-[#35D0BA]">Privacy Policy</Link>.</p>
@@ -548,8 +660,23 @@ export function InquiryForm({
                 Continue <ArrowRight className="h-4 w-4" />
               </button>
             ) : (
-              <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 rounded-xl bg-[#35D0BA] px-5 py-2.5 text-sm font-bold text-[#101D36] shadow-sm transition-all hover:bg-[#2BBFA9] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 sm:px-6">
-                {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending...</> : <><Send className="h-4 w-4" /> Request a tutor</>}
+              <button
+                type="submit"
+                data-no-modal="true"
+                disabled={isSubmitting}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#35D0BA] px-5 py-2.5 text-sm font-bold text-[#101D36] shadow-sm transition-all hover:bg-[#2BBFA9] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 sm:px-6"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>Submitting enquiry...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    <span>Submit Enquiry</span>
+                  </>
+                )}
               </button>
             )}
           </div>

@@ -7,16 +7,19 @@ import {
   BriefcaseBusiness,
   CheckCircle2,
   ChevronDown,
+  Info,
   Loader2,
   Send,
   UserRound,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { submitTeacherApplication } from "@/lib/api";
 
 interface TeacherApplicationData {
   fullName: string;
   phoneNumber: string;
   email: string;
+  gender: "male" | "female" | "other" | "";
   qualification: string;
   subjects: string;
   classes: string;
@@ -40,6 +43,19 @@ const SUBJECT_OPTIONS = [
   "Computer / Coding",
 ];
 
+const QUALIFICATION_OPTIONS = [
+  "12th Pass",
+  "Diploma",
+  "Graduate (B.A. / B.Sc. / B.Com)",
+  "B.Tech / B.E.",
+  "B.Ed",
+  "Post Graduate (M.A. / M.Sc. / M.Com)",
+  "M.Tech / M.E.",
+  "M.Ed",
+  "PhD",
+  "Other",
+];
+
 const EXPERIENCE_OPTIONS = [
   "Less than 1 year",
   "1–3 years",
@@ -59,6 +75,7 @@ const initialData: TeacherApplicationData = {
   fullName: "",
   phoneNumber: "",
   email: "",
+  gender: "",
   qualification: "",
   subjects: "",
   classes: "",
@@ -77,6 +94,7 @@ export function TeacherApplicationForm() {
   const [errors, setErrors] = useState<TeacherApplicationErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "unconfigured" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const updateField = <K extends keyof TeacherApplicationData>(
     field: K,
@@ -97,14 +115,25 @@ export function TeacherApplicationForm() {
     const cleanPhone = formData.phoneNumber.replace(/\D/g, "");
 
     if (!formData.fullName.trim()) nextErrors.fullName = "Please enter your name";
-    if (!/^[6-9]\d{9}$/.test(cleanPhone)) nextErrors.phoneNumber = "Please enter a valid 10-digit mobile number";
-    if (!formData.qualification.trim()) nextErrors.qualification = "Please add your highest qualification";
+    if (!cleanPhone) {
+      nextErrors.phoneNumber = "Please enter your 10-digit mobile number";
+    } else if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      nextErrors.phoneNumber = "Please enter a valid 10-digit mobile number";
+    }
+
+    if (!formData.email.trim()) {
+      nextErrors.email = "Please enter your email address";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      nextErrors.email = "Please enter a valid email address";
+    }
+    if (!formData.gender) nextErrors.gender = "Please select your gender";
+    if (!formData.qualification.trim()) nextErrors.qualification = "Please select your highest qualification";
     if (!formData.subjects) nextErrors.subjects = "Please select a subject";
     if (!formData.classes) nextErrors.classes = "Please select the class level you teach";
     if (!formData.locality) nextErrors.locality = "Please select your locality";
     if (!formData.experience) nextErrors.experience = "Please select your experience";
     if (!formData.availability) nextErrors.availability = "Please select your availability";
-    if (!formData.agreedToPolicy) nextErrors.agreedToPolicy = "Please accept the privacy policy";
+    if (!formData.agreedToPolicy) nextErrors.agreedToPolicy = "Please accept the Terms & Conditions and Privacy Policy";
 
     setErrors(nextErrors);
     const firstError = Object.keys(nextErrors)[0];
@@ -117,7 +146,7 @@ export function TeacherApplicationForm() {
       "*Wellfind Academic — Teacher Partner Application*",
       `Name: ${formData.fullName.trim()}`,
       `Phone: ${formData.phoneNumber.trim()}`,
-      formData.email.trim() ? `Email: ${formData.email.trim()}` : null,
+      `Email: ${formData.email.trim()}`,
       `Qualification: ${formData.qualification.trim()}`,
       `Subjects: ${formData.subjects}`,
       `Classes: ${formData.classes}`,
@@ -135,45 +164,36 @@ export function TeacherApplicationForm() {
 
     setIsSubmitting(true);
     setStatus("idle");
-    const endpoint = siteConfig.contact.leadEndpoint;
+    setErrorMessage("");
 
-    if (endpoint) {
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            source: "Teacher Partner Application",
-            fullName: formData.fullName.trim(),
-            phoneNumber: formData.phoneNumber.trim(),
-            email: formData.email.trim(),
-            qualification: formData.qualification.trim(),
-            subjects: formData.subjects,
-            classes: formData.classes,
-            locality: formData.locality,
-            experience: formData.experience,
-            availability: formData.availability,
-            additionalNotes: formData.additionalNotes.trim(),
-            submittedAt: new Date().toISOString(),
-          }),
-        });
-        setStatus(response.ok ? "success" : "error");
-      } catch (error) {
-        console.error("Teacher application submission failed:", error);
+    try {
+      const res = await submitTeacherApplication({
+        fullName: formData.fullName.trim(),
+        mobileNumber: formData.phoneNumber.trim(),
+        email: formData.email.trim(),
+        gender: formData.gender || undefined,
+        highestQualification: formData.qualification.trim(),
+        teachingExperience: formData.experience,
+        primarySubject: formData.subjects,
+        classLevel: formData.classes,
+        teachingLocality: formData.locality,
+        preferredAvailability: formData.availability,
+        additionalNotes: formData.additionalNotes.trim() || undefined,
+        agreedToPolicy: true,
+      });
+
+      if (res.success) {
+        setStatus("success");
+      } else {
         setStatus("error");
-      } finally {
-        setIsSubmitting(false);
+        setErrorMessage(res.message || res.error || "Failed to submit teacher application.");
       }
-      return;
-    }
-
-    setIsSubmitting(false);
-    if (siteConfig.contact.whatsapp) {
-      const cleanNumber = siteConfig.contact.whatsapp.replace(/\D/g, "");
-      window.open(`https://wa.me/${cleanNumber}?text=${encodeURIComponent(formatSummary())}`, "_blank");
-      setStatus("success");
-    } else {
-      setStatus("unconfigured");
+    } catch (error) {
+      console.error("Teacher application submission failed:", error);
+      setStatus("error");
+      setErrorMessage("Network error: Could not reach backend server.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -185,17 +205,28 @@ export function TeacherApplicationForm() {
         </div>
         <h2 className="mt-5 text-2xl font-black tracking-tight text-[#101D36]">Profile received</h2>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#53647D]">
-          Thank you, {formData.fullName}. We&apos;ll review your details and contact you when a suitable home-tuition requirement is available.
+          Thank you, {formData.fullName}. We&apos;ll review your details and contact you when a suitable home-tuition requirement is available in {formData.locality || "Patna"}.
         </p>
-        <button type="button" onClick={() => { setFormData(initialData); setStatus("idle"); }} className="mt-6 text-sm font-bold text-[#0F6F63] underline underline-offset-2">
+        <button
+          type="button"
+          onClick={() => {
+            setFormData(initialData);
+            setStatus("idle");
+          }}
+          className="mt-6 text-sm font-bold text-[#0F6F63] underline underline-offset-2"
+        >
           Submit another profile
         </button>
       </div>
     );
   }
 
-  const errorText = (field: keyof TeacherApplicationData) =>
-    errors[field] ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{errors[field]}</p> : null;
+  const errorText = (field: keyof TeacherApplicationErrors) =>
+    errors[field] ? (
+      <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">
+        {errors[field]}
+      </p>
+    ) : null;
 
   return (
     <form onSubmit={handleSubmit} noValidate className="rounded-3xl border border-[#D7E2EE] bg-white p-5 shadow-lg sm:p-8">
@@ -212,7 +243,10 @@ export function TeacherApplicationForm() {
       {status === "error" && (
         <div role="alert" className="mt-5 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-900">
           <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
-          <div><p className="font-bold">We couldn&apos;t send your profile</p><p className="mt-1 text-xs">Please try again. Your details remain in this form.</p></div>
+          <div>
+            <p className="font-bold">We couldn&apos;t send your profile</p>
+            <p className="mt-1 text-xs">{errorMessage || "Please try again. Your details remain in this form."}</p>
+          </div>
         </div>
       )}
 
@@ -237,8 +271,22 @@ export function TeacherApplicationForm() {
               {errorText("phoneNumber")}
             </div>
             <div className="sm:col-span-2">
-              <label htmlFor="teacher-email" className="mb-1.5 block text-sm font-bold text-[#101D36]">Email address <span className="text-xs font-normal text-[#53647D]">(optional)</span></label>
-              <input id="teacher-email" type="email" autoComplete="email" value={formData.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@example.com" className={inputClass} />
+              <span className="mb-1.5 block text-sm font-bold text-[#101D36]">Your gender <span className="text-red-500">*</span></span>
+              <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Gender">
+                {([["male", "Male"], ["female", "Female"], ["other", "Other"]] as const).map(([v, l]) => (
+                  <button key={v} type="button" role="radio" aria-checked={formData.gender === v} onClick={() => updateField("gender", v)} className={`rounded-xl border px-3 py-2.5 text-sm font-semibold ${formData.gender === v ? "border-[#35D0BA] bg-[#D7F6F1] text-[#0F6F63]" : "border-[#D7E2EE] bg-white text-[#101D36]"}`}>{l}</button>
+                ))}
+              </div>
+              {errorText("gender")}
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="teacher-email" className="mb-1.5 block text-sm font-bold text-[#101D36]">Email address <span className="text-red-500">*</span></label>
+              <input id="teacher-email" type="email" autoComplete="email" value={formData.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@example.com" className={inputClass} aria-describedby="teacher-email-note" />
+              <p id="teacher-email-note" className="mt-1.5 flex items-center gap-1.5 text-xs text-[#53647D]">
+                <Info className="h-3.5 w-3.5 shrink-0 text-[#0F6F63]" />
+                <span>Application status updates will be sent to this email. Please enter a valid email you use daily.</span>
+              </p>
+              {errorText("email")}
             </div>
           </div>
         </section>
@@ -248,7 +296,13 @@ export function TeacherApplicationForm() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="teacher-qualification" className="mb-1.5 block text-sm font-bold text-[#101D36]">Highest qualification <span className="text-red-500">*</span></label>
-              <input id="teacher-qualification" value={formData.qualification} onChange={(event) => updateField("qualification", event.target.value)} placeholder="e.g. B.Sc. Mathematics" className={inputClass} />
+              <div className="relative">
+                <select id="teacher-qualification" value={formData.qualification} onChange={(event) => updateField("qualification", event.target.value)} className={`${inputClass} appearance-none pr-10 ${!formData.qualification ? "text-[#53647D]/70" : ""}`}>
+                  <option value="">Select qualification</option>
+                  {QUALIFICATION_OPTIONS.map((option) => <option key={option} value={option}>{option}</option>)}
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#53647D]" />
+              </div>
               {errorText("qualification")}
             </div>
             <div>
@@ -256,7 +310,7 @@ export function TeacherApplicationForm() {
               <div className="relative">
                 <select id="teacher-experience" value={formData.experience} onChange={(event) => updateField("experience", event.target.value)} className={`${inputClass} appearance-none pr-10 ${!formData.experience ? "text-[#53647D]/70" : ""}`}>
                   <option value="">Select experience</option>
-                  {EXPERIENCE_OPTIONS.map((option) => <option key={option}>{option}</option>)}
+                  {EXPERIENCE_OPTIONS.map((option) => <option key={option} value={option}>{option}</option>)}
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#53647D]" />
               </div>
@@ -267,7 +321,7 @@ export function TeacherApplicationForm() {
               <div className="relative">
                 <select id="teacher-subjects" value={formData.subjects} onChange={(event) => updateField("subjects", event.target.value)} className={`${inputClass} appearance-none pr-10 ${!formData.subjects ? "text-[#53647D]/70" : ""}`}>
                   <option value="">Select subject</option>
-                  {SUBJECT_OPTIONS.map((option) => <option key={option}>{option}</option>)}
+                  {SUBJECT_OPTIONS.map((option) => <option key={option} value={option}>{option}</option>)}
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#53647D]" />
               </div>
@@ -298,8 +352,8 @@ export function TeacherApplicationForm() {
               <div className="relative">
                 <select id="teacher-locality" value={formData.locality} onChange={(event) => updateField("locality", event.target.value)} className={`${inputClass} appearance-none pr-10 ${!formData.locality ? "text-[#53647D]/70" : ""}`}>
                   <option value="">Select locality in Patna</option>
-                  {siteConfig.serviceAreas.map((area) => <option key={area.slug}>{area.name}</option>)}
-                  <option>Other Patna locality</option>
+                  {siteConfig.serviceAreas.map((area) => <option key={area.slug} value={area.name}>{area.name}</option>)}
+                  <option value="Other Patna locality">Other Patna locality</option>
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#53647D]" />
               </div>
@@ -310,7 +364,7 @@ export function TeacherApplicationForm() {
               <div className="relative">
                 <select id="teacher-availability" value={formData.availability} onChange={(event) => updateField("availability", event.target.value)} className={`${inputClass} appearance-none pr-10 ${!formData.availability ? "text-[#53647D]/70" : ""}`}>
                   <option value="">Select availability</option>
-                  {AVAILABILITY_OPTIONS.map((option) => <option key={option}>{option}</option>)}
+                  {AVAILABILITY_OPTIONS.map((option) => <option key={option} value={option}>{option}</option>)}
                 </select>
                 <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#53647D]" />
               </div>
@@ -327,10 +381,11 @@ export function TeacherApplicationForm() {
       <div className="mt-7 border-t border-[#D7E2EE] pt-5">
         <label className="flex items-start gap-2.5 text-xs leading-relaxed text-[#53647D]" htmlFor="teacher-agreedToPolicy">
           <input id="teacher-agreedToPolicy" type="checkbox" checked={formData.agreedToPolicy} onChange={(event) => updateField("agreedToPolicy", event.target.checked)} className="mt-0.5 h-4 w-4 rounded border-[#B8CCE0] accent-[#35D0BA]" />
-          <span>I agree to share these details with Wellfind Academic for teacher profile review. Read our <Link href="/privacy-policy/" className="font-semibold text-[#101D36] underline">Privacy Policy</Link>.</span>
+          <span>I agree to the <Link href="/terms-and-conditions/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#101D36] underline">Terms &amp; Conditions</Link> and <Link href="/privacy-policy/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#101D36] underline">Privacy Policy</Link>, and I agree to share these details with Wellfind Academic for teacher profile review.</span>
         </label>
         {errorText("agreedToPolicy")}
-        <button type="submit" disabled={isSubmitting} className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#35D0BA] px-6 text-sm font-bold text-[#101D36] shadow-sm transition-all hover:bg-[#2BBFA9] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60">
+        {!formData.agreedToPolicy && <p className="mt-3 text-[11px] text-[#8A9EB8]">Tick the box above to enable submission.</p>}
+        <button type="submit" disabled={isSubmitting || !formData.agreedToPolicy} aria-disabled={isSubmitting || !formData.agreedToPolicy} title={!formData.agreedToPolicy ? "Accept the Terms & Conditions and Privacy Policy to continue" : undefined} className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#35D0BA] px-6 text-sm font-bold text-[#101D36] shadow-sm transition-all hover:bg-[#2BBFA9] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60">
           {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending profile...</> : <><Send className="h-4 w-4" /> Submit teacher profile</>}
         </button>
         <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-[#8A9EB8]"><BriefcaseBusiness className="h-3.5 w-3.5" /> We contact teachers when a suitable requirement is available.</p>

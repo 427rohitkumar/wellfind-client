@@ -12,6 +12,7 @@ const STEP_LABELS = [
   "Subjects",
   "Preferred Timing",
   "Locality & Budget",
+  "Gender Preference",
   "Contact Details",
 ];
 
@@ -22,7 +23,7 @@ export function FormProgressIndicator({
   const progressPercentage = Math.round((currentStep / totalSteps) * 100);
 
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-2 select-none">
+    <div className="w-full max-w-2xl mx-auto px-4 py-2 select-none">
       {/* Top Meta: Step Count & Current Label */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
@@ -46,17 +47,17 @@ export function FormProgressIndicator({
         />
       </div>
 
-      {/* Step Dots (Desktop / Tablet) */}
-      <div className="hidden sm:flex justify-between items-center mt-2 px-1">
+      {/* Step Dots (Desktop / Tablet): equal columns so labels never overlap */}
+      <div
+        className="hidden sm:grid mt-3"
+        style={{ gridTemplateColumns: `repeat(${totalSteps}, minmax(0, 1fr))` }}
+      >
         {Array.from({ length: totalSteps }, (_, i) => i + 1).map((stepNumber) => {
           const isCompleted = stepNumber < currentStep;
           const isCurrent = stepNumber === currentStep;
 
           return (
-            <div
-              key={stepNumber}
-              className="flex items-center gap-1.5"
-            >
+            <div key={stepNumber} className="flex flex-col items-center gap-1.5 px-0.5 text-center">
               <div
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   isCompleted
@@ -67,7 +68,7 @@ export function FormProgressIndicator({
                 }`}
               />
               <span
-                className={`text-[11px] font-medium hidden md:inline transition-colors ${
+                className={`hidden md:block text-[11px] leading-tight font-medium transition-colors ${
                   isCurrent
                     ? "text-[#101D36] font-bold"
                     : isCompleted

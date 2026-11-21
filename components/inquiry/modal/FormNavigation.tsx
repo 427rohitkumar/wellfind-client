@@ -11,6 +11,8 @@ interface FormNavigationProps {
   onNext: () => void;
   onSubmit: () => void;
   isSubmitting?: boolean;
+  /** When false the final submit button stays disabled (e.g. consent not given). */
+  canSubmit?: boolean;
   errorMessage?: string | null;
 }
 
@@ -21,6 +23,7 @@ export function FormNavigation({
   onNext,
   onSubmit,
   isSubmitting = false,
+  canSubmit = true,
   errorMessage = null,
 }: FormNavigationProps) {
   const isFirstStep = currentStep === 1;
@@ -83,8 +86,9 @@ export function FormNavigation({
               variant="accent"
               size="md"
               onClick={onSubmit}
-              disabled={isSubmitting}
-              className="inline-flex items-center gap-2 px-7 py-2.5 rounded-xl font-black text-xs sm:text-sm cursor-pointer shadow-lg hover:shadow-xl transition-all"
+              disabled={isSubmitting || !canSubmit}
+              title={!canSubmit ? "Please tick the agreement box to submit" : undefined}
+              className="inline-flex items-center gap-2 px-7 py-2.5 rounded-xl font-black text-xs sm:text-sm cursor-pointer shadow-lg hover:shadow-xl transition-all disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
             >
               {isSubmitting ? (
                 <>
