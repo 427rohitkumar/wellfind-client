@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { generalFaqs } from "@/content/faqs";
+import { JsonLd, buildFaqJsonLd } from "@/components/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -64,6 +65,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={buildFaqJsonLd(generalFaqs)} />
+
       {/* SECTION 1: HERO (Pixel-Perfect Figma Reference Implementation) */}
       <HeroSection />
 

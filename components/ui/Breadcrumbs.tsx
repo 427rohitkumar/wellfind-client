@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
-import { siteConfig } from "@/config/site";
+import { JsonLd, buildBreadcrumbJsonLd } from "@/components/JsonLd";
 
 export interface BreadcrumbItem {
   label: string;
@@ -14,31 +14,12 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className = "" }: BreadcrumbsProps) {
-  // Breadcrumb Schema for SEO
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteConfig.url,
-      },
-      ...items.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 2,
-        name: item.label,
-        item: item.href ? `${siteConfig.url}${item.href}` : undefined,
-      })),
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <JsonLd
+        data={buildBreadcrumbJsonLd(
+          items.map((item) => ({ name: item.label, path: item.href }))
+        )}
       />
       <nav
         aria-label="Breadcrumb"

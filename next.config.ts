@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { getAllSeoSlugs } from "./data/seo-locations";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -17,6 +18,15 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  // Programmatic SEO pages keep their keyword URLs (/home-tutor-in-boring-road-patna,
+  // /cbse-home-tutor-patna) while one internal route renders them. Only known slugs are
+  // rewritten, so every other unknown root URL still gets a real 404.
+  async rewrites() {
+    return getAllSeoSlugs().map((slug) => ({
+      source: `/${slug}`,
+      destination: `/seo/${slug}`,
+    }));
   },
   async redirects() {
     return [

@@ -36,14 +36,11 @@ export const metadata: Metadata = {
   title: "About Wellfind Academic | Managed One-to-One Home Education in Patna",
   description:
     "Wellfind Academic provides managed one-to-one home education for students from UKG to Class 10 in Patna. The right teacher, structured learning, and progress you can see.",
-  alternates: {
-    canonical: `${siteConfig.url}/about/`,
-  },
   openGraph: {
     title: "About Wellfind Academic | Managed One-to-One Home Education in Patna",
     description:
       "Teachers deliver the education, but Wellfind maintains the quality. Learn about our structured approach to home tuition in Patna.",
-    url: `${siteConfig.url}/about/`,
+    url: `${siteConfig.url}/about`,
   },
 };
 

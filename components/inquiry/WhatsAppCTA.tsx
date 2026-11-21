@@ -9,6 +9,8 @@ interface WhatsAppCTAProps {
   variant?: "primary" | "accent" | "secondary" | "outline" | "whatsapp";
   size?: "sm" | "md" | "lg";
   label?: string;
+  /** Optional explicit location for the whatsapp_click event (falls back to the nearest section id). */
+  trackingLocation?: string;
 }
 
 export function WhatsAppCTA({
@@ -17,6 +19,7 @@ export function WhatsAppCTA({
   variant = "whatsapp",
   size = "md",
   label = "Enquire on WhatsApp",
+  trackingLocation,
 }: WhatsAppCTAProps) {
   const url = getWhatsAppUrl(customMessage);
 
@@ -43,6 +46,7 @@ export function WhatsAppCTA({
       isExternal
       className={className}
       aria-label={`${label} (opens WhatsApp)`}
+      data-track-location={trackingLocation}
     >
       <MessageCircle className="w-4 h-4" />
       <span>{label}</span>

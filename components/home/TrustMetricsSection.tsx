@@ -12,15 +12,15 @@ interface TrustMetric {
 const trustMetricsData: TrustMetric[] = [
   {
     id: "verified-teachers",
-    numberValue: 20000,
+    numberValue: 500,
     suffix: "+",
-    title: "Verified Teachers",
+    title: "Verified Patna Tutors",
   },
   {
     id: "active-students",
-    numberValue: 10000,
+    numberValue: 1200,
     suffix: "+",
-    title: "Active Students",
+    title: "Students Mentored",
   },
   {
     id: "areas-in-patna",

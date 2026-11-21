@@ -11,14 +11,11 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Wellfind Academic",
   description:
     "Read the Wellfind Academic Privacy Policy. Learn how we handle parent inquiry information responsibly, minimize data collection, and protect family privacy.",
-  alternates: {
-    canonical: `${siteConfig.url}/privacy-policy/`,
-  },
   openGraph: {
     title: "Privacy Policy | Wellfind Academic",
     description:
       "Learn how Wellfind Academic handles parent and student inquiry data responsibly.",
-    url: `${siteConfig.url}/privacy-policy/`,
+    url: `${siteConfig.url}/privacy-policy`,
   },
 };
 

@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { siteConfig, getWhatsAppUrl, getPhoneUrl } from "@/config/site";
+import {
+  SEO_LOCALITIES,
+  SEO_CLASS_PAGES,
+  getSeoLocalityPath,
+  getSeoClassPath,
+} from "@/data/seo-locations";
 
 export function Footer() {
   const currentYear = 2026;
@@ -31,10 +37,18 @@ export function Footer() {
               Service Areas
             </h3>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:text-sm">
-              {siteConfig.serviceAreas.map((area) => (
+              <li>
+                <Link
+                  href="/patna"
+                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
+                >
+                  Patna (All Areas)
+                </Link>
+              </li>
+              {SEO_LOCALITIES.map((area) => (
                 <li key={area.slug}>
                   <Link
-                    href={area.href}
+                    href={getSeoLocalityPath(area.slug)}
                     className="text-slate-300 hover:text-[#35D0BA] transition-colors"
                   >
                     {area.name}
@@ -47,19 +61,27 @@ export function Footer() {
           {/* Classes */}
           <div>
             <h3 className="text-sm font-semibold tracking-wider uppercase text-[#35D0BA] mb-3.5">
-              Classes
+              Classes &amp; Boards
             </h3>
             <ul className="grid grid-cols-2 gap-x-2 gap-y-2 text-xs sm:text-sm">
-              {siteConfig.classes.map((cls) => (
-                <li key={cls.slug}>
+              {SEO_CLASS_PAGES.map((cls) => (
+                <li key={cls.slug} className="col-span-2">
                   <Link
-                    href={cls.href}
+                    href={getSeoClassPath(cls.slug)}
                     className="text-slate-300 hover:text-[#35D0BA] transition-colors"
                   >
-                    {cls.label}
+                    {cls.name} Home Tutor
                   </Link>
                 </li>
               ))}
+              <li className="col-span-2">
+                <Link
+                  href="/classes"
+                  className="text-slate-300 hover:text-[#35D0BA] transition-colors"
+                >
+                  All Classes (UKG to 10)
+                </Link>
+              </li>
             </ul>
           </div>
 

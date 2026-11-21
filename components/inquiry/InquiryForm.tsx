@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { submitStudentEnquiry } from "@/lib/api";
+import { trackTutorFormStep, trackTutorLeadSubmitted } from "@/lib/analytics";
 
 export interface InquiryFormProps {
   initialClass?: string;
@@ -234,6 +235,11 @@ export function InquiryForm({
 
   const handleNext = () => {
     if (!validateStep(currentStep)) return;
+    trackTutorFormStep({
+      stepNumber: currentStep,
+      selectedClass: formData.studentClass,
+      selectedLocality: formData.locality,
+    });
     if (currentStep < TOTAL_STEPS) moveToStep(currentStep + 1, "forward");
   };
 
@@ -269,6 +275,11 @@ export function InquiryForm({
     }
     if (!validateStep(TOTAL_STEPS)) return;
 
+    trackTutorFormStep({
+      stepNumber: TOTAL_STEPS,
+      selectedClass: formData.studentClass,
+      selectedLocality: formData.locality,
+    });
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setSubmitErrorMessage("");
@@ -303,6 +314,11 @@ export function InquiryForm({
       });
 
       if (res.success) {
+        trackTutorLeadSubmitted({
+          formType: "parent_enquiry",
+          selectedClass: formData.studentClass,
+          selectedLocality: formData.locality,
+        });
         setSubmitStatus("success");
       } else {
         setSubmitStatus("error");

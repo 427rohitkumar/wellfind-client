@@ -13,6 +13,7 @@ import {
 } from "./formSchema";
 import { submitTutorEnquiry, SubmissionResult } from "./enquiryService";
 import { Button } from "@/components/ui/Button";
+import { trackTutorFormStep, trackTutorLeadSubmitted } from "@/lib/analytics";
 
 interface TutorEnquiryFormProps {
   onClose: () => void;
@@ -83,6 +84,11 @@ export function TutorEnquiryForm({
 
     // Step is valid, clear error and advance
     setStepError(null);
+    trackTutorFormStep({
+      stepNumber: currentStep,
+      selectedClass: formData.studentClass,
+      selectedLocality: formData.locality,
+    });
     if (currentStep < totalSteps) {
       goToStep(currentStep + 1, "forward");
     }
@@ -125,13 +131,26 @@ export function TutorEnquiryForm({
       return;
     }
 
-    // 2. Submit to service
+    // 2. Submit to service (final step is complete once validation passes)
+    trackTutorFormStep({
+      stepNumber: totalSteps,
+      selectedClass: formData.studentClass,
+      selectedLocality: formData.locality,
+    });
     setIsSubmitting(true);
     setStepError(null);
 
     try {
       const result = await submitTutorEnquiry(formData);
       setSubmissionResult(result);
+
+      if (result.status === "success") {
+        trackTutorLeadSubmitted({
+          formType: "parent_enquiry",
+          selectedClass: formData.studentClass,
+          selectedLocality: formData.locality,
+        });
+      }
 
       // If server returned field validation errors, map to relevant step
       if (result.status === "error" && result.fieldErrors) {

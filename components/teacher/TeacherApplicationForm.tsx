@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { submitTeacherApplication } from "@/lib/api";
+import { trackTutorLeadSubmitted } from "@/lib/analytics";
 
 interface TeacherApplicationData {
   fullName: string;
@@ -183,6 +184,7 @@ export function TeacherApplicationForm() {
       });
 
       if (res.success) {
+        trackTutorLeadSubmitted({ formType: "tutor_registration" });
         setStatus("success");
       } else {
         setStatus("error");

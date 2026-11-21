@@ -93,9 +93,12 @@ export function PatnaLocationsSection({
           {/* ======================================================== */}
           <div className="order-2 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 lg:self-center relative flex flex-col items-center justify-center">
             {/* Map Video Container */}
-            <div className="relative w-full max-w-[720px] lg:max-w-none flex items-center justify-center">
+            <div className="relative w-full max-w-[720px] lg:max-w-none flex flex-col sm:flex-row items-center justify-center">
               <div className="relative w-full group">
                 <video
+                  aria-label="Animated map of Patna showing the localities where Wellfind Academic home tutors are active"
+                  aria-describedby="patna-map-description"
+                  poster="/patna-maps.png"
                   autoPlay
                   loop
                   muted
@@ -104,8 +107,15 @@ export function PatnaLocationsSection({
                   className="w-full h-auto object-cover select-none pointer-events-none transform group-hover:scale-[1.02] transition-transform duration-700 mask-[radial-gradient(circle_at_center,#ffffff_0%,#ffffff_35%,transparent_100%)] -webkit-mask-[radial-gradient(circle_at_center,#ffffff_0%,#ffffff_35%,transparent_100%)]"
                 >
                   <source src="/Patna-location.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
+                  Your browser does not support the video tag. Wellfind Academic
+                  home tutors are active across 10+ localities in Patna, Bihar.
                 </video>
+                <p id="patna-map-description" className="sr-only">
+                  Map of Patna highlighting the areas where Wellfind Academic
+                  provides verified one-to-one home tutors, including Boring
+                  Road, Kankarbagh, Rajendra Nagar, Bailey Road, Patliputra,
+                  Danapur, Kadamkuan, Khagaul, Phulwari Sharif and Rajapull.
+                </p>
 
                 {/* Soft edge fade into #EAF0F8 background - no sharp corners */}
                 <div
@@ -114,36 +124,20 @@ export function PatnaLocationsSection({
                 />
               </div>
 
-              {/* Floating Bottom-Right Information Card (Desktop floating, responsive stack on small screens) */}
-              <div className="hidden sm:flex absolute right-2 md:right-4 lg:right-2 xl:right-6 bottom-0 sm:bottom-2 lg:bottom-1 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 lg:p-4.5 border border-[#D7E2EE] shadow-lg max-w-[260px] lg:max-w-[280px] z-20 items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#D7F6F1] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 text-[#0E7A6C]">
-                  <MapPin className="w-5 h-5 text-[#35D0BA]" strokeWidth={2.3} />
+              {/* Info card: stacked under the map on mobile, floating bottom-right from sm+ */}
+              <div className="mt-3.5 flex w-full items-center gap-3 rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm sm:absolute sm:right-2 sm:bottom-2 sm:z-20 sm:mt-0 sm:w-auto sm:max-w-[260px] sm:items-start sm:bg-white/95 sm:p-4 sm:shadow-lg sm:backdrop-blur-md md:right-4 lg:right-2 lg:bottom-1 lg:max-w-[280px] xl:right-6">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#35D0BA]/30 bg-[#D7F6F1] text-[#0E7A6C]">
+                  <MapPin className="h-5 w-5 text-[#35D0BA]" strokeWidth={2.3} />
                 </div>
                 <div>
-                  <div className="text-lg sm:text-xl font-black leading-tight">
+                  <div className="text-base font-black leading-tight sm:text-xl">
                     <span className="text-[#35D0BA]">10+ Areas</span>{" "}
                     <span className="text-[#101D36]">in Patna</span>
                   </div>
-                  <p className="mt-1 text-xs text-[#53647D] leading-snug font-medium">
+                  <p className="mt-0.5 text-xs font-medium leading-snug text-[#53647D] sm:mt-1">
                     And we are expanding to more locations soon.
                   </p>
                 </div>
-              </div>
-            </div>
-
-            {/* Mobile-friendly Bottom Information Card (shown below the map on screens < sm) */}
-            <div className="sm:hidden mt-3.5 w-full bg-white rounded-2xl p-4 border border-[#D7E2EE] shadow-sm flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#D7F6F1] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 text-[#0E7A6C]">
-                <MapPin className="w-5 h-5 text-[#35D0BA]" strokeWidth={2.3} />
-              </div>
-              <div>
-                <div className="text-base font-black leading-tight">
-                  <span className="text-[#35D0BA]">10+ Areas</span>{" "}
-                  <span className="text-[#101D36]">in Patna</span>
-                </div>
-                <p className="mt-0.5 text-xs text-[#53647D] leading-snug font-medium">
-                  And we are expanding to more locations soon.
-                </p>
               </div>
             </div>
           </div>

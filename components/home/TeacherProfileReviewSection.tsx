@@ -54,7 +54,7 @@ const reviewSteps = [
   },
 ] as const;
 
-function DesktopStep({
+function ReviewStep({
   step,
   isLast,
 }: {
@@ -64,62 +64,59 @@ function DesktopStep({
   const Icon = step.icon;
 
   return (
-    <div className="relative flex min-w-0 flex-1 flex-col items-center text-center">
-      <div className="relative z-10 flex h-[74px] w-[74px] items-center justify-center rounded-[24px] border-4 border-white bg-white shadow-lg" style={{ boxShadow: `0 10px 25px ${step.accent}30` }}>
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl" style={{ backgroundColor: `${step.accent}20`, color: step.accent }}>
-          <Icon className="h-6 w-6" strokeWidth={2.1} />
+    <li className="relative flex gap-4 lg:min-w-0 lg:flex-1 lg:flex-col lg:items-center lg:gap-0 lg:text-center">
+      <div className="relative z-10 flex w-12 shrink-0 justify-center lg:w-auto">
+        <div
+          className="flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-white bg-white shadow-md lg:h-[74px] lg:w-[74px] lg:rounded-[24px] lg:border-4 lg:shadow-lg"
+          style={{ color: step.accent, boxShadow: `0 8px 20px ${step.accent}30` }}
+        >
+          <div
+            className="flex h-full w-full items-center justify-center rounded-2xl lg:h-12 lg:w-12"
+            style={{ backgroundColor: `${step.accent}20`, color: step.accent }}
+          >
+            <Icon className="h-5 w-5 lg:h-6 lg:w-6" strokeWidth={2.1} />
+          </div>
         </div>
-        <span className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#101D36] text-[10px] font-black text-white shadow-sm">
+        <span className="absolute -right-0.5 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#101D36] text-[9px] font-black text-white ring-2 ring-white lg:-right-2 lg:h-7 lg:w-7 lg:text-[10px] lg:shadow-sm">
           {step.number}
         </span>
       </div>
 
-      <div className="mt-5 min-h-[88px] px-1">
-        <h3 className="text-base font-extrabold tracking-tight text-[#101D36]">{step.title}</h3>
-        <p className="mx-auto mt-1.5 max-w-[150px] text-xs leading-relaxed text-[#53647D]">{step.description}</p>
+      <div className="min-w-0 flex-1 pb-7 lg:mt-5 lg:min-h-[88px] lg:flex-none lg:px-1 lg:pb-0">
+        <div className="rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+          <div className="flex items-center justify-between gap-3 lg:justify-center">
+            <h3 className="text-sm font-extrabold text-[#101D36] lg:text-base lg:tracking-tight">
+              {step.title}
+            </h3>
+            <Check
+              aria-hidden="true"
+              className="h-4 w-4 shrink-0 text-[#35D0BA] lg:hidden"
+              strokeWidth={3}
+            />
+          </div>
+          <p className="mt-1 text-xs leading-relaxed text-[#53647D] lg:mx-auto lg:mt-1.5 lg:max-w-[150px]">
+            {step.description}
+          </p>
+        </div>
       </div>
 
       {!isLast && (
-        <div aria-hidden="true" className="absolute left-[calc(50%+38px)] right-[calc(-50%+38px)] top-9 flex items-center">
-          <div className="h-px flex-1 border-t-2 border-dashed border-[#B9E9E1]" />
-          <ArrowRight className="h-4 w-4 shrink-0 text-[#35D0BA]" strokeWidth={2.5} />
-        </div>
-      )}
-    </div>
-  );
-}
-
-function MobileStep({
-  step,
-  isLast,
-}: {
-  step: (typeof reviewSteps)[number];
-  isLast: boolean;
-}) {
-  const Icon = step.icon;
-
-  return (
-    <div className="relative flex gap-4">
-      <div className="relative z-10 flex w-12 shrink-0 justify-center">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border-2 border-white bg-white shadow-md" style={{ color: step.accent, boxShadow: `0 7px 18px ${step.accent}30` }}>
-          <Icon className="h-5 w-5" strokeWidth={2.1} />
-        </div>
-        <span className="absolute -right-1 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#101D36] text-[9px] font-black text-white ring-2 ring-white">
-          {step.number}
-        </span>
-      </div>
-
-      <div className="min-w-0 flex-1 pb-7">
-        <div className="rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm">
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="text-sm font-extrabold text-[#101D36]">{step.title}</h3>
-            <Check className="h-4 w-4 shrink-0 text-[#35D0BA]" strokeWidth={3} />
+        <>
+          <ArrowDown
+            aria-hidden="true"
+            className="absolute bottom-0 left-6 h-5 w-5 -translate-x-1/2 text-[#35D0BA] lg:hidden"
+            strokeWidth={2.5}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute left-[calc(50%+38px)] right-[calc(-50%+38px)] top-9 hidden items-center lg:flex"
+          >
+            <div className="h-px flex-1 border-t-2 border-dashed border-[#B9E9E1]" />
+            <ArrowRight className="h-4 w-4 shrink-0 text-[#35D0BA]" strokeWidth={2.5} />
           </div>
-          <p className="mt-1 text-xs leading-relaxed text-[#53647D]">{step.description}</p>
-        </div>
-        {!isLast && <ArrowDown aria-hidden="true" className="absolute -bottom-0.5 left-[22px] h-5 w-5 -translate-x-1/2 text-[#35D0BA]" strokeWidth={2.5} />}
-      </div>
-    </div>
+        </>
+      )}
+    </li>
   );
 }
 
@@ -160,17 +157,14 @@ export function TeacherProfileReviewSection({
           </p>
         </div>
 
-        <div className="mx-auto mt-12 hidden max-w-6xl items-start lg:flex">
+        <ol
+          aria-label="How we review teacher profiles"
+          className="mx-auto mt-10 max-w-xl list-none p-0 lg:mt-12 lg:flex lg:max-w-6xl lg:items-start"
+        >
           {reviewSteps.map((step, index) => (
-            <DesktopStep key={step.number} step={step} isLast={index === reviewSteps.length - 1} />
+            <ReviewStep key={step.number} step={step} isLast={index === reviewSteps.length - 1} />
           ))}
-        </div>
-
-        <div className="mx-auto mt-10 max-w-xl lg:hidden">
-          {reviewSteps.map((step, index) => (
-            <MobileStep key={step.number} step={step} isLast={index === reviewSteps.length - 1} />
-          ))}
-        </div>
+        </ol>
 
         <div className="mx-auto mt-9 flex max-w-3xl items-center gap-3 rounded-2xl border border-[#B9E9E1] bg-white px-4 py-3.5 shadow-sm sm:mt-12 sm:px-6">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D7F6F1] text-[#0F6F63]">

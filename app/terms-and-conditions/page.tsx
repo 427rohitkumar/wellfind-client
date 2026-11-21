@@ -11,14 +11,11 @@ export const metadata: Metadata = {
   title: "Terms & Conditions | Wellfind Academic",
   description:
     "Read the Wellfind Academic Terms & Conditions for parents, students and teachers using our home-tuition matching platform.",
-  alternates: {
-    canonical: `${siteConfig.url}/terms-and-conditions/`,
-  },
   openGraph: {
     title: "Terms & Conditions | Wellfind Academic",
     description:
       "The terms that apply when you use Wellfind Academic as a parent, student or teacher.",
-    url: `${siteConfig.url}/terms-and-conditions/`,
+    url: `${siteConfig.url}/terms-and-conditions`,
   },
 };
 

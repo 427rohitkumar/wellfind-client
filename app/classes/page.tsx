@@ -10,14 +10,11 @@ export const metadata: Metadata = {
   title: "Home Tuition by Class (UKG to Class 10) in Patna | Wellfind Academic",
   description:
     "Explore home tuition for UKG through Class 10 in Patna. Tailored curriculum support for CBSE, ICSE, and Bihar Board students across core subjects.",
-  alternates: {
-    canonical: `${siteConfig.url}/classes/`,
-  },
   openGraph: {
     title: "Home Tuition by Class (UKG to Class 10) in Patna | Wellfind Academic",
     description:
       "Explore home tuition for UKG through Class 10 in Patna. Tailored curriculum support for CBSE, ICSE, and Bihar Board students.",
-    url: `${siteConfig.url}/classes/`,
+    url: `${siteConfig.url}/classes`,
   },
 };
 

@@ -19,14 +19,11 @@ export const metadata: Metadata = {
   title: "Join as a Home Tutor in Patna | Wellfind Academic",
   description:
     "Share your teaching profile with Wellfind Academic and connect with suitable home-tuition requirements across Patna when available.",
-  alternates: {
-    canonical: `${siteConfig.url}/join-as-teacher/`,
-  },
   openGraph: {
     title: "Join as a Home Tutor in Patna | Wellfind Academic",
     description:
       "Join the Wellfind Academic teacher network for suitable home-tuition opportunities across Patna.",
-    url: `${siteConfig.url}/join-as-teacher/`,
+    url: `${siteConfig.url}/join-as-teacher`,
   },
 };
 

@@ -8,7 +8,13 @@ import {
   Clock,
   ShieldCheck,
 } from "lucide-react";
-import { siteConfig } from "@/config/site";
+import {
+  siteConfig,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  PHONE_HREF,
+  WHATSAPP_BASE_URL,
+} from "@/config/site";
 import { Card } from "@/components/ui/Card";
 import { ContactFormWithParams } from "@/components/inquiry/ContactFormWithParams";
 import { ContactHeroSection } from "@/components/contact/ContactHeroSection";
@@ -17,14 +23,11 @@ export const metadata: Metadata = {
   title: "Contact Wellfind Academic | Home Tuition Inquiries in Patna",
   description:
     "Get in touch with Wellfind Academic to request a home tutor for UKG to Class 10 in Patna. Submit requirements online or connect via WhatsApp.",
-  alternates: {
-    canonical: `${siteConfig.url}/contact/`,
-  },
   openGraph: {
     title: "Contact Wellfind Academic | Home Tuition Inquiries in Patna",
     description:
       "Get in touch with Wellfind Academic to request a home tutor in Patna.",
-    url: `${siteConfig.url}/contact/`,
+    url: `${siteConfig.url}/contact`,
   },
 };
 
@@ -53,11 +56,11 @@ export default function ContactPage() {
                 <div className="space-y-4 text-sm">
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/919661421824"
+                    href={WHATSAPP_BASE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
-                    aria-label="Chat on WhatsApp at 9661421824"
+                    aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
                   >
                     <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <MessageCircle className="w-5 h-5 text-[#0F6F63]" />
@@ -67,16 +70,16 @@ export default function ContactPage() {
                         WhatsApp Line
                       </span>
                       <span className="text-[#0F6F63] font-medium block group-hover:underline">
-                        9661421824
+                        {CONTACT_PHONE_DISPLAY}
                       </span>
                     </div>
                   </a>
 
                   {/* Phone */}
                   <a
-                    href="tel:+919661421824"
+                    href={PHONE_HREF}
                     className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
-                    aria-label="Call Wellfind Academic at 9661421824"
+                    aria-label={`Call Wellfind Academic at ${CONTACT_PHONE_DISPLAY}`}
                   >
                     <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <Phone className="w-5 h-5 text-[#0F6F63]" />
@@ -86,16 +89,16 @@ export default function ContactPage() {
                         Phone Calling
                       </span>
                       <span className="text-[#344054] font-medium block group-hover:text-[#101D36] group-hover:underline">
-                        9661421824
+                        {CONTACT_PHONE_DISPLAY}
                       </span>
                     </div>
                   </a>
 
                   {/* Email */}
                   <a
-                    href="mailto:427rohitkumar@gmail.com"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="flex items-start gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00897B] focus-visible:ring-offset-2 rounded-lg"
-                    aria-label="Send email to 427rohitkumar@gmail.com"
+                    aria-label={`Send email to ${CONTACT_EMAIL}`}
                   >
                     <div className="w-9 h-9 rounded-lg bg-[#D7F6F1] text-[#0A4D45] flex items-center justify-center shrink-0 border border-[#35D0BA]/30 group-hover:bg-[#c5f3eb] transition-colors">
                       <Mail className="w-5 h-5 text-[#0F6F63]" />
@@ -105,7 +108,7 @@ export default function ContactPage() {
                         Email Support
                       </span>
                       <span className="text-[#344054] font-medium block group-hover:text-[#101D36] group-hover:underline">
-                        427rohitkumar@gmail.com
+                        {CONTACT_EMAIL}
                       </span>
                     </div>
                   </a>

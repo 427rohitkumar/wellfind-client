@@ -26,7 +26,7 @@ interface ClassViewProps {
 }
 
 export function ClassView({ data }: ClassViewProps) {
-  const canonicalUrl = `${siteConfig.url}/classes/${data.slug}/`;
+  const canonicalUrl = `${siteConfig.url}/classes/${data.slug}`;
   const breadcrumbs = [
     { label: "Classes", href: "/classes/" },
     { label: data.name },

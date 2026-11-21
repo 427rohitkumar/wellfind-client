@@ -1,3 +1,12 @@
+/** Contact constants: import these (or use siteConfig.contact) instead of hardcoding. */
+export const CONTACT_EMAIL = "contact@wellfindacademic.com";
+export const CONTACT_PHONE_DISPLAY = "+91 9625975834";
+export const CONTACT_PHONE_E164 = "+919625975834";
+export const CONTACT_PHONE_SCHEMA = "+91-9625975834";
+export const CONTACT_WHATSAPP_NUMBER = "919625975834";
+export const WHATSAPP_BASE_URL = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}`;
+export const PHONE_HREF = `tel:${CONTACT_PHONE_E164}`;
+
 export interface SiteConfig {
   name: string;
   shortName: string;
@@ -43,9 +52,10 @@ export const siteConfig: SiteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.wellfindacademic.com",
   ogImage: "https://www.wellfindacademic.com/OG-Image.png",
   contact: {
-    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "9661421824",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919661421824",
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "427rohitkumar@gmail.com",
+    // Single source of truth for contact details (do not hardcode elsewhere).
+    phone: CONTACT_PHONE_DISPLAY,
+    whatsapp: CONTACT_WHATSAPP_NUMBER,
+    email: CONTACT_EMAIL,
     address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || null,
     leadEndpoint: process.env.NEXT_PUBLIC_LEAD_ENDPOINT || null,
   },
@@ -119,6 +129,13 @@ export const siteConfig: SiteConfig = {
       href: "/patna/rajapull",
       shortDescription:
         "Tuition services connecting central Bailey Road and Rajapull.",
+    },
+    {
+      name: "Saguna Mor",
+      slug: "saguna-mor",
+      href: "/home-tutor-in-saguna-mor-patna",
+      shortDescription:
+        "Home tutors for families around Saguna Mor, Danapur and the Khagaul Road corridor.",
     },
     {
       name: "Patna (Central)",

@@ -104,15 +104,19 @@ function ProgressMarker({
   state: "upcoming" | "active" | "completed";
   stepNumber: string;
   stepTitle: string;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "responsive";
 }) {
   const isCompleted = state === "completed";
   const isActive = state === "active";
 
   const sizeClasses =
-    size === "sm" ? "w-6 h-6" : "w-7 h-7 sm:w-8 sm:h-8";
+    size === "sm"
+      ? "w-6 h-6"
+      : size === "responsive"
+      ? "w-6 h-6 lg:w-8 lg:h-8"
+      : "w-7 h-7 sm:w-8 sm:h-8";
   const iconSize =
-    size === "sm" ? "w-3.5 h-3.5" : "w-4 h-4";
+    size === "sm" ? "w-3.5 h-3.5" : "w-3.5 h-3.5 lg:w-4 lg:h-4";
 
   return (
     <div
@@ -156,7 +160,7 @@ function StepCard({
   const isCompleted = state === "completed";
 
   return (
-    <div className="relative flex flex-col group h-full">
+    <div className="relative flex flex-col group h-full flex-1">
       {/* Card wrapper */}
       <div
         className={`flex-1 flex flex-col rounded-3xl bg-white p-4 sm:p-5 transition-all duration-300 ${
@@ -244,111 +248,33 @@ export function HowItWorksProcess({
 }: HowItWorksProcessProps = {}) {
   const activeSteps = steps || processSteps;
   const sectionRef = useRef<HTMLElement>(null);
-  const desktopTrackRef = useRef<HTMLDivElement>(null);
-  const desktopMarkerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const mobileContainerRef = useRef<HTMLDivElement>(null);
-  const mobileCardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const listRef = useRef<HTMLOListElement>(null);
+  const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
 
   const [progress, setProgress] = useState(0);
   const [isSectionVisible, setIsSectionVisible] = useState(false);
 
-  // Desktop horizontal line positioning
-  const [desktopLineStyle, setDesktopLineStyle] = useState<{
-    left: number | string;
-    width: number | string;
-  }>({
-    left: "12.5%",
-    width: "75%",
-  });
+  const lastIndex = Math.max(activeSteps.length - 1, 1);
 
-  // Mobile vertical line positioning
-  const [mobileMarkerTops, setMobileMarkerTops] = useState<number[]>([36, 300, 600, 900]);
-  const [mobileTrackStyle, setMobileTrackStyle] = useState<{
-    top: number;
-    height: number;
-  }>({
-    top: 36,
-    height: 864,
-  });
-
-  // Helper to get step state from current progress
+  // Helper to get step state from current progress (0..1 across all steps)
   const getStepState = useCallback(
     (idx: number): "upcoming" | "active" | "completed" => {
-      // 4 steps -> markers at ~ 0.0, 0.33, 0.66, 1.0
-      if (idx === 0) {
-        if (progress >= 0.33) return "completed";
-        return progress >= 0 ? "active" : "upcoming";
-      }
-      if (idx === 1) {
-        if (progress >= 0.66) return "completed";
-        if (progress >= 0.33) return "active";
-        return "upcoming";
-      }
-      if (idx === 2) {
-        if (progress >= 0.95) return "completed";
-        if (progress >= 0.66) return "active";
-        return "upcoming";
-      }
-      if (idx === 3) {
+      const position = idx / lastIndex;
+      const next = (idx + 1) / lastIndex;
+      if (idx === lastIndex) {
         if (progress >= 0.99) return "completed";
-        if (progress >= 0.95) return "active";
-        return "upcoming";
+        return progress >= 0.95 ? "active" : "upcoming";
       }
+      if (progress >= next - 0.005) return "completed";
+      if (progress >= position - 0.0001) return "active";
       return "upcoming";
     },
-    [progress]
+    [progress, lastIndex]
   );
 
-  // Measure geometry for desktop and mobile tracks
-  const updateGeometry = useCallback(() => {
-    // Desktop measurement
-    if (
-      desktopTrackRef.current &&
-      desktopMarkerRefs.current[0] &&
-      desktopMarkerRefs.current[3]
-    ) {
-      const containerRect = desktopTrackRef.current.getBoundingClientRect();
-      const m0Rect = desktopMarkerRefs.current[0].getBoundingClientRect();
-      const m3Rect = desktopMarkerRefs.current[3].getBoundingClientRect();
-
-      const m0Center = m0Rect.left + m0Rect.width / 2 - containerRect.left;
-      const m3Center = m3Rect.left + m3Rect.width / 2 - containerRect.left;
-
-      setDesktopLineStyle({
-        left: m0Center,
-        width: Math.max(0, m3Center - m0Center),
-      });
-    }
-
-    // Mobile measurement
-    if (
-      mobileContainerRef.current &&
-      mobileCardRefs.current[0] &&
-      mobileCardRefs.current[3]
-    ) {
-      const containerRect = mobileContainerRef.current.getBoundingClientRect();
-      const tops = mobileCardRefs.current.map((card) => {
-        if (!card) return 36;
-        const rect = card.getBoundingClientRect();
-        return rect.top - containerRect.top + 36; // aligned with card top badge
-      });
-      setMobileMarkerTops(tops);
-      setMobileTrackStyle({
-        top: tops[0],
-        height: Math.max(0, tops[3] - tops[0]),
-      });
-    }
-  }, []);
-
-  // Update geometry on mount and on window resize
-  useEffect(() => {
-    updateGeometry();
-    const handleResize = () => {
-      updateGeometry();
-    };
-    window.addEventListener("resize", handleResize, { passive: true });
-    return () => window.removeEventListener("resize", handleResize);
-  }, [updateGeometry]);
+  // Fill fraction (0..1) of the connector segment that starts at step `idx`
+  const getSegmentFill = (idx: number) =>
+    Math.max(0, Math.min(1, progress * lastIndex - idx));
 
   // IntersectionObserver to only run scroll calculations when the section is near viewport
   useEffect(() => {
@@ -390,25 +316,26 @@ export function HowItWorksProcess({
         const viewportHeight = window.innerHeight;
 
         const isMobile = window.innerWidth < 1024;
+        const first = itemRefs.current[0];
+        const last = itemRefs.current[activeSteps.length - 1];
 
-        if (isMobile && mobileCardRefs.current[0] && mobileCardRefs.current[3]) {
-          // Mobile: Scroll linked through the 4 stacked cards
+        if (isMobile && first && last) {
+          // Stacked layout: scroll-linked through the cards, card to card
           const focalY = viewportHeight * 0.38; // Eye reading focal level
-          const card0Top = mobileCardRefs.current[0].getBoundingClientRect().top;
-          const card3Top = mobileCardRefs.current[3].getBoundingClientRect().top;
+          const firstTop = first.getBoundingClientRect().top;
+          const lastTop = last.getBoundingClientRect().top;
 
-          if (focalY <= card0Top) {
+          if (focalY <= firstTop) {
             setProgress(0);
-          } else if (focalY >= card3Top) {
+          } else if (focalY >= lastTop) {
             setProgress(1);
           } else {
-            // Find which card segment we are in for exact card-to-card tracking
             let currentSegment = 0;
             let segmentFraction = 0;
 
-            for (let i = 0; i < 3; i++) {
-              const c1 = mobileCardRefs.current[i];
-              const c2 = mobileCardRefs.current[i + 1];
+            for (let i = 0; i < activeSteps.length - 1; i++) {
+              const c1 = itemRefs.current[i];
+              const c2 = itemRefs.current[i + 1];
               if (!c1 || !c2) continue;
 
               const c1Top = c1.getBoundingClientRect().top;
@@ -421,19 +348,18 @@ export function HowItWorksProcess({
               }
             }
 
-            const p = (currentSegment + segmentFraction) / 3;
+            const p = (currentSegment + segmentFraction) / (activeSteps.length - 1);
             setProgress(Math.max(0, Math.min(1, p)));
           }
         } else {
-          // Desktop: Progress starts when desktop track enters comfortable reading zone,
-          // fills across cards as user scrolls through the 4-step row
-          const trackRect = desktopTrackRef.current?.getBoundingClientRect();
-          if (!trackRect) return;
+          // Row layout: progress fills as the 4-step row scrolls through the reading zone
+          const listRect = listRef.current?.getBoundingClientRect();
+          if (!listRect) return;
 
           const startY = viewportHeight * 0.65;
           const endY = viewportHeight * 0.10;
           const totalDistance = startY - endY;
-          const currentScrolled = startY - trackRect.top;
+          const currentScrolled = startY - listRect.top;
 
           const p = Math.max(0, Math.min(1, currentScrolled / totalDistance));
           setProgress(p);
@@ -449,7 +375,7 @@ export function HowItWorksProcess({
       window.removeEventListener("scroll", handleScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
-  }, [isSectionVisible]);
+  }, [isSectionVisible, activeSteps.length]);
 
   return (
     <section
@@ -489,153 +415,63 @@ export function HowItWorksProcess({
           </h2>
         </div>
 
-        {/* ======================================================== */}
-        {/* DESKTOP LAYOUT (lg:block hidden): Horizontal Progress Line */}
-        {/* ======================================================== */}
-        <div className="hidden lg:block relative">
-          {/* Horizontal Progress Track & Markers Container */}
-          <div ref={desktopTrackRef} className="relative mb-8 pb-2">
-            {/* Background Inactive Track */}
-            <div
-              className="absolute top-1/2 -translate-y-1/2 h-1.5 bg-[#E2E8F0] rounded-full pointer-events-none"
-              style={{
-                left: desktopLineStyle.left,
-                width: desktopLineStyle.width,
-              }}
-              role="progressbar"
-              aria-valuenow={Math.round(progress * 100)}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label="How it works 4 simple steps progress"
-            >
-              {/* Animated Active Progress Segment */}
-              <div
-                className="h-full bg-[#00B29A] rounded-full transition-[width] duration-150 ease-out"
-                style={{ width: `${progress * 100}%` }}
-              />
-            </div>
+        {/* Single responsive list: vertical timeline below lg, horizontal 4-column row from lg */}
+        <ol
+          ref={listRef}
+          aria-label="How it works: 4 simple steps"
+          className="relative mx-auto max-w-xl lg:max-w-none grid grid-cols-1 lg:grid-cols-4 lg:gap-6 xl:gap-8 items-stretch list-none p-0"
+        >
+          {activeSteps.map((step, index) => {
+            const state = getStepState(index);
+            const isLast = index === activeSteps.length - 1;
+            const fill = getSegmentFill(index);
 
-            {/* 4 Horizontally Aligned Markers (matches cards grid columns exactly) */}
-            <div className="grid grid-cols-4 gap-6 xl:gap-8 relative z-10">
-              {activeSteps.map((step, index) => {
-                const state = getStepState(index);
-                return (
+            return (
+              <li
+                key={step.step}
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+                className={`relative flex flex-col pl-11 sm:pl-16 lg:pl-0 lg:pt-14 ${
+                  isLast ? "" : "pb-6 sm:pb-8 lg:pb-0"
+                }`}
+              >
+                {/* Progress segment to the next step (vertical on mobile, horizontal on lg) */}
+                {!isLast && (
                   <div
-                    key={step.step}
-                    ref={(el) => {
-                      desktopMarkerRefs.current[index] = el;
-                    }}
-                    className="flex justify-center items-center"
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-4 top-9 h-full w-1.5 -translate-x-1/2 overflow-hidden rounded-full bg-[#E2E8F0] sm:left-6 lg:left-1/2 lg:top-4 lg:h-1.5 lg:w-[calc(100%+1.5rem)] lg:-translate-y-1/2 lg:translate-x-0 xl:w-[calc(100%+2rem)]"
                   >
-                    <ProgressMarker
-                      state={state}
-                      stepNumber={step.step}
-                      stepTitle={step.title}
-                      size="md"
+                    <div
+                      className="w-full rounded-full bg-[#00B29A] transition-[height,width] duration-150 ease-out h-(--fill) lg:h-full lg:w-(--fill)"
+                      style={{ "--fill": `${fill * 100}%` } as React.CSSProperties}
                     />
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                )}
 
-          {/* 4 Cards Grid in a Single Row */}
-          <div className="grid grid-cols-4 gap-6 xl:gap-8 items-stretch">
-            {activeSteps.map((step, index) => {
-              const state = getStepState(index);
-              const isLast = index === activeSteps.length - 1;
-
-              return (
-                <StepCard
-                  key={step.step}
-                  step={step}
-                  index={index}
-                  state={state}
-                  isLast={isLast}
-                  showConnector={true}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        {/* ======================================================== */}
-        {/* MOBILE & TABLET LAYOUT (< lg): Vertical Progress Line      */}
-        {/* ======================================================== */}
-        <div
-          ref={mobileContainerRef}
-          className="lg:hidden relative max-w-xl mx-auto"
-        >
-          {/* Vertical Progress Track Column on the Left */}
-          <div className="absolute left-4 sm:left-6 top-0 bottom-0 pointer-events-none">
-            {/* Background Inactive Vertical Track */}
-            <div
-              className="absolute left-0 -translate-x-1/2 w-1.5 bg-[#E2E8F0] rounded-full"
-              style={{
-                top: mobileTrackStyle.top,
-                height: mobileTrackStyle.height,
-              }}
-              role="progressbar"
-              aria-valuenow={Math.round(progress * 100)}
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-label="How it works 4 simple steps vertical progress"
-            >
-              {/* Animated Active Vertical Segment */}
-              <div
-                className="w-full bg-[#00B29A] rounded-full transition-[height] duration-150 ease-out"
-                style={{ height: `${progress * 100}%` }}
-              />
-            </div>
-
-            {/* 4 Circular Markers Aligned on the Vertical Track */}
-            {activeSteps.map((step, index) => {
-              const state = getStepState(index);
-              const topPos = mobileMarkerTops[index] ?? 36;
-
-              return (
-                <div
-                  key={step.step}
-                  className="absolute left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-auto z-10"
-                  style={{ top: topPos }}
-                >
+                {/* Step marker (left of card on mobile, centred above card on lg) */}
+                <div className="absolute left-4 top-9 z-10 -translate-x-1/2 -translate-y-1/2 sm:left-6 lg:left-1/2 lg:top-4">
                   <ProgressMarker
                     state={state}
                     stepNumber={step.step}
                     stepTitle={step.title}
-                    size="sm"
+                    size="responsive"
                   />
                 </div>
-              );
-            })}
-          </div>
 
-          {/* 4 Vertically Stacked Cards to the Right of the Line */}
-          <div className="pl-11 sm:pl-16 flex flex-col gap-6 sm:gap-8">
-            {activeSteps.map((step, index) => {
-              const state = getStepState(index);
-              const isLast = index === activeSteps.length - 1;
-
-              return (
-                <div
-                  key={step.step}
-                  ref={(el) => {
-                    mobileCardRefs.current[index] = el;
-                  }}
-                  className="relative flex flex-col"
-                >
+                <div className="flex flex-1 flex-col">
                   <StepCard
                     step={step}
                     index={index}
                     state={state}
                     isLast={isLast}
-                    showConnector={false}
+                    showConnector={true}
                   />
                 </div>
-              );
-            })}
-          </div>
-        </div>
+              </li>
+            );
+          })}
+        </ol>
 
         {/* Action Button at bottom */}
         <div className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-4">

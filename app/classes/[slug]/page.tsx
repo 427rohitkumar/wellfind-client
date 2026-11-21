@@ -41,15 +41,12 @@ export async function generateMetadata({
       absolute: data.metaTitle,
     },
     description: data.metaDescription,
-    alternates: {
-      canonical: `${siteConfig.url}/classes/${slug}/`,
-    },
     openGraph: {
       type: "website",
       locale: "en_IN",
       title: data.metaTitle,
       description: data.metaDescription,
-      url: `${siteConfig.url}/classes/${slug}/`,
+      url: `${siteConfig.url}/classes/${slug}`,
       siteName: siteConfig.name,
       images: [
         {

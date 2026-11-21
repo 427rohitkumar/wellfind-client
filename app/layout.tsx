@@ -6,6 +6,8 @@ import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { siteConfig } from "@/config/site";
 import { TutorEnquiryModalProvider } from "@/components/inquiry/modal/TutorEnquiryModalContext";
+import { JsonLd, buildOrganizationJsonLd } from "@/components/JsonLd";
+import { WhatsAppClickTracker } from "@/components/analytics/WhatsAppClickTracker";
 
 // Google Tag Manager container. Override per environment with NEXT_PUBLIC_GTM_ID.
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WH64GL42";
@@ -39,13 +41,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // "./" resolves against metadataBase + the current pathname, giving every route a
+  // self-referencing canonical (pages only override it when they need to).
   alternates: {
-    canonical: siteConfig.url,
+    canonical: "./",
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: siteConfig.url,
     title: "Wellfind Academic | Managed One-to-One Education",
     description:
       "Quality-managed one-to-one home education for UKG to Class 10 in Patna. The right teacher, structured learning, and progress you can see.",
@@ -89,33 +92,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.svg`,
-    description: siteConfig.description,
-    slogan: siteConfig.tagline,
-    areaServed: {
-      "@type": "City",
-      name: "Patna",
-    },
-    ...(siteConfig.contact.phone
-      ? { telephone: siteConfig.contact.phone }
-      : {}),
-    ...(siteConfig.contact.email
-      ? { email: siteConfig.contact.email }
-      : {}),
-  };
-
   return (
     <html lang="en" className={`${inter.variable} font-sans h-full antialiased`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
+        <JsonLd data={buildOrganizationJsonLd()} />
       </head>
       <body className="min-h-full flex flex-col bg-[#EAF0F8] text-[#344054]">
         {GTM_ID && (
@@ -134,6 +114,7 @@ export default function RootLayout({
             </noscript>
           </>
         )}
+        <WhatsAppClickTracker />
         <TutorEnquiryModalProvider>
           {/* Accessible Skip Link */}
           <a
