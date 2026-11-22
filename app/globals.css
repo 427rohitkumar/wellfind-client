@@ -170,3 +170,24 @@ body {
   }
 }
 
+
+/* Announcement bar (landing page): endless marquee. The track holds two identical groups,
+   so -50% loops seamlessly. Hover/focus pauses it (see AnnouncementBar). */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+/* ~40px/s: slow enough to read comfortably. translate3d + will-change keep it on the GPU
+   so the text does not stutter or blur while moving. */
+.animate-marquee {
+  animation: marquee 90s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Height of the announcement bar; the hero subtracts it so its bottom (white desk strip,
+   teacher & child) stays inside the first screen. 0 when the bar is not rendered. */
+body:has(#announcement-bar) {
+  --announcement-h: 2.25rem;
+}

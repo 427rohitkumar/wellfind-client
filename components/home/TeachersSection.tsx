@@ -47,19 +47,51 @@ function SupportCard({
   const Icon = point.icon;
 
   return (
-    <div className="rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
-      <div className="flex items-start gap-3">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl" style={{ backgroundColor: `${point.color}18`, color: point.color }}>
+    <div className="group relative overflow-hidden rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg sm:p-5">
+      <span
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 w-1 opacity-70 transition-opacity group-hover:opacity-100"
+        style={{ backgroundColor: point.color }}
+      />
+      <div className="flex items-start gap-3.5">
+        <div
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-105"
+          style={{ backgroundColor: `${point.color}1A`, color: point.color }}
+        >
           <Icon className="h-5 w-5" strokeWidth={2.1} />
         </div>
         <div>
           <h3 className="text-sm font-extrabold leading-tight text-[#101D36]">{point.title}</h3>
-          <p className="mt-1 text-[11px] leading-relaxed text-[#53647D]">{point.description}</p>
+          <p className="mt-1 text-xs leading-relaxed text-[#53647D]">{point.description}</p>
         </div>
       </div>
     </div>
   );
 }
+
+const processSteps = [
+  {
+    title: "Share your concern",
+    caption: "Tell us what is not working",
+    icon: MessageCircle,
+    color: "#0F9F8C",
+    tint: "#D7F6F1",
+  },
+  {
+    title: "Get a better fit",
+    caption: "We coordinate another option",
+    icon: CheckCircle2,
+    color: "#1469D8",
+    tint: "#E3EEFC",
+  },
+  {
+    title: "Continue with confidence",
+    caption: "Learning can move forward",
+    icon: ShieldCheck,
+    color: "#7C5CE8",
+    tint: "#EEE9FC",
+  },
+] as const;
 
 export interface TeachersSectionProps {
   badge?: string;
@@ -129,7 +161,11 @@ export function TeachersSection({
               <SupportCard point={supportPoints[1]} />
             </div>
 
-            <div className="order-1 flex items-end justify-center lg:order-2">
+            <div className="relative order-1 flex items-end justify-center lg:order-2">
+              <div
+                aria-hidden="true"
+                className="absolute bottom-0 left-1/2 h-[70%] w-[85%] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#D7F6F1] via-[#E3EEFC] to-transparent blur-2xl"
+              />
               <Image
                 src="/theachers-group-img.png"
                 alt="Wellfind Academic teachers available for one-to-one home education"
@@ -137,7 +173,11 @@ export function TeachersSection({
                 height={785}
                 priority
                 sizes="(max-width: 1024px) 100vw, 55vw"
-                className="h-auto w-full max-w-[820px] object-contain drop-shadow-[0_18px_20px_rgba(16,29,54,0.12)] transition-transform duration-500 hover:scale-[1.015]"
+                className="relative h-auto w-full max-w-[820px] object-contain transition-transform duration-500 hover:scale-[1.015]"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to bottom, #000 80%, transparent 100%)",
+                  maskImage: "linear-gradient(to bottom, #000 80%, transparent 100%)",
+                }}
               />
             </div>
 
@@ -147,24 +187,45 @@ export function TeachersSection({
             </div>
           </div>
 
-          <div className="relative z-10 mt-5 rounded-2xl border border-[#D7E2EE] bg-[#F8FAFC] p-4 sm:mt-7 sm:p-5">
-            <div className="mb-4 text-center text-[10px] font-black uppercase tracking-[0.15em] text-[#53647D] sm:text-left">Simple teacher replacement process</div>
-            <div className="grid gap-3 sm:grid-cols-3 sm:items-center sm:gap-2">
-              <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm sm:justify-center">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D7F6F1] text-[#0F6F63]"><MessageCircle className="h-4 w-4" /></div>
-                <div><div className="text-xs font-extrabold text-[#101D36]">Share your concern</div><div className="text-[10px] text-[#53647D]">Tell us what is not working</div></div>
-              </div>
-              <div className="hidden items-center justify-center text-[#1469D8] sm:flex"><ArrowRight className="h-5 w-5" strokeWidth={2.5} /></div>
-              <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm sm:justify-center">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EAF0F8] text-[#1469D8]"><CheckCircle2 className="h-4 w-4" /></div>
-                <div><div className="text-xs font-extrabold text-[#101D36]">Get a better fit</div><div className="text-[10px] text-[#53647D]">We coordinate another option</div></div>
-              </div>
-              <div className="hidden items-center justify-center text-[#1469D8] sm:flex"><ArrowRight className="h-5 w-5" strokeWidth={2.5} /></div>
-              <div className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm sm:justify-center">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EAF8F6] text-[#0F9F8C]"><ShieldCheck className="h-4 w-4" /></div>
-                <div><div className="text-xs font-extrabold text-[#101D36]">Continue with confidence</div><div className="text-[10px] text-[#53647D]">Learning can move forward</div></div>
-              </div>
+          <div className="relative z-10 mt-6 rounded-2xl border border-[#D7E2EE] bg-[#F8FAFC] p-4 sm:mt-8 sm:p-6">
+            <div className="mb-4 text-center text-[10px] font-black uppercase tracking-[0.15em] text-[#53647D] sm:mb-5">
+              Simple teacher replacement process
             </div>
+            <ol className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-3">
+              {processSteps.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <React.Fragment key={step.title}>
+                    <li className="flex flex-1 items-center gap-3 rounded-xl border border-[#E4ECF5] bg-white p-3.5 shadow-sm sm:p-4">
+                      <div
+                        className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                        style={{ backgroundColor: step.tint, color: step.color }}
+                      >
+                        <Icon className="h-5 w-5" strokeWidth={2.1} />
+                        <span
+                          className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white text-[10px] font-black text-white"
+                          style={{ backgroundColor: step.color }}
+                        >
+                          {i + 1}
+                        </span>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-extrabold leading-tight text-[#101D36]">{step.title}</div>
+                        <div className="mt-0.5 text-xs text-[#53647D]">{step.caption}</div>
+                      </div>
+                    </li>
+                    {i < processSteps.length - 1 && (
+                      <li
+                        aria-hidden="true"
+                        className="flex shrink-0 items-center justify-center text-[#1469D8]"
+                      >
+                        <ArrowRight className="h-5 w-5 rotate-90 sm:rotate-0" strokeWidth={2.5} />
+                      </li>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </ol>
           </div>
         </div>
       </div>

@@ -6,8 +6,15 @@
  * Production value: https://api.wellfindacademic.com
  */
 
+// Fallback must never be localhost in a production build (env files are gitignored,
+// so a CI/host build without NEXT_PUBLIC_API_URL would otherwise ship localhost).
+const DEFAULT_API_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://api.wellfindacademic.com'
+    : 'http://localhost:3004';
+
 export const API_BASE_URL = (
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3004'
+  process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL
 ).replace(/\/+$/, '');
 
 export interface ApiResponse<T = unknown> {

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { MapPin, Check } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Home, MapPin } from "lucide-react";
 import { getActiveSubLocalities } from "@/data/localities";
 
 export interface PatnaLocationsSectionProps {
@@ -91,10 +91,35 @@ export function PatnaLocationsSection({
           {/* ======================================================== */}
           {/* 2. MAP VIDEO CONTAINER (Order 2 on mobile, Col 6-12 Row 1-2 on desktop) */}
           {/* ======================================================== */}
-          <div className="order-2 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 lg:self-center relative flex flex-col items-center justify-center">
-            {/* Map Video Container */}
-            <div className="relative w-full max-w-[720px] lg:max-w-none flex flex-col sm:flex-row items-center justify-center">
-              <div className="relative w-full group">
+          <div className="order-2 lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 lg:self-center relative">
+            {/* Soft colour blocks behind the frame give it depth */}
+            <div aria-hidden="true" className="absolute -right-3 -top-3 h-full w-full rounded-[32px] bg-[#35D0BA]/20 sm:-right-4 sm:-top-4" />
+            <div aria-hidden="true" className="absolute -bottom-3 -left-3 h-1/2 w-1/2 rounded-[32px] bg-[#5C8FE8]/15 sm:-bottom-4 sm:-left-4" />
+
+            {/* Map window mockup */}
+            <div className="relative overflow-hidden rounded-[28px] border border-[#D7E2EE] bg-white shadow-2xl shadow-[#101D36]/15">
+              <div className="flex items-center justify-between gap-3 border-b border-[#E4ECF5] bg-white px-4 py-3 sm:px-5">
+                <div className="flex items-center gap-3">
+                  <div aria-hidden="true" className="flex gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F2765E]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F5B84B]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#35D0BA]" />
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F4F8FC] px-3 py-1 text-[11px] font-bold text-[#344054] sm:text-xs">
+                    <MapPin className="h-3.5 w-3.5 text-[#0F9F8C]" strokeWidth={2.4} />
+                    Wellfind coverage &middot; Patna
+                  </span>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#D7F6F1] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-[#0F6F63]">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#35D0BA] opacity-70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0F9F8C]" />
+                  </span>
+                  Live
+                </span>
+              </div>
+
+              <div className="group relative overflow-hidden">
                 <video
                   aria-label="Animated map of Patna showing the localities where Wellfind Academic home tutors are active"
                   aria-describedby="patna-map-description"
@@ -104,7 +129,7 @@ export function PatnaLocationsSection({
                   muted
                   playsInline
                   preload="auto"
-                  className="w-full h-auto object-cover select-none pointer-events-none transform group-hover:scale-[1.02] transition-transform duration-700 mask-[radial-gradient(circle_at_center,#ffffff_0%,#ffffff_35%,transparent_100%)] -webkit-mask-[radial-gradient(circle_at_center,#ffffff_0%,#ffffff_35%,transparent_100%)]"
+                  className="aspect-[16/11] w-full select-none object-cover pointer-events-none transition-transform duration-700 scale-[1.04] group-hover:scale-[1.08]"
                 >
                   <source src="/Patna-location.mp4" type="video/mp4" />
                   Your browser does not support the video tag. Wellfind Academic
@@ -117,26 +142,33 @@ export function PatnaLocationsSection({
                   Danapur, Kadamkuan, Khagaul, Phulwari Sharif and Rajapull.
                 </p>
 
-                {/* Soft edge fade into #EAF0F8 background - no sharp corners */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 pointer-events-none z-10 bg-[radial-gradient(circle_at_center,_transparent_0%,_#EAF0F8/100%_90%)]"
-                />
-              </div>
+                {/* Gentle bottom shade so the info card stays readable (no white fade) */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#101D36]/45 to-transparent" />
 
-              {/* Info card: stacked under the map on mobile, floating bottom-right from sm+ */}
-              <div className="mt-3.5 flex w-full items-center gap-3 rounded-2xl border border-[#D7E2EE] bg-white p-4 shadow-sm sm:absolute sm:right-2 sm:bottom-2 sm:z-20 sm:mt-0 sm:w-auto sm:max-w-[260px] sm:items-start sm:bg-white/95 sm:p-4 sm:shadow-lg sm:backdrop-blur-md md:right-4 lg:right-2 lg:bottom-1 lg:max-w-[280px] xl:right-6">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#35D0BA]/30 bg-[#D7F6F1] text-[#0E7A6C]">
-                  <MapPin className="h-5 w-5 text-[#35D0BA]" strokeWidth={2.3} />
+                {/* Floating chips */}
+                <div className="absolute left-3 top-3 hidden items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold text-[#101D36] shadow-lg backdrop-blur sm:inline-flex">
+                  <BadgeCheck className="h-4 w-4 text-[#0F9F8C]" strokeWidth={2.4} />
+                  Verified tutors
                 </div>
-                <div>
-                  <div className="text-base font-black leading-tight sm:text-xl">
-                    <span className="text-[#35D0BA]">10+ Areas</span>{" "}
-                    <span className="text-[#101D36]">in Patna</span>
+                <div className="absolute right-3 top-3 hidden items-center gap-1.5 rounded-full bg-[#101D36]/90 px-3 py-1.5 text-[11px] font-bold text-white shadow-lg backdrop-blur sm:inline-flex">
+                  <Home className="h-4 w-4 text-[#35D0BA]" strokeWidth={2.4} />
+                  One-to-one at home
+                </div>
+
+                {/* Info card */}
+                <div className="absolute bottom-3 left-3 flex max-w-[270px] items-center gap-3 rounded-2xl border border-white/70 bg-white/95 p-3 shadow-xl backdrop-blur sm:bottom-4 sm:left-4 sm:p-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#35D0BA] to-[#0F9F8C] text-white shadow-md shadow-[#35D0BA]/30">
+                    <MapPin className="h-5 w-5" strokeWidth={2.4} />
                   </div>
-                  <p className="mt-0.5 text-xs font-medium leading-snug text-[#53647D] sm:mt-1">
-                    And we are expanding to more locations soon.
-                  </p>
+                  <div>
+                    <div className="text-base font-black leading-tight sm:text-xl">
+                      <span className="text-[#0F9F8C]">10+ Areas</span>{" "}
+                      <span className="text-[#101D36]">in Patna</span>
+                    </div>
+                    <p className="mt-0.5 text-[11px] font-medium leading-snug text-[#53647D] sm:text-xs">
+                      Expanding to more locations soon.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -155,24 +187,28 @@ export function PatnaLocationsSection({
               </span>
             </div>
 
-            {/* 10 Unique Locations in a 2-Column Grid */}
+            {/* Locations in a 2-column grid; each opens its locality page */}
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               {activeLocations.map((loc) => (
                 <Link
                   key={loc.slug}
                   href={`/patna/${loc.slug}`}
                   aria-label={`Home tuition in ${loc.name}, Patna`}
-                  className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-[#F4F8FC] border border-[#E1EAF2] hover:border-[#35D0BA]/60 hover:bg-[#EDF6F8] hover:shadow-2xs transition-all duration-200 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA]"
+                  className="group flex items-center gap-2.5 rounded-xl border border-[#E1EAF2] bg-[#F4F8FC] px-3 py-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#35D0BA]/60 hover:bg-white hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#35D0BA]"
                 >
-                  <div className="w-5 h-5 rounded-full bg-[#35D0BA] flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-105 transition-transform">
-                    <Check className="w-3 h-3 text-[#101D36] stroke-[3]" />
-                  </div>
-                  <span className="text-xs sm:text-sm font-semibold text-[#101D36] truncate group-hover:text-[#0F6F63] transition-colors">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#D7F6F1] text-[#0F9F8C] transition-colors group-hover:bg-[#35D0BA] group-hover:text-[#101D36]">
+                    <MapPin className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  </span>
+                  <span className="min-w-0 flex-1 truncate text-xs font-semibold text-[#101D36] transition-colors group-hover:text-[#0F6F63] sm:text-sm">
                     {loc.name}
                   </span>
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-[#9FB1C8] opacity-0 transition-all group-hover:text-[#0F9F8C] group-hover:opacity-100" strokeWidth={2.5} />
                 </Link>
               ))}
             </div>
+            <p className="mt-4 text-center text-[11px] font-semibold text-[#8A9EB8] sm:text-xs">
+              Tap an area to see tutors available there.
+            </p>
           </div>
         </div>
       </div>

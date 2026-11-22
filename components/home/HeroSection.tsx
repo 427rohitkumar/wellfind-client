@@ -27,7 +27,7 @@ export function HeroSection({
 }: HeroSectionProps = {}) {
   const { openModal } = useTutorEnquiryModal();
   return (
-    <section className="relative w-full bg-[#101D36] overflow-hidden min-h-[620px] h-[87dvh] max-h-[920px] lg:h-auto lg:min-h-[calc(100dvh-5rem)] lg:max-h-none flex flex-col justify-between pt-2 sm:pt-3 md:pt-4 pb-0 select-none">
+    <section className="relative w-full bg-[#101D36] overflow-hidden min-h-[620px] h-[calc(87dvh-var(--announcement-h,0px))] max-h-[920px] lg:h-auto lg:min-h-[calc(100dvh-5rem-var(--announcement-h,0px))] lg:max-h-none flex flex-col justify-between pt-2 sm:pt-3 md:pt-4 pb-0 select-none">
       {/* =========================================================================
           DECORATIVE BACKGROUND ELEMENTS (Clouds, Grade Badge, Rocket, Goal Board)
           Proportioned for mobile (androidem-mode) and desktop (Desktop-1)

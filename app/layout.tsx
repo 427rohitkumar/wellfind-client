@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { AnnouncementBar } from "@/components/navigation/AnnouncementBar";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { siteConfig } from "@/config/site";
@@ -123,6 +124,7 @@ export default function RootLayout({
           >
             Skip to main content
           </a>
+          <AnnouncementBar />
           <Header />
           <main id="main-content" className="flex-1">
             {children}

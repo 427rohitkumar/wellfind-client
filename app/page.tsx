@@ -12,6 +12,7 @@ import { WhatsAppCTA } from "@/components/inquiry/WhatsAppCTA";
 import { HowItWorksProcess } from "@/components/home/HowItWorksProcess";
 import { ManagedLearningJourneySection } from "@/components/home/ManagedLearningJourneySection";
 import { HeroSection } from "@/components/home/HeroSection";
+import { CampaignBannerSlider } from "@/components/home/CampaignBannerSlider";
 import { TrustMetricsSection } from "@/components/home/TrustMetricsSection";
 import { ProgressTrackingSection } from "@/components/home/ProgressTrackingSection";
 import { PatnaLocationsSection } from "@/components/home/PatnaLocationsSection";
@@ -69,6 +70,9 @@ export default function HomePage() {
 
       {/* SECTION 1: HERO (Pixel-Perfect Figma Reference Implementation) */}
       <HeroSection />
+
+      {/* CAMPAIGN BANNER SLIDER (Board Exam 2027, Coding & AI, AI Video Editing) */}
+      <CampaignBannerSlider />
 
       {/* SECTION 2: HOW IT WORKS (Visual 4-Step Student & Parent Journey) */}
       <HowItWorksProcess />
