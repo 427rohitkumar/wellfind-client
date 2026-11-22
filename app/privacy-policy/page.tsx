@@ -76,6 +76,29 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
 
+            {/* Mobile app & data deletion */}
+            <div className="space-y-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#101D36]">
+                Mobile app and your data
+              </h2>
+              <p>
+                The Wellfind Academic mobile app is used by teachers and by our team.
+                When you sign in, we process the details of your account: name, e-mail
+                address, phone number, profile photo, the documents you upload for
+                verification, and a device notification token so that we can send you
+                updates about enquiries, classes and payments. We do not sell this
+                information and we do not use it for advertising.
+              </p>
+              <p>
+                You can delete your account and personal data at any time, from the app
+                (My Profile &rarr; Delete account) or by sending a request on our{" "}
+                <Link href="/delete-account" className="font-semibold text-[#0F6F63] underline">
+                  Delete account &amp; data
+                </Link>{" "}
+                page. That page explains what is deleted, what is kept, and for how long.
+              </p>
+            </div>
+
             {/* Section 2 */}
             <div className="space-y-3 border-t border-[#D7E2EE] pt-6">
               <h2 className="text-xl sm:text-2xl font-bold text-[#101D36]">

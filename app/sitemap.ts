@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/join-as-teacher`, changeFrequency: "monthly", priority: 0.65 },
     { url: `${baseUrl}/privacy-policy`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${baseUrl}/terms-and-conditions`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${baseUrl}/delete-account`, changeFrequency: "yearly", priority: 0.3 },
   ];
   const staticPages: MetadataRoute.Sitemap = staticEntries.map((entry) => ({
     ...entry,

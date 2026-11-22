@@ -264,3 +264,39 @@ export async function submitTeacherApplication(
     };
   }
 }
+
+export interface DataDeletionRequestInput {
+  requesterType: 'student_parent' | 'teacher' | 'other';
+  fullName?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+  /** Honeypot: must stay empty. */
+  website?: string;
+}
+
+/**
+ * Ask for personal data to be deleted: POST /api/data-deletion-requests (public).
+ */
+export async function submitDataDeletionRequest(
+  input: DataDeletionRequestInput
+): Promise<ApiResponse> {
+  const res = await fetch(`${API_BASE_URL}/api/data-deletion-requests`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
+  const body = await res.json().catch(() => null);
+  const errors: Record<string, string> = {};
+  if (Array.isArray(body?.errors)) {
+    for (const e of body.errors as { field?: string; message: string }[]) {
+      if (e.field && !errors[e.field]) errors[e.field] = e.message;
+    }
+  }
+  return {
+    success: !!body?.success && res.ok,
+    message: body?.message || (res.ok ? 'Request received.' : 'We could not submit your request. Please try again.'),
+    data: body?.data,
+    fieldErrors: Object.keys(errors).length ? errors : undefined,
+  };
+}
